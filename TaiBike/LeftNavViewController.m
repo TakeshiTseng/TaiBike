@@ -7,9 +7,8 @@
 //
 
 #import "LeftNavViewController.h"
-#import "Source/SlideNavigationController.h";
 @implementation LeftNavViewController {
-    
+
 }
 
 
@@ -17,7 +16,7 @@
 {
     self = [super init];
     if (self) {
-        
+
     }
     return self;
 }
@@ -30,12 +29,16 @@
     
     switch (indexPath.row) {
         case 0:
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Home"];
             break;
         case 1:
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Profile"];
 			break;
 		case 2:
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Equpment"];
 			break;
         case 3:
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Record"];
 			break;
         case 4:
             [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
@@ -43,6 +46,8 @@
 			return;
             break;
     }
+    
+    [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES andCompletion:nil];
 }
 
 
@@ -58,26 +63,23 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LeftNavCell"];
     }
     
-	switch (indexPath.row)
-	{
-		case 0:
-			cell.textLabel.text = @"首頁";
+    switch (indexPath.row) {
+        case 0:
+            cell.textLabel.text = @"首頁";
+            break;
+        case 1:
+            cell.textLabel.text = @"我的資料";
 			break;
-		case 1:
-			cell.textLabel.text = @"我的資料";
-			break;
-			
 		case 2:
-			cell.textLabel.text = @"我的裝備";
+            cell.textLabel.text = @"我的裝備";
 			break;
         case 3:
-			cell.textLabel.text = @"路線記錄";
+            cell.textLabel.text = @"路線記錄";
 			break;
-			
-		case 4:
-			cell.textLabel.text = @"登出";
-			break;
-	}
+        case 4:
+            cell.textLabel.text = @"登出";
+            break;
+    }
 	
 	return cell;
 }

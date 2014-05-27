@@ -32,6 +32,9 @@
 		14377C291934739F0028A493 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C281934739F0028A493 /* HomeViewController.m */; };
 		14377C2C193474B60028A493 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C2B193474B60028A493 /* LoginViewController.m */; };
 		14377C2F19347A730028A493 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C2E19347A730028A493 /* RegisterViewController.m */; };
+		14377C32193486780028A493 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C31193486780028A493 /* ProfileViewController.m */; };
+		14377C351934868F0028A493 /* EqupmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C341934868F0028A493 /* EqupmentViewController.m */; };
+		14377C38193486A10028A493 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C37193486A10028A493 /* RecordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,12 @@
 		14377C2B193474B60028A493 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		14377C2D19347A730028A493 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		14377C2E19347A730028A493 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		14377C30193486780028A493 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		14377C31193486780028A493 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		14377C331934868F0028A493 /* EqupmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqupmentViewController.h; sourceTree = "<group>"; };
+		14377C341934868F0028A493 /* EqupmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqupmentViewController.m; sourceTree = "<group>"; };
+		14377C36193486A10028A493 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
+		14377C37193486A10028A493 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,8 +163,14 @@
 				14377C2B193474B60028A493 /* LoginViewController.m */,
 				14377C2D19347A730028A493 /* RegisterViewController.h */,
 				14377C2E19347A730028A493 /* RegisterViewController.m */,
+				14377C30193486780028A493 /* ProfileViewController.h */,
+				14377C31193486780028A493 /* ProfileViewController.m */,
+				14377C331934868F0028A493 /* EqupmentViewController.h */,
+				14377C341934868F0028A493 /* EqupmentViewController.m */,
+				14377C36193486A10028A493 /* RecordViewController.h */,
+				14377C37193486A10028A493 /* RecordViewController.m */,
 				14377BEC193468BF0028A493 /* Images.xcassets */,
-				14377C0D19346B0D0028A493 /* Source */,
+				14377C0D19346B0D0028A493 /* SlideNav */,
 				14377BDB193468BF0028A493 /* Supporting Files */,
 			);
 			path = TaiBike;
@@ -199,7 +214,7 @@
 			name = Nav;
 			sourceTree = "<group>";
 		};
-		14377C0D19346B0D0028A493 /* Source */ = {
+		14377C0D19346B0D0028A493 /* SlideNav */ = {
 			isa = PBXGroup;
 			children = (
 				14377C0E19346B0D0028A493 /* Animations */,
@@ -207,6 +222,7 @@
 				14377C1D19346B0D0028A493 /* SlideNavigationController.h */,
 				14377C1E19346B0D0028A493 /* SlideNavigationController.m */,
 			);
+			name = SlideNav;
 			path = Source;
 			sourceTree = "<group>";
 		};
@@ -343,8 +359,11 @@
 				14377C2219346B0D0028A493 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				14377C291934739F0028A493 /* HomeViewController.m in Sources */,
 				14377BE5193468BF0028A493 /* AppDelegate.m in Sources */,
+				14377C351934868F0028A493 /* EqupmentViewController.m in Sources */,
 				14377C2F19347A730028A493 /* RegisterViewController.m in Sources */,
+				14377C38193486A10028A493 /* RecordViewController.m in Sources */,
 				14377BE1193468BF0028A493 /* main.m in Sources */,
+				14377C32193486780028A493 /* ProfileViewController.m in Sources */,
 				14377C1F19346B0D0028A493 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				14377C2C193474B60028A493 /* LoginViewController.m in Sources */,
 				14377C2619346B0D0028A493 /* SlideNavigationController.m in Sources */,

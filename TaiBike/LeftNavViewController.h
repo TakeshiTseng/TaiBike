@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SlideNavigationController.h"
+@interface LeftNavViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 
-@interface LeftNavViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+}
 
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
