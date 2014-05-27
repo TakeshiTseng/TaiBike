@@ -1,18 +1,18 @@
 //
-//  LoginViewController.m
+//  RegisterViewController.m
 //  TaiBike
 //
 //  Created by Takeshi on 2014/5/27.
 //  Copyright (c) 2014年 Takeshi. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "RegisterViewController.h"
 
-@interface LoginViewController ()
+@interface RegisterViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation RegisterViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,11 +35,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
-    return YES;
-}
 /*
 #pragma mark - Navigation
 

@@ -31,6 +31,7 @@
 		14377C2619346B0D0028A493 /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C1E19346B0D0028A493 /* SlideNavigationController.m */; };
 		14377C291934739F0028A493 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C281934739F0028A493 /* HomeViewController.m */; };
 		14377C2C193474B60028A493 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C2B193474B60028A493 /* LoginViewController.m */; };
+		14377C2F19347A730028A493 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C2E19347A730028A493 /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		14377C281934739F0028A493 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		14377C2A193474B60028A493 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		14377C2B193474B60028A493 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		14377C2D19347A730028A493 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		14377C2E19347A730028A493 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 				14377C281934739F0028A493 /* HomeViewController.m */,
 				14377C2A193474B60028A493 /* LoginViewController.h */,
 				14377C2B193474B60028A493 /* LoginViewController.m */,
+				14377C2D19347A730028A493 /* RegisterViewController.h */,
+				14377C2E19347A730028A493 /* RegisterViewController.m */,
 				14377BEC193468BF0028A493 /* Images.xcassets */,
 				14377C0D19346B0D0028A493 /* Source */,
 				14377BDB193468BF0028A493 /* Supporting Files */,
@@ -338,6 +343,7 @@
 				14377C2219346B0D0028A493 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				14377C291934739F0028A493 /* HomeViewController.m in Sources */,
 				14377BE5193468BF0028A493 /* AppDelegate.m in Sources */,
+				14377C2F19347A730028A493 /* RegisterViewController.m in Sources */,
 				14377BE1193468BF0028A493 /* main.m in Sources */,
 				14377C1F19346B0D0028A493 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				14377C2C193474B60028A493 /* LoginViewController.m in Sources */,
