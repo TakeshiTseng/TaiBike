@@ -21,7 +21,6 @@
 	LeftNavViewController* leftNav = (LeftNavViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"LeftNav"];
     
     [SlideNavigationController sharedInstance].leftMenu = leftNav;
-    //poa baga
     
     return YES;
 }
