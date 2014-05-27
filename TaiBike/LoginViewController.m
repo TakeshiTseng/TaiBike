@@ -52,6 +52,13 @@
 - (IBAction)login:(id)sender {
     [btnLogin setEnabled:NO];
     [indicatorView startAnimating];
+    
+    // process login
+    
+    [self performSegueWithIdentifier:@"Login" sender:self];
+    [btnLogin setEnabled:YES];
+    [indicatorView stopAnimating];
+    
 }
 
 /*

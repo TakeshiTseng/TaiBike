@@ -62,10 +62,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="KCV-qq-by3"/>
+                    <connections>
+                        <segue destination="98Y-g9-WeC" kind="push" identifier="Logout" id="zlW-Oc-gt3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V14-d7-mua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992" y="506"/>
+            <point key="canvasLocation" x="972" y="390"/>
         </scene>
         <!--Register View Controller - 註冊-->
         <scene sceneID="Xbf-dn-cfh">
@@ -145,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxm-g0-ztx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="1239"/>
+            <point key="canvasLocation" x="972" y="1155"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="7BP-aP-HaG">
@@ -228,6 +231,7 @@
                         <outlet property="indicatorView" destination="e97-dp-5me" id="KnC-TO-qdE"/>
                         <outlet property="tfAccount" destination="SN4-zt-FbD" id="Fak-tC-UOs"/>
                         <outlet property="tfPassword" destination="Wxn-YN-cAg" id="B6e-ec-2Rh"/>
+                        <segue destination="e6k-hk-J8g" kind="push" identifier="Login" id="NQW-3D-3b8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxu-86-jaW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -240,4 +244,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="zlW-Oc-gt3"/>
+    </inferredMetricsTieBreakers>
 </document>
