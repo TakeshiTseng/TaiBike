@@ -37,9 +37,23 @@
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+    
+    if([textField isEqual:tfAccount]) {
+        [tfPassword becomeFirstResponder];
+    } else {
+        [textField resignFirstResponder];
+        [self login:nil];
+    }
+    
+
     return YES;
 }
+
+- (IBAction)login:(id)sender {
+    [btnLogin setEnabled:NO];
+    [indicatorView startAnimating];
+}
+
 /*
 #pragma mark - Navigation
 

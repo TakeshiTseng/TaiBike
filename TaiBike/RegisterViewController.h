@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterViewController : UIViewController
+@interface RegisterViewController : UIViewController {
+    IBOutlet UITextField* tfAccount;
+    IBOutlet UITextField* tfPwd;
+    IBOutlet UITextField* tfPwdAgain;
+    IBOutlet UIButton* btnRegister;
+    IBOutlet UIActivityIndicatorView* indicatorView;
+    
+}
+
+-(IBAction)regist:(id)sender;
 
 @end
+

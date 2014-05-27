@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="992" y="506"/>
         </scene>
-        <!--View Controller - 註冊-->
+        <!--Register View Controller - 註冊-->
         <scene sceneID="Xbf-dn-cfh">
             <objects>
-                <viewController id="aj8-dj-P4q" sceneMemberID="viewController">
+                <viewController id="aj8-dj-P4q" customClass="RegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uOS-LX-zac"/>
                         <viewControllerLayoutGuide type="bottom" id="tte-as-Zqj"/>
@@ -122,12 +122,23 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xeO-E4-9XL">
+                                <rect key="frame" x="191" y="239" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="註冊" id="yNX-8b-FJw">
                         <barButtonItem key="backBarButtonItem" title="返回" id="N1g-Jl-iyG"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="btnRegister" destination="nhh-hY-MF2" id="YlR-4G-vDN"/>
+                        <outlet property="indicatorView" destination="xeO-E4-9XL" id="2eu-ml-qXs"/>
+                        <outlet property="tfAccount" destination="RBk-pm-IZq" id="blB-oB-lx2"/>
+                        <outlet property="tfPwd" destination="P9K-6J-yae" id="Imj-Qs-W24"/>
+                        <outlet property="tfPwdAgain" destination="8G4-gG-oaQ" id="CDb-pn-uoA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxm-g0-ztx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -167,7 +178,7 @@
                                 <rect key="frame" x="122" y="193" width="136" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                 <connections>
                                     <outlet property="delegate" destination="98Y-g9-WeC" id="z3W-zx-AY7"/>
                                 </connections>
@@ -176,7 +187,7 @@
                                 <rect key="frame" x="122" y="245" width="136" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="98Y-g9-WeC" id="Bn5-uy-iRr"/>
                                 </connections>
