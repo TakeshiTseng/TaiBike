@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterViewController : UIViewController {
+@interface RegisterViewController : UIViewController <UITextFieldDelegate>{
     IBOutlet UITextField* tfAccount;
     IBOutlet UITextField* tfPwd;
     IBOutlet UITextField* tfPwdAgain;

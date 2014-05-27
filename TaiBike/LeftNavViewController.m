@@ -43,19 +43,22 @@
 	switch (indexPath.row)
 	{
 		case 0:
-			cell.textLabel.text = @"Home";
+			cell.textLabel.text = @"首頁";
 			break;
 			
 		case 1:
-			cell.textLabel.text = @"Profile";
+			cell.textLabel.text = @"我的資料";
 			break;
 			
 		case 2:
-			cell.textLabel.text = @"Friends";
+			cell.textLabel.text = @"我的裝備";
+			break;
+        case 3:
+			cell.textLabel.text = @"路線記錄";
 			break;
 			
-		case 3:
-			cell.textLabel.text = @"Sign Out";
+		case 4:
+			cell.textLabel.text = @"登出";
 			break;
 	}
 	

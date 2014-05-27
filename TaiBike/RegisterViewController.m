@@ -37,6 +37,19 @@
 - (IBAction)regist:(id)sender {
     
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if([textField isEqual:tfAccount]) {
+        [tfPwd becomeFirstResponder];
+    } else if([textField isEqual:tfPwd]) {
+        [tfPwdAgain becomeFirstResponder];
+    } else {
+        [tfPwdAgain resignFirstResponder];
+    }
+    
+    return YES;
+}
 /*
 #pragma mark - Navigation
 
