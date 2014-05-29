@@ -42,13 +42,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark - SlideNavigationController Methods -
-
-- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
-{
-	return YES;
-}
 /*
 #pragma mark - Navigation
 
