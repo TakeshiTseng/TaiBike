@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ProfileViewController : UIViewController
+#import "SlideNavigationController.h"
+@interface ProfileViewController : UIViewController<SlideNavigationControllerDelegate>
 
 @end

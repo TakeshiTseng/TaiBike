@@ -1,18 +1,18 @@
 //
-//  ProfileViewController.m
+//  PlanViewController.m
 //  TaiBike
 //
-//  Created by Takeshi on 2014/5/27.
+//  Created by Takeshi on 2014/5/28.
 //  Copyright (c) 2014年 Takeshi. All rights reserved.
 //
 
-#import "ProfileViewController.h"
+#import "PlanViewController.h"
 
-@interface ProfileViewController ()
+@interface PlanViewController ()
 
 @end
 
-@implementation ProfileViewController
+@implementation PlanViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,13 +35,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - SlideNavigationController Methods -
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
 	return YES;
 }
+
 /*
 #pragma mark - Navigation
 

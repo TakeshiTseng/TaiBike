@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface RecordViewController : UIViewController
+#import "SlideNavigationController.h"
+@interface RecordViewController : UIViewController <SlideNavigationControllerDelegate>
 
 @end
