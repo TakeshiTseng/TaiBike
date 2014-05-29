@@ -9,8 +9,11 @@
 #import "AppDelegate.h"
 #import "LeftNavViewController.h"
 #import "SlideNavigationController.h"
+#import "RecordViewController.h"
 
 @implementation AppDelegate
+
+CLLocationManager* locationManager =nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,6 +24,8 @@
 	LeftNavViewController* leftNav = (LeftNavViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"LeftNav"];
     
     [SlideNavigationController sharedInstance].leftMenu = leftNav;
+    
+    [self startStandardUpdates];
     
     return YES;
 }
@@ -52,4 +57,35 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)startStandardUpdates
+{
+    if (locationManager == nil){
+        locationManager = [[CLLocationManager alloc] init];
+    }
+    
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    [locationManager startUpdatingLocation];
+}
+
+-(void)stopUpdates
+{
+    [locationManager stopUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"update location err-\n%@", error);
+}
+
+// Delegate method from the CLLocationManagerDelegate protocol.
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"Background update location.");
+    CLLocation* newlocation = [locations lastObject];
+    
+    RecordViewController *recordViewController = [RecordViewController getInstance];
+    [recordViewController setLocationData:newlocation];
+}
 @end
