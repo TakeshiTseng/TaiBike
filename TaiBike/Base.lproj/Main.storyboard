@@ -317,10 +317,10 @@
             </objects>
             <point key="canvasLocation" x="456" y="560"/>
         </scene>
-        <!--Record View Controller-->
+        <!--Record View Controller - 路線記錄-->
         <scene sceneID="KDW-vB-VHJ">
             <objects>
-                <viewController storyboardIdentifier="Record" id="4lm-yU-Dvl" customClass="RecordViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Record" title="路線記錄" id="4lm-yU-Dvl" customClass="RecordViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9on-5j-3uA"/>
                         <viewControllerLayoutGuide type="bottom" id="9EM-nE-lkQ"/>
