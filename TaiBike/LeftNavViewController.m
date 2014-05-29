@@ -41,6 +41,10 @@
 			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Record"];
 			break;
         case 4:
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Plan"];
+            [vc.navigationController setTitle:@"路線記錄"];
+			break;
+        case 5:
             [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 			[[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
 			return;
@@ -53,7 +57,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 6;
 }
 
 
@@ -78,6 +82,9 @@
             cell.textLabel.text = @"路線記錄";
 			break;
         case 4:
+            cell.textLabel.text = @"騎乘計畫";
+			break;
+        case 5:
             cell.textLabel.text = @"登出";
             break;
     }

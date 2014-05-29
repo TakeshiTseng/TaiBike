@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface LoginViewController : UIViewController <UITextFieldDelegate>{
+#import "SlideNavigationController.h"
+@interface LoginViewController : UIViewController <UITextFieldDelegate, SlideNavigationControllerDelegate>{
     IBOutlet UITextField* tfAccount;
     IBOutlet UITextField* tfPassword;
     IBOutlet UIActivityIndicatorView* indicatorView;

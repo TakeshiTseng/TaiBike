@@ -66,6 +66,8 @@ RecordViewController *instance = nil;
 {
     return instance;
 }
+/*
+#pragma mark - Navigation
 
 -(void)startStandardUpdates
 {

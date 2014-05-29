@@ -35,6 +35,7 @@
 		14377C32193486780028A493 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C31193486780028A493 /* ProfileViewController.m */; };
 		14377C351934868F0028A493 /* EqupmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C341934868F0028A493 /* EqupmentViewController.m */; };
 		14377C38193486A10028A493 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C37193486A10028A493 /* RecordViewController.m */; };
+		1457F6851934FC6A009A1259 /* PlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1457F6841934FC6A009A1259 /* PlanViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		14377C341934868F0028A493 /* EqupmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqupmentViewController.m; sourceTree = "<group>"; };
 		14377C36193486A10028A493 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		14377C37193486A10028A493 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
+		1457F6831934FC6A009A1259 /* PlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanViewController.h; sourceTree = "<group>"; };
+		1457F6841934FC6A009A1259 /* PlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,8 @@
 				14377BE3193468BF0028A493 /* AppDelegate.h */,
 				14377BE4193468BF0028A493 /* AppDelegate.m */,
 				14377BE6193468BF0028A493 /* Main.storyboard */,
+				1457F6831934FC6A009A1259 /* PlanViewController.h */,
+				1457F6841934FC6A009A1259 /* PlanViewController.m */,
 				14377C271934739F0028A493 /* HomeViewController.h */,
 				14377C281934739F0028A493 /* HomeViewController.m */,
 				14377C2A193474B60028A493 /* LoginViewController.h */,
@@ -368,6 +373,7 @@
 				14377BE5193468BF0028A493 /* AppDelegate.m in Sources */,
 				14377C351934868F0028A493 /* EqupmentViewController.m in Sources */,
 				14377C2F19347A730028A493 /* RegisterViewController.m in Sources */,
+				1457F6851934FC6A009A1259 /* PlanViewController.m in Sources */,
 				14377C38193486A10028A493 /* RecordViewController.m in Sources */,
 				14377BE1193468BF0028A493 /* main.m in Sources */,
 				14377C32193486780028A493 /* ProfileViewController.m in Sources */,
