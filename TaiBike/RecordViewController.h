@@ -7,7 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SlideNavigationController.h"
-@interface RecordViewController : UIViewController <SlideNavigationControllerDelegate>
+#import <MapKit/MapKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "SlideNavigationContorllerAnimator.h"
+
+@interface RecordViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate,SlideNavigationControllerDelegate>{
+    IBOutlet UILabel* locationLabel;
+    IBOutlet UILabel* hightLabel;
+    IBOutlet UILabel* speedLabel;
+    IBOutlet UIButton *recordbutton;
+}
+
+@property(strong,nonatomic) NSString *lat,*longt;
+@property CLLocationDistance altitude;
+@property CLLocationSpeed speed;
+
++(RecordViewController*)getInstance;
+-(void)startStandardUpdates;
+-(void)setLocationData:(CLLocation*) newLocation;
+
+-(IBAction)recordbtn:(id)sender;
+-(IBAction)printbtn:(id)sender;
+-(IBAction)resetbtn:(id)sender;
+
 
 @end

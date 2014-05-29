@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SlideNavigationController.h"
-@interface EqupmentViewController : UIViewController <SlideNavigationControllerDelegate>
+#import "SlideNavigationContorllerAnimator.h"
+
+@interface EqupmentViewController : UIViewController<SlideNavigationControllerDelegate>
 
 @end
