@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "SlideNavigationContorllerAnimator.h"
 
-@interface RecordViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>{
+@interface RecordViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate,SlideNavigationControllerDelegate>{
     IBOutlet UILabel* locationLabel;
     IBOutlet UILabel* hightLabel;
     IBOutlet UILabel* speedLabel;

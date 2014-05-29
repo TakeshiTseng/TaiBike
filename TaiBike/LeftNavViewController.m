@@ -47,7 +47,8 @@
             break;
     }
     
-    [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES andCompletion:nil];
+    SlideNavigationController *navigationController = [SlideNavigationController sharedInstance];
+    [navigationController popToRootAndSwitchToViewController:vc withSlideOutAnimation:YES andCompletion:nil];
 }
 
 
