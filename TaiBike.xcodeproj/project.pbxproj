@@ -47,6 +47,9 @@
 		467E236F193B2BD800CAE53C /* EquipmentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E2361193B2BD800CAE53C /* EquipmentTableView.m */; };
 		467E2374193B4A8D00CAE53C /* EquipmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E2373193B4A8D00CAE53C /* EquipmentModel.m */; };
 		467E2378193B5BAC00CAE53C /* EquipmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E2377193B5BAC00CAE53C /* EquipmentCell.m */; };
+		467E237B193B68A300CAE53C /* ModiflyEquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E237A193B68A300CAE53C /* ModiflyEquipmentViewController.m */; };
+		46A36E55193BB6FC004508A7 /* bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A36E53193BB6FC004508A7 /* bag.png */; };
+		46A36E56193BB6FC004508A7 /* bag.psd in Resources */ = {isa = PBXBuildFile; fileRef = 46A36E54193BB6FC004508A7 /* bag.psd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +127,10 @@
 		467E2373193B4A8D00CAE53C /* EquipmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentModel.m; sourceTree = "<group>"; };
 		467E2376193B5BAC00CAE53C /* EquipmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentCell.h; sourceTree = "<group>"; };
 		467E2377193B5BAC00CAE53C /* EquipmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentCell.m; sourceTree = "<group>"; };
+		467E2379193B68A300CAE53C /* ModiflyEquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModiflyEquipmentViewController.h; sourceTree = "<group>"; };
+		467E237A193B68A300CAE53C /* ModiflyEquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModiflyEquipmentViewController.m; sourceTree = "<group>"; };
+		46A36E53193BB6FC004508A7 /* bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bag.png; sourceTree = "<group>"; };
+		46A36E54193BB6FC004508A7 /* bag.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = bag.psd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +207,7 @@
 				14377C36193486A10028A493 /* RecordViewController.h */,
 				14377C37193486A10028A493 /* RecordViewController.m */,
 				467E2371193B49E700CAE53C /* EquipmentView */,
+				46A36E52193BB6FC004508A7 /* image */,
 				14377BEC193468BF0028A493 /* Images.xcassets */,
 				14377C0D19346B0D0028A493 /* SlideNav */,
 				14377BDB193468BF0028A493 /* Supporting Files */,
@@ -309,6 +317,8 @@
 				467E2373193B4A8D00CAE53C /* EquipmentModel.m */,
 				467E2376193B5BAC00CAE53C /* EquipmentCell.h */,
 				467E2377193B5BAC00CAE53C /* EquipmentCell.m */,
+				467E2379193B68A300CAE53C /* ModiflyEquipmentViewController.h */,
+				467E237A193B68A300CAE53C /* ModiflyEquipmentViewController.m */,
 				467E235A193B2BD800CAE53C /* ITTArrowView.h */,
 				467E235B193B2BD800CAE53C /* ITTArrowView.m */,
 				467E235E193B2BD800CAE53C /* ITTSegement.h */,
@@ -316,6 +326,16 @@
 				467E2353193B2BD800CAE53C /* icon */,
 			);
 			name = EquipmentView;
+			sourceTree = "<group>";
+		};
+		46A36E52193BB6FC004508A7 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				46A36E53193BB6FC004508A7 /* bag.png */,
+				46A36E54193BB6FC004508A7 /* bag.psd */,
+			);
+			name = image;
+			path = AiXinDemo/icon/image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,11 +421,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46A36E55193BB6FC004508A7 /* bag.png in Resources */,
 				14377C2419346B0D0028A493 /* menu-button.png in Resources */,
 				14377BED193468BF0028A493 /* Images.xcassets in Resources */,
 				467E2368193B2BD800CAE53C /* index@2x.png in Resources */,
 				14377BDF193468BF0028A493 /* InfoPlist.strings in Resources */,
 				467E236B193B2BD800CAE53C /* up_white@2x.png in Resources */,
+				46A36E56193BB6FC004508A7 /* bag.psd in Resources */,
 				467E236A193B2BD800CAE53C /* up_red@2x.png in Resources */,
 				14377C2519346B0D0028A493 /* menu-button@2x.png in Resources */,
 				14377BE8193468BF0028A493 /* Main.storyboard in Resources */,
@@ -436,6 +458,7 @@
 				467E236F193B2BD800CAE53C /* EquipmentTableView.m in Sources */,
 				14377C0C193469360028A493 /* LeftNavViewController.m in Sources */,
 				467E236C193B2BD800CAE53C /* ITTArrowView.m in Sources */,
+				467E237B193B68A300CAE53C /* ModiflyEquipmentViewController.m in Sources */,
 				14377C2219346B0D0028A493 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				14377C291934739F0028A493 /* HomeViewController.m in Sources */,
 				467E2374193B4A8D00CAE53C /* EquipmentModel.m in Sources */,

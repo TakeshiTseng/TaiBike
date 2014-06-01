@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "SlideNavigationContorllerAnimator.h"
+#import "EquipmentModel.h"
+#import "EquipmentTableView.h"
 
 @interface EquipmentViewController : UIViewController<SlideNavigationControllerDelegate>
+
+@property (strong, nonatomic) IBOutlet EquipmentTableView *tableView;
+
++(EquipmentViewController*)sharedInstance;
+-(void)addItem:(EquipmentModel*)model;
 
 @end

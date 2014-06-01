@@ -50,5 +50,13 @@
     
     return cell;
 }
+-(void)addItem:(EquipmentModel *)model
+{
+    
+    NSLog(@"add %i %@ %i",model.equipmentID, model.name, model.gram);
+    [self.data addObject:model];
+    [self reloadData];
+    [self updateConstraints];
+}
 
 @end

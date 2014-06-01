@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EquipmentModel.h"
 
 @interface EquipmentTableView : UITableView<UITableViewDataSource, UITableViewDelegate>
 
-@property(nonatomic, retain)NSArray *data;
+@property(nonatomic, retain)NSMutableArray *data;
+
+-(void)addItem:(EquipmentModel*)model;
 
 @end

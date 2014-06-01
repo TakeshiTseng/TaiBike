@@ -8,12 +8,13 @@
 
 #import "EquipmentViewController.h"
 #import "ITTSegement.h"
-#import "EquipmentTableView.h"
-#import "EquipmentModel.h"
+#import "ModiflyEquipmentViewController.h"
 
-@interface EquipmentViewController ()
+@interface EquipmentViewController (){
+    IBOutlet UILabel *gramLabel, *unitLabel;
+}
 @property (weak, nonatomic) IBOutlet UIView *innerView;
-@property (weak, nonatomic) IBOutlet EquipmentTableView *tableView;
+
 
 @end
 
@@ -23,6 +24,7 @@ NSMutableDictionary *equipmentDictionary;
 int IDCount=0;
 static EquipmentViewController *g_instance = nil;
 NSMutableArray *data=nil;
+NSMutableArray *indexs;
 
 + (EquipmentViewController *)sharedInstance
 {
@@ -46,6 +48,7 @@ NSMutableArray *data=nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    g_instance =self;
     
     [self loadEquipmentPlist];
     [self loadParameterFromEquipmentPlist];
@@ -58,13 +61,17 @@ NSMutableArray *data=nil;
     self.extendedLayoutIncludesOpaqueBars = NO;
     self.modalPresentationCapturesStatusBarAppearance = NO;
     
-    NSArray *items = @[@"ID", @"名稱", @"重量"];
+//    NSArray *items = @[@"ID", @"名稱", @"重量"];
+    NSArray *items = @[@"名稱", @"重量"];
     ITTSegement *segment = [[ITTSegement alloc] initWithItems:items];
     segment.frame = CGRectMake(0, 0, 320, 40);
     segment.selectedIndex = 0;
     [segment addTarget:self action:@selector(sgAction:) forControlEvents:UIControlEventValueChanged];
     
     [self.innerView addSubview:segment];
+    
+    
+    [self calculateWeight];
 }
 
 #pragma mark - SlideNavigationController Methods -
@@ -102,34 +109,32 @@ NSMutableArray *data=nil;
         data = [data sortedArrayUsingSelector:@selector(comparegram:)];
     }
     
-    self.tableView.data = data;
+    self.tableView.data = [[NSMutableArray alloc]initWithArray:data];
     [self.tableView reloadData];
 }
 
 -(NSMutableArray*)loadDataFromEquipmentPlist
 {
     NSMutableArray *data = [NSMutableArray array];
-    NSArray *indexs =(NSArray*)[equipmentDictionary objectForKey:@"indexs"];
-    NSString *length =(NSString*) [equipmentDictionary objectForKey:@"length"];
+    indexs =(NSMutableArray*)[equipmentDictionary objectForKey:@"indexs"];
+    int length =[(NSString*) [equipmentDictionary objectForKey:@"length"]intValue];
     
-    NSLog(@"%@",indexs);
-    NSLog(@"%@",[NSString stringWithFormat:@"%i",[indexs count]]);
     
-//    for (int i = 0; i < 20; i++) {
-//        int num1 = rand()%100 * i;
-//        int num2 = 100 - rand()%5 * i;
-//        int num3 = rand()%50;
-//        ITTModel *model = [[ITTModel alloc] init];
-//        model.number1 = num1;
-//        model.number2 = num2;
-//        model.number3 = num3;
-//        [data addObject:model];
-//    }
-    EquipmentModel *model = [[EquipmentModel alloc]init];
-    model.equipmentID = 1;
-    model.name = @"水";
-    model.gram = 1800;
-    [data addObject:model];
+    for (int i = 0; i<length; i++) {
+        NSString *key = [indexs objectAtIndex:i];
+        
+        NSMutableDictionary *item = (NSMutableDictionary*)[equipmentDictionary objectForKey:key];
+        int ID = [key intValue];
+        NSString *name = [item objectForKey:@"name"];
+        int gram = [[item objectForKey:@"gram"]intValue];
+        
+        EquipmentModel *model = [[EquipmentModel alloc]init];
+        model.equipmentID=ID;
+        model.name=name;
+        model.gram=gram;
+        
+        [data addObject:model];
+    }
     return data;
 }
 
@@ -153,7 +158,6 @@ NSMutableArray *data=nil;
     }else{
         equipmentDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
     }
-    NSLog(@"%@",equipmentDictionary);
 }
 
 -(void)storeEquipmentPlist
@@ -183,26 +187,59 @@ NSMutableArray *data=nil;
     [self initEquiomentPlist];
 }
 
--(IBAction)delete:(id)sender
+-(IBAction)addbtn:(id)sender
 {
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *SaveRootPath = [NSSearchPathForDirectoriesInDomains
-                              (NSDocumentDirectory,NSUserDomainMask, YES)
-                              objectAtIndex:0];
-    NSString *SavePath = [SaveRootPath stringByAppendingPathComponent:@"Equipment.plist"];
-    [fileManager removeItemAtPath:SavePath error:nil];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    ModiflyEquipmentViewController *vc;
+    vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModiflyEquipment"];
+    [vc setMode:@"new"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
--(IBAction)addTest:(id)sender
+-(void)addItem:(EquipmentModel*) model
 {
-    EquipmentModel *model = [[EquipmentModel alloc]init];
-    model.name = @"水";
-    model.gram = 1000;
-    [data addObject:model];
-    self.tableView.data=data;
-    NSLog(@"%@",data);
+    model.equipmentID = ++IDCount;
+    [self addItemToEquipmentPlist:model];
+    [(NSMutableArray*)self.tableView.data addObject:model];
+    data = (NSMutableArray*)self.tableView.data;
     [self.tableView reloadData];
+    [self calculateWeight];
 }
+
+-(void)addItemToEquipmentPlist:(EquipmentModel*)model
+{
+    NSString *indexString =[NSString stringWithFormat:@"%i",model.equipmentID];
+    NSString *IDCountString =[NSString stringWithFormat:@"%i",IDCount];
+    NSMutableDictionary* data = [[NSMutableDictionary alloc]init];
+    [data setObject:model.name forKey:@"name"];
+    [data setObject:[NSString stringWithFormat:@"%i",model.gram] forKey:@"gram"];
+    
+    [indexs addObject:indexString];
+    NSString *length =[NSString stringWithFormat:@"%i",[indexs count]];
+    [equipmentDictionary setObject:data forKey:indexString];
+    [equipmentDictionary setObject:indexs forKey:@"indexs"];
+    [equipmentDictionary setObject:length forKey:@"length"];
+    [equipmentDictionary setObject:IDCountString forKey:@"IDCount"];
+    
+    [self storeEquipmentPlist];
+}
+
+-(void)calculateWeight
+{
+    int total = 0;
+    for (EquipmentModel *modle in data) {
+        NSLog(@"%@",modle.name);
+        total+=modle.gram;
+    }
+    gramLabel.text = [NSString stringWithFormat:@"%i",total];
+    
+    if(total >=1000){
+        unitLabel.text = @"公斤";
+    }else{
+        unitLabel.text = @"公克";
+    }
+}
+
 /*
 #pragma mark - Navigation
 
