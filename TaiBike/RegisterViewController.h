@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SlideNavigationContorllerAnimator.h"
 
-@interface RegisterViewController : UIViewController <UITextFieldDelegate,SlideNavigationControllerDelegate>{
+@interface RegisterViewController : UIViewController <UITextFieldDelegate>{
     IBOutlet UITextField* tfAccount;
     IBOutlet UITextField* tfPwd;
     IBOutlet UITextField* tfPwdAgain;
