@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SlideNavigationController.h"
+
 @interface PlanViewController : UIViewController<SlideNavigationControllerDelegate>
 
 @end
