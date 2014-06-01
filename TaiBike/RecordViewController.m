@@ -22,7 +22,7 @@ CLLocationManager *locationManager;
 float user_NS,user_WE;
 NSTimer* timer;
 //建立一個 Dictionary
-NSMutableDictionary *plistDictionary;
+NSMutableDictionary *equpmentDictionary;
 NSMutableDictionary *locationRecord;
 bool recordflag = NO;
 int recordIndex=0,recordCount;
@@ -41,7 +41,7 @@ RecordViewController *instance = nil;
     
     [self loadLocationPlist];
     
-    NSString *length = [plistDictionary valueForKey:@"length"];
+    NSString *length = [equpmentDictionary valueForKey:@"length"];
     recordIndex = [length intValue];
     
     [self startStandardUpdates];
@@ -168,7 +168,7 @@ RecordViewController *instance = nil;
     }else{
         
         //將取得的 plist 內容載入至剛才建立的 Dictionary 中
-        plistDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        equpmentDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
         NSLog(@"Load 'Loaction.plist' success.");
     }
 }
@@ -189,7 +189,7 @@ RecordViewController *instance = nil;
     NSString *SavePath = [SaveRootPath stringByAppendingPathComponent:@"Location.plist"];
     
     //將 Dictionary 儲存至指定的檔案
-    [plistDictionary writeToFile:SavePath atomically:YES];
+    [equpmentDictionary writeToFile:SavePath atomically:YES];
 }
 
 -(IBAction)recordbtn:(id)sender
@@ -203,8 +203,8 @@ RecordViewController *instance = nil;
         [locationRecord setObject:length forKey:@"length"];
         
         NSString *index = [NSString stringWithFormat:@"%i",recordIndex];
-        [plistDictionary setObject:locationRecord forKey:index];
-        [plistDictionary setObject:index forKey:@"length"];
+        [equpmentDictionary setObject:locationRecord forKey:index];
+        [equpmentDictionary setObject:index forKey:@"length"];
         locationRecord =nil;
         [self storeLoctionPlist];
     }else{
@@ -225,14 +225,14 @@ RecordViewController *instance = nil;
 -(IBAction)printbtn:(id)sender
 {
     //利用 NSLog 來查看剛才取得的 plist 檔的內容
-    NSLog(@"Location.plist:%@",plistDictionary);
+    NSLog(@"Location.plist:%@",equpmentDictionary);
 }
 
 -(IBAction)resetbtn:(id)sender
 {
-    plistDictionary = [[NSMutableDictionary alloc] init];
+    equpmentDictionary = [[NSMutableDictionary alloc] init];
     NSLog(@"Create a new 'Loaction.plist' file.");
-    [plistDictionary setObject:@"0" forKey:@"length"];
+    [equpmentDictionary setObject:@"0" forKey:@"length"];
     [self storeLoctionPlist];
 }
 

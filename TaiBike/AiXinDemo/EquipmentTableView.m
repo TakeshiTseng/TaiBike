@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 shaofa. All rights reserved.
 //
 
-#import "TableView.h"
-#import "TestCell.h"
+#import "EquipmentTableView.h"
+#import "EquipmentCell.h"
 
-@implementation TableView
+@implementation EquipmentTableView
 
 - (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
@@ -41,9 +41,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identify = @"cellId";
-    TestCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
+    EquipmentCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
-        cell = [[TestCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+        cell = [[EquipmentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
     
     cell.model = self.data[indexPath.row];

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableView : UITableView<UITableViewDataSource, UITableViewDelegate>
+@interface EquipmentTableView : UITableView<UITableViewDataSource, UITableViewDelegate>
 
 @property(nonatomic, retain)NSArray *data;
 

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SlideNavigationContorllerAnimator.h"
 
-@interface EqupmentViewController : UIViewController<SlideNavigationControllerDelegate>
+@interface EquipmentViewController : UIViewController<SlideNavigationControllerDelegate>
 
 @end
