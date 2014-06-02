@@ -36,7 +36,6 @@
 		14377C351934868F0028A493 /* EquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C341934868F0028A493 /* EquipmentViewController.m */; };
 		14377C38193486A10028A493 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C37193486A10028A493 /* RecordViewController.m */; };
 		1457F6851934FC6A009A1259 /* PlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1457F6841934FC6A009A1259 /* PlanViewController.m */; };
-		464BB312193CCE22005FFEC0 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 464BB30A193CCE22005FFEC0 /* .gitkeep */; };
 		464BB313193CCE22005FFEC0 /* ASOBounceButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB30D193CCE22005FFEC0 /* ASOBounceButtonView.m */; };
 		464BB314193CCE22005FFEC0 /* ASOTwoStateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB311193CCE22005FFEC0 /* ASOTwoStateButton.m */; };
 		467E2366193B2BD800CAE53C /* down_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2354193B2BD800CAE53C /* down_red@2x.png */; };
@@ -114,7 +113,6 @@
 		14377C37193486A10028A493 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		1457F6831934FC6A009A1259 /* PlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanViewController.h; sourceTree = "<group>"; };
 		1457F6841934FC6A009A1259 /* PlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanViewController.m; sourceTree = "<group>"; };
-		464BB30A193CCE22005FFEC0 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		464BB30C193CCE22005FFEC0 /* ASOBounceButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASOBounceButtonView.h; sourceTree = "<group>"; };
 		464BB30D193CCE22005FFEC0 /* ASOBounceButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASOBounceButtonView.m; sourceTree = "<group>"; };
 		464BB30E193CCE22005FFEC0 /* ASOBounceButtonViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASOBounceButtonViewDelegate.h; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 		464BB309193CCE22005FFEC0 /* ASOAnimatedButton */ = {
 			isa = PBXGroup;
 			children = (
-				464BB30A193CCE22005FFEC0 /* .gitkeep */,
 				464BB30B193CCE22005FFEC0 /* BounceButton */,
 				464BB30F193CCE22005FFEC0 /* TwoStateButton */,
 			);
@@ -473,7 +470,6 @@
 				467E2369193B2BD800CAE53C /* index_press@2x.png in Resources */,
 				467E2367193B2BD800CAE53C /* down_white@2x.png in Resources */,
 				467E2366193B2BD800CAE53C /* down_red@2x.png in Resources */,
-				464BB312193CCE22005FFEC0 /* .gitkeep in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
