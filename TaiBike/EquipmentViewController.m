@@ -50,6 +50,8 @@ NSMutableArray *indexs;
     [super viewDidLoad];
     g_instance =self;
     
+    [self initBoundButton];
+    
     [self loadEquipmentPlist];
     [self loadParameterFromEquipmentPlist];
     
@@ -57,11 +59,11 @@ NSMutableArray *indexs;
     
     self.tableView.data = data;
     
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
+    //    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars = NO;
     self.modalPresentationCapturesStatusBarAppearance = NO;
     
-//    NSArray *items = @[@"ID", @"名稱", @"重量"];
+    //    NSArray *items = @[@"ID", @"名稱", @"重量"];
     NSArray *items = @[@"名稱", @"重量"];
     ITTSegement *segment = [[ITTSegement alloc] initWithItems:items];
     segment.frame = CGRectMake(0, 0, 320, 40);
@@ -70,8 +72,56 @@ NSMutableArray *indexs;
     
     [self.innerView addSubview:segment];
     
-    
     [self calculateWeight];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    // Tell 'menu button' position to 'menu item view'
+    [self.menuItemView setAnimationStartFromHere:self.menuButton.frame];
+}
+
+- (IBAction)menuButtonAction:(id)sender
+{
+    if ([sender isOn]) {
+        // Show 'menu item view' and expand its 'menu item button'
+        [self.menuButton addCustomView:self.menuItemView];
+        [self.menuItemView expandWithAnimationStyle:ASOAnimationStyleExpand];
+    }
+    else {
+        // Collapse all 'menu item button' and remove 'menu item view'
+        [self.menuItemView collapseWithAnimationStyle:ASOAnimationStyleExpand];
+        [self.menuButton removeCustomView:self.menuItemView interval:[self.menuItemView.collapsedViewDuration doubleValue]];
+    }
+}
+
+#pragma mark - Menu item view delegate method
+
+- (void)didSelectBounceButtonAtIndex:(NSUInteger)index
+{
+    // Collapse all 'menu item button' and remove 'menu item view' once a menu item is selected
+    [self.menuButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+    
+    // Set your custom action for each selected 'menu item button' here
+    
+    switch (index) {
+        case 0://add
+            [self addbtn:nil];
+            break;
+        case 1://clear
+            [self clearbtn:nil];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:
+(UIInterfaceOrientation)toInterfaceOrientation
+                                         duration:(NSTimeInterval)duration
+{
+    // Update 'menu button' position to 'menu item view' everytime there is a change in device orientation
+    [self.menuItemView setAnimationStartFromHere:self.menuButton.frame];
 }
 
 #pragma mark - SlideNavigationController Methods -
@@ -185,6 +235,10 @@ NSMutableArray *indexs;
 -(IBAction)clearbtn:(id)sender
 {
     [self initEquiomentPlist];
+    [data removeAllObjects];
+    self.tableView.data =data;
+    [self.tableView reloadData];
+    [self calculateWeight];
 }
 
 -(IBAction)addbtn:(id)sender
@@ -228,7 +282,6 @@ NSMutableArray *indexs;
 {
     int total = 0;
     for (EquipmentModel *modle in data) {
-        NSLog(@"%@",modle.name);
         total+=modle.gram;
     }
     gramLabel.text = [NSString stringWithFormat:@"%i",total];
@@ -240,15 +293,37 @@ NSMutableArray *indexs;
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)initBoundButton
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // Set the 'menu button'
+    [self.menuButton initAnimationWithFadeEffectEnabled:YES]; // Set to 'NO' to disable Fade effect between its two-state transition
+    
+    // Get the 'menu item view' from storyboard
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *menuItemsVC = (UIViewController *)[mainStoryboard instantiateViewControllerWithIdentifier:@"EquipmentBoundButtonView"];
+    self.menuItemView = (EquipmentBoundButtonView *)menuItemsVC.view;
+    
+    NSArray *arrMenuItemButtons = [[NSArray alloc] initWithObjects:self.menuItemView.menuItem1,
+                                   self.menuItemView.menuItem2,
+                                   nil]; // Add all of the defined 'menu item button' to 'menu item view'
+    [self.menuItemView addBounceButtons:arrMenuItemButtons];
+    
+    // Set the bouncing distance, speed and fade-out effect duration here. Refer to the ASOBounceButtonView public properties
+    [self.menuItemView setBouncingDistance:[NSNumber numberWithFloat:0.7f]];
+    
+    // Set as delegate of 'menu item view'
+    [self.menuItemView setDelegate:self];
 }
-*/
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
