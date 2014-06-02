@@ -24,10 +24,10 @@
 
 -(void)_initViews
 {
-//    idLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-//    idLabel.font = [UIFont systemFontOfSize:12];
-//    idLabel.textAlignment = NSTextAlignmentCenter;
-//    [self addSubview: idLabel];
+    //    idLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    //    idLabel.font = [UIFont systemFontOfSize:12];
+    //    idLabel.textAlignment = NSTextAlignmentCenter;
+    //    [self addSubview: idLabel];
     
     nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     nameLabel.font = [UIFont systemFontOfSize:12];
@@ -51,14 +51,18 @@
     [super layoutSubviews];
     
     float width = self.bounds.size.width/2;
-//    idLabel.frame = CGRectMake(10, 5, width-20, 30);
-//    idLabel.text = [NSString stringWithFormat:@"%d", _model.equipmentID];
+    //    idLabel.frame = CGRectMake(10, 5, width-20, 30);
+    //    idLabel.text = [NSString stringWithFormat:@"%d", _model.equipmentID];
     
     nameLabel.frame = CGRectMake(10, 5, width-20, 30);
     nameLabel.text = [NSString stringWithFormat:@"%@", _model.name];
     
     gramLabel.frame = CGRectMake(width+10, 5, width-20, 30);
-    gramLabel.text = [NSString stringWithFormat:@"%i", _model.gram];
+    if(_model.gram>=1000){
+        gramLabel.text = [NSString stringWithFormat:@"%i kg", _model.gram];
+    }else{
+        gramLabel.text = [NSString stringWithFormat:@"%i g", _model.gram];
+    }
 }
 
 @end

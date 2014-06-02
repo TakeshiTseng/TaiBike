@@ -169,7 +169,6 @@ NSMutableArray *indexs;
     indexs =(NSMutableArray*)[equipmentDictionary objectForKey:@"indexs"];
     int length =[(NSString*) [equipmentDictionary objectForKey:@"length"]intValue];
     
-    
     for (int i = 0; i<length; i++) {
         NSString *key = [indexs objectAtIndex:i];
         
@@ -234,6 +233,7 @@ NSMutableArray *indexs;
 
 -(IBAction)clearbtn:(id)sender
 {
+    [indexs removeAllObjects];
     [self initEquiomentPlist];
     [data removeAllObjects];
     self.tableView.data =data;
