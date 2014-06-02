@@ -43,12 +43,6 @@
 }
 
 
-#pragma mark - SlideNavigationController Methods -
-
-- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
-{
-	return YES;
-}
 /*
 #pragma mark - Navigation
 
