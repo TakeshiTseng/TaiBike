@@ -33,9 +33,23 @@
 		14377C2C193474B60028A493 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C2B193474B60028A493 /* LoginViewController.m */; };
 		14377C2F19347A730028A493 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C2E19347A730028A493 /* RegisterViewController.m */; };
 		14377C32193486780028A493 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C31193486780028A493 /* ProfileViewController.m */; };
-		14377C351934868F0028A493 /* EqupmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C341934868F0028A493 /* EqupmentViewController.m */; };
+		14377C351934868F0028A493 /* EquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C341934868F0028A493 /* EquipmentViewController.m */; };
 		14377C38193486A10028A493 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C37193486A10028A493 /* RecordViewController.m */; };
 		1457F6851934FC6A009A1259 /* PlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1457F6841934FC6A009A1259 /* PlanViewController.m */; };
+		467E2366193B2BD800CAE53C /* down_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2354193B2BD800CAE53C /* down_red@2x.png */; };
+		467E2367193B2BD800CAE53C /* down_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2355193B2BD800CAE53C /* down_white@2x.png */; };
+		467E2368193B2BD800CAE53C /* index@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2356193B2BD800CAE53C /* index@2x.png */; };
+		467E2369193B2BD800CAE53C /* index_press@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2357193B2BD800CAE53C /* index_press@2x.png */; };
+		467E236A193B2BD800CAE53C /* up_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2358193B2BD800CAE53C /* up_red@2x.png */; };
+		467E236B193B2BD800CAE53C /* up_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2359193B2BD800CAE53C /* up_white@2x.png */; };
+		467E236C193B2BD800CAE53C /* ITTArrowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E235B193B2BD800CAE53C /* ITTArrowView.m */; };
+		467E236E193B2BD800CAE53C /* ITTSegement.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E235F193B2BD800CAE53C /* ITTSegement.m */; };
+		467E236F193B2BD800CAE53C /* EquipmentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E2361193B2BD800CAE53C /* EquipmentTableView.m */; };
+		467E2374193B4A8D00CAE53C /* EquipmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E2373193B4A8D00CAE53C /* EquipmentModel.m */; };
+		467E2378193B5BAC00CAE53C /* EquipmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E2377193B5BAC00CAE53C /* EquipmentCell.m */; };
+		467E237B193B68A300CAE53C /* ModiflyEquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E237A193B68A300CAE53C /* ModiflyEquipmentViewController.m */; };
+		46A36E55193BB6FC004508A7 /* bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A36E53193BB6FC004508A7 /* bag.png */; };
+		46A36E56193BB6FC004508A7 /* bag.psd in Resources */ = {isa = PBXBuildFile; fileRef = 46A36E54193BB6FC004508A7 /* bag.psd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,12 +105,32 @@
 		14377C2E19347A730028A493 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		14377C30193486780028A493 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		14377C31193486780028A493 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		14377C331934868F0028A493 /* EqupmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqupmentViewController.h; sourceTree = "<group>"; };
-		14377C341934868F0028A493 /* EqupmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqupmentViewController.m; sourceTree = "<group>"; };
+		14377C331934868F0028A493 /* EquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentViewController.h; sourceTree = "<group>"; };
+		14377C341934868F0028A493 /* EquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentViewController.m; sourceTree = "<group>"; };
 		14377C36193486A10028A493 /* RecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		14377C37193486A10028A493 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		1457F6831934FC6A009A1259 /* PlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanViewController.h; sourceTree = "<group>"; };
 		1457F6841934FC6A009A1259 /* PlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanViewController.m; sourceTree = "<group>"; };
+		467E2354193B2BD800CAE53C /* down_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_red@2x.png"; sourceTree = "<group>"; };
+		467E2355193B2BD800CAE53C /* down_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_white@2x.png"; sourceTree = "<group>"; };
+		467E2356193B2BD800CAE53C /* index@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index@2x.png"; sourceTree = "<group>"; };
+		467E2357193B2BD800CAE53C /* index_press@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index_press@2x.png"; sourceTree = "<group>"; };
+		467E2358193B2BD800CAE53C /* up_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up_red@2x.png"; sourceTree = "<group>"; };
+		467E2359193B2BD800CAE53C /* up_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up_white@2x.png"; sourceTree = "<group>"; };
+		467E235A193B2BD800CAE53C /* ITTArrowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ITTArrowView.h; path = AiXinDemo/ITTArrowView.h; sourceTree = "<group>"; };
+		467E235B193B2BD800CAE53C /* ITTArrowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ITTArrowView.m; path = AiXinDemo/ITTArrowView.m; sourceTree = "<group>"; };
+		467E235E193B2BD800CAE53C /* ITTSegement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ITTSegement.h; path = AiXinDemo/ITTSegement.h; sourceTree = "<group>"; };
+		467E235F193B2BD800CAE53C /* ITTSegement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ITTSegement.m; path = AiXinDemo/ITTSegement.m; sourceTree = "<group>"; };
+		467E2360193B2BD800CAE53C /* EquipmentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EquipmentTableView.h; path = AiXinDemo/EquipmentTableView.h; sourceTree = "<group>"; };
+		467E2361193B2BD800CAE53C /* EquipmentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EquipmentTableView.m; path = AiXinDemo/EquipmentTableView.m; sourceTree = "<group>"; };
+		467E2372193B4A8D00CAE53C /* EquipmentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentModel.h; sourceTree = "<group>"; };
+		467E2373193B4A8D00CAE53C /* EquipmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentModel.m; sourceTree = "<group>"; };
+		467E2376193B5BAC00CAE53C /* EquipmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentCell.h; sourceTree = "<group>"; };
+		467E2377193B5BAC00CAE53C /* EquipmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentCell.m; sourceTree = "<group>"; };
+		467E2379193B68A300CAE53C /* ModiflyEquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModiflyEquipmentViewController.h; sourceTree = "<group>"; };
+		467E237A193B68A300CAE53C /* ModiflyEquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModiflyEquipmentViewController.m; sourceTree = "<group>"; };
+		46A36E53193BB6FC004508A7 /* bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bag.png; sourceTree = "<group>"; };
+		46A36E54193BB6FC004508A7 /* bag.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = bag.psd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,10 +204,10 @@
 				14377C2E19347A730028A493 /* RegisterViewController.m */,
 				14377C30193486780028A493 /* ProfileViewController.h */,
 				14377C31193486780028A493 /* ProfileViewController.m */,
-				14377C331934868F0028A493 /* EqupmentViewController.h */,
-				14377C341934868F0028A493 /* EqupmentViewController.m */,
 				14377C36193486A10028A493 /* RecordViewController.h */,
 				14377C37193486A10028A493 /* RecordViewController.m */,
+				467E2371193B49E700CAE53C /* EquipmentView */,
+				46A36E52193BB6FC004508A7 /* image */,
 				14377BEC193468BF0028A493 /* Images.xcassets */,
 				14377C0D19346B0D0028A493 /* SlideNav */,
 				14377BDB193468BF0028A493 /* Supporting Files */,
@@ -256,6 +290,52 @@
 				14377C1C19346B0D0028A493 /* menu-button@2x.png */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		467E2353193B2BD800CAE53C /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				467E2354193B2BD800CAE53C /* down_red@2x.png */,
+				467E2355193B2BD800CAE53C /* down_white@2x.png */,
+				467E2356193B2BD800CAE53C /* index@2x.png */,
+				467E2357193B2BD800CAE53C /* index_press@2x.png */,
+				467E2358193B2BD800CAE53C /* up_red@2x.png */,
+				467E2359193B2BD800CAE53C /* up_white@2x.png */,
+			);
+			name = icon;
+			path = AiXinDemo/icon;
+			sourceTree = "<group>";
+		};
+		467E2371193B49E700CAE53C /* EquipmentView */ = {
+			isa = PBXGroup;
+			children = (
+				14377C331934868F0028A493 /* EquipmentViewController.h */,
+				14377C341934868F0028A493 /* EquipmentViewController.m */,
+				467E2360193B2BD800CAE53C /* EquipmentTableView.h */,
+				467E2361193B2BD800CAE53C /* EquipmentTableView.m */,
+				467E2372193B4A8D00CAE53C /* EquipmentModel.h */,
+				467E2373193B4A8D00CAE53C /* EquipmentModel.m */,
+				467E2376193B5BAC00CAE53C /* EquipmentCell.h */,
+				467E2377193B5BAC00CAE53C /* EquipmentCell.m */,
+				467E2379193B68A300CAE53C /* ModiflyEquipmentViewController.h */,
+				467E237A193B68A300CAE53C /* ModiflyEquipmentViewController.m */,
+				467E235A193B2BD800CAE53C /* ITTArrowView.h */,
+				467E235B193B2BD800CAE53C /* ITTArrowView.m */,
+				467E235E193B2BD800CAE53C /* ITTSegement.h */,
+				467E235F193B2BD800CAE53C /* ITTSegement.m */,
+				467E2353193B2BD800CAE53C /* icon */,
+			);
+			name = EquipmentView;
+			sourceTree = "<group>";
+		};
+		46A36E52193BB6FC004508A7 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				46A36E53193BB6FC004508A7 /* bag.png */,
+				46A36E54193BB6FC004508A7 /* bag.psd */,
+			);
+			name = image;
+			path = AiXinDemo/icon/image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,11 +421,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46A36E55193BB6FC004508A7 /* bag.png in Resources */,
 				14377C2419346B0D0028A493 /* menu-button.png in Resources */,
 				14377BED193468BF0028A493 /* Images.xcassets in Resources */,
+				467E2368193B2BD800CAE53C /* index@2x.png in Resources */,
 				14377BDF193468BF0028A493 /* InfoPlist.strings in Resources */,
+				467E236B193B2BD800CAE53C /* up_white@2x.png in Resources */,
+				46A36E56193BB6FC004508A7 /* bag.psd in Resources */,
+				467E236A193B2BD800CAE53C /* up_red@2x.png in Resources */,
 				14377C2519346B0D0028A493 /* menu-button@2x.png in Resources */,
 				14377BE8193468BF0028A493 /* Main.storyboard in Resources */,
+				467E2369193B2BD800CAE53C /* index_press@2x.png in Resources */,
+				467E2367193B2BD800CAE53C /* down_white@2x.png in Resources */,
+				467E2366193B2BD800CAE53C /* down_red@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,11 +455,17 @@
 				14377C2019346B0D0028A493 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				14377C2319346B0D0028A493 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				14377C2119346B0D0028A493 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
+				467E236F193B2BD800CAE53C /* EquipmentTableView.m in Sources */,
 				14377C0C193469360028A493 /* LeftNavViewController.m in Sources */,
+				467E236C193B2BD800CAE53C /* ITTArrowView.m in Sources */,
+				467E237B193B68A300CAE53C /* ModiflyEquipmentViewController.m in Sources */,
 				14377C2219346B0D0028A493 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				14377C291934739F0028A493 /* HomeViewController.m in Sources */,
+				467E2374193B4A8D00CAE53C /* EquipmentModel.m in Sources */,
+				467E2378193B5BAC00CAE53C /* EquipmentCell.m in Sources */,
 				14377BE5193468BF0028A493 /* AppDelegate.m in Sources */,
-				14377C351934868F0028A493 /* EqupmentViewController.m in Sources */,
+				467E236E193B2BD800CAE53C /* ITTSegement.m in Sources */,
+				14377C351934868F0028A493 /* EquipmentViewController.m in Sources */,
 				14377C2F19347A730028A493 /* RegisterViewController.m in Sources */,
 				1457F6851934FC6A009A1259 /* PlanViewController.m in Sources */,
 				14377C38193486A10028A493 /* RecordViewController.m in Sources */,

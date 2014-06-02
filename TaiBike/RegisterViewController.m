@@ -29,13 +29,6 @@
     // Do any additional setup after loading the view.
 }
 
-#pragma mark - SlideNavigationController Methods -
-
-- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
-{
-	return YES;
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
