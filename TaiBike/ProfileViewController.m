@@ -26,7 +26,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSString *loadRootPath = [NSSearchPathForDirectoriesInDomains
+                              (NSDocumentDirectory,NSUserDomainMask, YES)
+                              objectAtIndex:0];
+    NSString *loadPath = [loadRootPath stringByAppendingPathComponent:@"user.plist"];
+    
+    NSMutableDictionary* dict = [ [ NSMutableDictionary alloc ] initWithContentsOfFile:loadPath ];
+    
+    NSString* authKey = [ dict objectForKey:@"authKey" ];
+    NSLog(@"%@", authKey);
 }
 
 #pragma mark - SlideNavigationController Methods -

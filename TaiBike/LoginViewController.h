@@ -18,6 +18,6 @@
 
 
 -(IBAction)login:(id)sender;
-
+-(bool)checkAuthKey:(NSString*)authKey;
 
 @end
