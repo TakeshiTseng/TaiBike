@@ -13,6 +13,7 @@
     IBOutlet UITextField* tfPassword;
     IBOutlet UIActivityIndicatorView* indicatorView;
     IBOutlet UIButton* btnLogin;
+    IBOutlet UILabel* msg;
 }
 
 

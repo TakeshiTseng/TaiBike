@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        [msg setText:@""];
     }
     return self;
 }
@@ -55,9 +55,31 @@
     
     // process login
     
-    [self performSegueWithIdentifier:@"Login" sender:self];
+    NSString* account = [tfAccount text];
+    NSString* password = [tfPassword text];
+    NSString* url = [NSString stringWithFormat:@"http://bike.takeshi.tw/api/auth/login?account=%@&password=%@", account, password];
+    NSError *error;
+    NSURLResponse *urlResponse = nil;
+    NSURLRequest* request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:url]];
+    NSData* requestData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    
+    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:requestData options:NSJSONReadingMutableLeaves error:&error];
+
+    NSNumber* err = [res objectForKey:@"error"];
+    
+    NSLog(@"%d", [err intValue]);
+    
+    if([err intValue] == 1) {
+        [msg setText:@"帳號或是密碼錯誤"];
+    } else {
+        NSString* authKey = [res objectForKey:@"authKey"];
+        NSLog(@"%@", authKey);
+        [self performSegueWithIdentifier:@"Login" sender:self];
+    }
     [btnLogin setEnabled:YES];
     [indicatorView stopAnimating];
+    
+    
     
 }
 

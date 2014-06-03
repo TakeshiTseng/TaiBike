@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SlideNavigationController.h"
 
-@interface ProfileViewController : UIViewController<SlideNavigationControllerDelegate>
+@interface ProfileViewController : UIViewController<SlideNavigationControllerDelegate> {
+    IBOutlet UILabel* lbName;
+    IBOutlet UILabel* lbAccount;
+    IBOutlet UILabel* lbNumPlans;
+}
 
 @end
