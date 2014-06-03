@@ -64,7 +64,7 @@ NSMutableArray *indexs;
     self.modalPresentationCapturesStatusBarAppearance = NO;
     
     //    NSArray *items = @[@"ID", @"名稱", @"重量"];
-    NSArray *items = @[@"名稱", @"重量"];
+    NSArray *items = @[@"攜帶", @"名稱", @"重量"];
     ITTSegement *segment = [[ITTSegement alloc] initWithItems:items];
     segment.frame = CGRectMake(0, 0, 320, 40);
     segment.selectedIndex = 0;
@@ -152,7 +152,7 @@ NSMutableArray *indexs;
     }
     
     if (sg.selectedIndex == 0) {
-        data = [data sortedArrayUsingSelector:@selector(compareID:)];
+        data = [data sortedArrayUsingSelector:@selector(compareSelect:)];
     } else if (sg.selectedIndex == 1) {
         data = [data sortedArrayUsingSelector:@selector(compareName:)];
     } else {
@@ -168,7 +168,7 @@ NSMutableArray *indexs;
     NSMutableArray *data = [NSMutableArray array];
     indexs =(NSMutableArray*)[equipmentDictionary objectForKey:@"indexs"];
     int length =[(NSString*) [equipmentDictionary objectForKey:@"length"]intValue];
-    
+    NSLog(@"%@",equipmentDictionary);
     
     for (int i = 0; i<length; i++) {
         NSString *key = [indexs objectAtIndex:i];
@@ -177,11 +177,16 @@ NSMutableArray *indexs;
         int ID = [key intValue];
         NSString *name = [item objectForKey:@"name"];
         int gram = [[item objectForKey:@"gram"]intValue];
+        BOOL isSelect = [(NSString*)[item objectForKey:@"select"] isEqualToString:@"YES"];
         
         EquipmentModel *model = [[EquipmentModel alloc]init];
         model.equipmentID=ID;
         model.name=name;
         model.gram=gram;
+        model.isSelsct=isSelect;
+        if(isSelect){
+            NSLog(@"%@ Y",model.name);
+        }
         
         [data addObject:model];
     }
@@ -245,14 +250,18 @@ NSMutableArray *indexs;
 {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     ModiflyEquipmentViewController *vc;
+    
     vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModiflyEquipment"];
-    [vc setMode:@"new"];
+    NSMutableDictionary* info = [[NSMutableDictionary alloc] init];
+    [info setObject:@"new" forKey:@"mode"];
+    [vc setInfo:info];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)addItem:(EquipmentModel*) model
 {
     model.equipmentID = ++IDCount;
+    [indexs addObject:[NSString stringWithFormat:@"%i",IDCount]];
     [self addItemToEquipmentPlist:model];
     [(NSMutableArray*)self.tableView.data addObject:model];
     data = (NSMutableArray*)self.tableView.data;
@@ -261,6 +270,39 @@ NSMutableArray *indexs;
 }
 
 -(void)addItemToEquipmentPlist:(EquipmentModel*)model
+{
+    NSString *indexString =[NSString stringWithFormat:@"%i",model.equipmentID];
+    NSString *IDCountString =[NSString stringWithFormat:@"%i",IDCount];
+    NSMutableDictionary* data = [[NSMutableDictionary alloc]init];
+    [data setObject:model.name forKey:@"name"];
+    [data setObject:[NSString stringWithFormat:@"%i",model.gram] forKey:@"gram"];
+    if(model.isSelsct){
+        [data setObject:@"YES" forKey:@"select"];
+    }else{
+        [data setObject:@"NO" forKey:@"select"];
+    }
+    
+    NSString *length =[NSString stringWithFormat:@"%i",[indexs count]];
+    [equipmentDictionary setObject:data forKey:indexString];
+    [equipmentDictionary setObject:indexs forKey:@"indexs"];
+    [equipmentDictionary setObject:length forKey:@"length"];
+    [equipmentDictionary setObject:IDCountString forKey:@"IDCount"];
+    
+    [self storeEquipmentPlist];
+}
+
+-(void)modiflyItem:(EquipmentModel*) model
+{
+    [self addItemToEquipmentPlist:model];
+    NSInteger row = [self.tableView.data indexOfObject:model];
+    [(NSMutableArray*)self.tableView.data removeObjectAtIndex:row];
+    [(NSMutableArray*)self.tableView.data insertObject:model atIndex:row];
+    data = (NSMutableArray*)self.tableView.data;
+    [self.tableView reloadData];
+    [self calculateWeight];
+}
+
+-(void)modiflyItemToEquipmentPlist:(EquipmentModel*)model
 {
     NSString *indexString =[NSString stringWithFormat:@"%i",model.equipmentID];
     NSString *IDCountString =[NSString stringWithFormat:@"%i",IDCount];
@@ -280,17 +322,21 @@ NSMutableArray *indexs;
 
 -(void)calculateWeight
 {
-    int total = 0;
+    float total = 0;
     for (EquipmentModel *modle in data) {
-        total+=modle.gram;
-    }
-    gramLabel.text = [NSString stringWithFormat:@"%i",total];
+        if(modle.isSelsct){
+            total+=modle.gram;
+        }
+    };
     
     if(total >=1000){
+        total=total/1000;
         unitLabel.text = @"公斤";
     }else{
         unitLabel.text = @"公克";
     }
+    
+    gramLabel.text = [NSString stringWithFormat:@"%.1f",total];
 }
 
 - (void)initBoundButton

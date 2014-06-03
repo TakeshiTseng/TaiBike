@@ -10,11 +10,13 @@
 
 @interface EquipmentModel : NSObject
 
+@property(nonatomic, assign) BOOL isSelsct;
 @property(nonatomic, assign) int equipmentID;
 @property(strong, nonatomic) NSString *name;
 @property(nonatomic, assign) int gram;
 @property(nonatomic, assign)BOOL isUp;
 
+-(NSComparisonResult) compareSelect:(EquipmentModel*) model;
 -(NSComparisonResult) compareID:(EquipmentModel*) model;
 -(NSComparisonResult) compareName:(EquipmentModel*) model;
 -(NSComparisonResult) comparegram:(EquipmentModel*) model;

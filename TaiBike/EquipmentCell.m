@@ -7,10 +7,12 @@
 //
 
 #import "EquipmentCell.h"
+#import "EquipmentViewController.h"
 
 @implementation EquipmentCell
 {
     UILabel *idLabel, *nameLabel, *gramLabel;
+    UISwitch *carrySwitch;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -24,10 +26,13 @@
 
 -(void)_initViews
 {
-//    idLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-//    idLabel.font = [UIFont systemFontOfSize:12];
-//    idLabel.textAlignment = NSTextAlignmentCenter;
-//    [self addSubview: idLabel];
+    //    idLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    //    idLabel.font = [UIFont systemFontOfSize:12];
+    //    idLabel.textAlignment = NSTextAlignmentCenter;
+    //    [self addSubview: idLabel];
+    
+    carrySwitch = [[UISwitch alloc]init];
+    [self addSubview:carrySwitch];
     
     nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     nameLabel.font = [UIFont systemFontOfSize:12];
@@ -50,15 +55,33 @@
 {
     [super layoutSubviews];
     
-    float width = self.bounds.size.width/2;
-//    idLabel.frame = CGRectMake(10, 5, width-20, 30);
-//    idLabel.text = [NSString stringWithFormat:@"%d", _model.equipmentID];
+    float width = self.bounds.size.width/3;
     
-    nameLabel.frame = CGRectMake(10, 5, width-20, 30);
+    //    idLabel.frame = CGRectMake(10, 5, width-20, 30);
+    //    idLabel.text = [NSString stringWithFormat:@"%d", _model.equipmentID];
+    
+    //1
+    carrySwitch.frame = CGRectMake(10, 5, width-20, 30);
+    [carrySwitch setOn:_model.isSelsct];
+    [carrySwitch addTarget:self action:@selector(selectCarry) forControlEvents:UIControlEventTouchUpInside];
+    
+    //2
+    nameLabel.frame = CGRectMake(width+10, 5, width-20, 30);
     nameLabel.text = [NSString stringWithFormat:@"%@", _model.name];
     
-    gramLabel.frame = CGRectMake(width+10, 5, width-20, 30);
-    gramLabel.text = [NSString stringWithFormat:@"%i", _model.gram];
+    gramLabel.frame = CGRectMake(2*width+10, 5, width-20, 30);
+    if(_model.gram>=1000){
+        gramLabel.text = [NSString stringWithFormat:@"%i kg", _model.gram];
+    }else{
+        gramLabel.text = [NSString stringWithFormat:@"%i g", _model.gram];
+    }
+}
+
+- (void)selectCarry
+{
+    _model.isSelsct = !_model.isSelsct;
+    [[EquipmentViewController sharedInstance] modiflyItem:_model];
+    [carrySwitch setOn:_model.isSelsct];
 }
 
 @end
