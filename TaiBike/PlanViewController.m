@@ -26,7 +26,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSString* authKey = [ProfileViewController getAuthKey];
+    NSLog(@"authKey : %@", authKey);
+    
+    NSDictionary* userInfo = [ProfileViewController getUserProfileWithAuthKey:authKey];
+
+    ridePlans = [userInfo objectForKey:@"ridePlans"];
+    NSLog(@"%d", [ridePlans count]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +46,32 @@
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
 {
 	return YES;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+
+    return [ridePlans count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary* plan = [ridePlans objectAtIndex:indexPath.row];
+    NSLog(@"plan : %@", plan);
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cells"];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cells"];
+    }
+    
+    
+    
+    NSString* name = [plan objectForKey:@"name"];
+    NSLog(@"%@", name);
+    
+    cell.textLabel.text = name;
+    return cell;
 }
 
 /*

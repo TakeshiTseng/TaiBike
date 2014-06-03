@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SlideNavigationController.h"
-
-@interface PlanViewController : UIViewController<SlideNavigationControllerDelegate>
+#import "ProfileViewController.h"
+@interface PlanViewController : UIViewController<SlideNavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
+    NSArray* ridePlans;
+    
+}
 
 @end

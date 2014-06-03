@@ -8,15 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "SlideNavigationController.h"
+#import "ProfileViewController.h"
+
 @interface LoginViewController : UIViewController <UITextFieldDelegate, SlideNavigationControllerDelegate>{
     IBOutlet UITextField* tfAccount;
     IBOutlet UITextField* tfPassword;
     IBOutlet UIActivityIndicatorView* indicatorView;
     IBOutlet UIButton* btnLogin;
+    IBOutlet UILabel* msg;
 }
 
 
 -(IBAction)login:(id)sender;
-
+-(bool)checkAuthKey:(NSString*)authKey;
 
 @end
