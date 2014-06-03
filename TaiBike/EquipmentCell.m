@@ -11,6 +11,7 @@
 @implementation EquipmentCell
 {
     UILabel *idLabel, *nameLabel, *gramLabel;
+    UISwitch *carrySwitch;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -28,6 +29,9 @@
     //    idLabel.font = [UIFont systemFontOfSize:12];
     //    idLabel.textAlignment = NSTextAlignmentCenter;
     //    [self addSubview: idLabel];
+    
+    carrySwitch = [[UISwitch alloc]init];
+    [self addSubview:carrySwitch];
     
     nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     nameLabel.font = [UIFont systemFontOfSize:12];
@@ -50,19 +54,21 @@
 {
     [super layoutSubviews];
     
-    float width = self.bounds.size.width/2;
+    float width = self.bounds.size.width/3;
+    
     //    idLabel.frame = CGRectMake(10, 5, width-20, 30);
     //    idLabel.text = [NSString stringWithFormat:@"%d", _model.equipmentID];
     
-    nameLabel.frame = CGRectMake(10, 5, width-20, 30);
+    //1
+    carrySwitch.frame = CGRectMake(10, 5, width-20, 30);
+    
+    //2
+    nameLabel.frame = CGRectMake(width+10, 5, width-20, 30);
     nameLabel.text = [NSString stringWithFormat:@"%@", _model.name];
     
-    gramLabel.frame = CGRectMake(width+10, 5, width-20, 30);
-    if(_model.gram>=1000){
-        gramLabel.text = [NSString stringWithFormat:@"%i kg", _model.gram];
-    }else{
-        gramLabel.text = [NSString stringWithFormat:@"%i g", _model.gram];
-    }
+    //3
+    gramLabel.frame = CGRectMake(2*width+10, 5, width-20, 30);
+    gramLabel.text = [NSString stringWithFormat:@"%i", _model.gram];
 }
 
 @end

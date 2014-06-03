@@ -64,7 +64,7 @@ NSMutableArray *indexs;
     self.modalPresentationCapturesStatusBarAppearance = NO;
     
     //    NSArray *items = @[@"ID", @"名稱", @"重量"];
-    NSArray *items = @[@"名稱", @"重量"];
+    NSArray *items = @[@"攜帶", @"名稱", @"重量"];
     ITTSegement *segment = [[ITTSegement alloc] initWithItems:items];
     segment.frame = CGRectMake(0, 0, 320, 40);
     segment.selectedIndex = 0;
@@ -169,6 +169,7 @@ NSMutableArray *indexs;
     indexs =(NSMutableArray*)[equipmentDictionary objectForKey:@"indexs"];
     int length =[(NSString*) [equipmentDictionary objectForKey:@"length"]intValue];
     
+    
     for (int i = 0; i<length; i++) {
         NSString *key = [indexs objectAtIndex:i];
         
@@ -233,7 +234,6 @@ NSMutableArray *indexs;
 
 -(IBAction)clearbtn:(id)sender
 {
-    [indexs removeAllObjects];
     [self initEquiomentPlist];
     [data removeAllObjects];
     self.tableView.data =data;
@@ -245,6 +245,7 @@ NSMutableArray *indexs;
 {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     ModiflyEquipmentViewController *vc;
+    
     vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModiflyEquipment"];
     [vc setMode:@"new"];
     [self.navigationController pushViewController:vc animated:YES];
