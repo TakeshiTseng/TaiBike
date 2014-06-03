@@ -32,17 +32,16 @@
 			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Home"];
             break;
         case 1:
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Plan"];
+			break;
+        case 2:
 			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Profile"];
 			break;
-		case 2:
+		case 3:
 			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Equpment"];
 			break;
-        case 3:
-			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Record"];
-			break;
         case 4:
-			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Plan"];
-            [vc.navigationController setTitle:@"路線記錄"];
+			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Record"];
 			break;
         case 5:
             [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
@@ -73,16 +72,16 @@
             cell.textLabel.text = @"首頁";
             break;
         case 1:
+            cell.textLabel.text = @"騎乘計畫";
+            break;
+        case 2:
             cell.textLabel.text = @"我的資料";
 			break;
-		case 2:
+		case 3:
             cell.textLabel.text = @"我的裝備";
 			break;
-        case 3:
-            cell.textLabel.text = @"路線記錄";
-			break;
         case 4:
-            cell.textLabel.text = @"騎乘計畫";
+            cell.textLabel.text = @"路線記錄";
 			break;
         case 5:
             cell.textLabel.text = @"登出";
