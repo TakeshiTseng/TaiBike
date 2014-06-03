@@ -168,7 +168,7 @@ NSMutableArray *indexs;
     NSMutableArray *data = [NSMutableArray array];
     indexs =(NSMutableArray*)[equipmentDictionary objectForKey:@"indexs"];
     int length =[(NSString*) [equipmentDictionary objectForKey:@"length"]intValue];
-    
+    NSLog(@"%@",equipmentDictionary);
     
     for (int i = 0; i<length; i++) {
         NSString *key = [indexs objectAtIndex:i];
@@ -247,13 +247,16 @@ NSMutableArray *indexs;
     ModiflyEquipmentViewController *vc;
     
     vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModiflyEquipment"];
-    [vc setMode:@"new"];
+    NSMutableDictionary* info = [[NSMutableDictionary alloc] init];
+    [info setObject:@"new" forKey:@"mode"];
+    [vc setInfo:info];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)addItem:(EquipmentModel*) model
 {
     model.equipmentID = ++IDCount;
+    [indexs addObject:[NSString stringWithFormat:@"%i",IDCount]];
     [self addItemToEquipmentPlist:model];
     [(NSMutableArray*)self.tableView.data addObject:model];
     data = (NSMutableArray*)self.tableView.data;
@@ -262,6 +265,34 @@ NSMutableArray *indexs;
 }
 
 -(void)addItemToEquipmentPlist:(EquipmentModel*)model
+{
+    NSString *indexString =[NSString stringWithFormat:@"%i",model.equipmentID];
+    NSString *IDCountString =[NSString stringWithFormat:@"%i",IDCount];
+    NSMutableDictionary* data = [[NSMutableDictionary alloc]init];
+    [data setObject:model.name forKey:@"name"];
+    [data setObject:[NSString stringWithFormat:@"%i",model.gram] forKey:@"gram"];
+    
+    NSString *length =[NSString stringWithFormat:@"%i",[indexs count]];
+    [equipmentDictionary setObject:data forKey:indexString];
+    [equipmentDictionary setObject:indexs forKey:@"indexs"];
+    [equipmentDictionary setObject:length forKey:@"length"];
+    [equipmentDictionary setObject:IDCountString forKey:@"IDCount"];
+    
+    [self storeEquipmentPlist];
+}
+
+-(void)modiflyItem:(EquipmentModel*) model
+{
+    [self addItemToEquipmentPlist:model];
+    NSInteger row = [self.tableView.data indexOfObject:model];
+    [(NSMutableArray*)self.tableView.data removeObjectAtIndex:row];
+    [(NSMutableArray*)self.tableView.data insertObject:model atIndex:row];
+    data = (NSMutableArray*)self.tableView.data;
+    [self.tableView reloadData];
+    [self calculateWeight];
+}
+
+-(void)modiflyItemToEquipmentPlist:(EquipmentModel*)model
 {
     NSString *indexString =[NSString stringWithFormat:@"%i",model.equipmentID];
     NSString *IDCountString =[NSString stringWithFormat:@"%i",IDCount];

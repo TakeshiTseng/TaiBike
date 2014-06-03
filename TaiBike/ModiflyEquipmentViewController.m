@@ -13,6 +13,17 @@
 @implementation ModiflyEquipmentViewController{
     int ID;
     IBOutlet UISegmentedControl *segment;
+    NSString *_mode;
+    EquipmentModel* model;
+}
+
+-(id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];NSLog(@"init");
+    if (self) {
+        // Custom initialization
+        NSLog(@"init");
+    }
+    return self;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -20,6 +31,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        NSLog(@"init");
     }
     return self;
 }
@@ -28,7 +40,22 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"Mode:%@",self.mode);
+    NSLog(@"Mode:%@",_mode);
+    
+    if ([_mode isEqualToString:@"modifly"]) {
+        [self.titleLabel setText:@"修改裝備"];
+        [self.nameTextField setText:model.name];
+        [self.nameTextField setEnabled:NO];
+        
+        if(model.gram>=1000){
+            [self.gramTextField setText:[NSString stringWithFormat:@"%.1lf",model.gram/1000.0]];
+        }else{
+            [segment setSelectedSegmentIndex:1];
+            [self.gramTextField setText:[NSString stringWithFormat:@"%i",model.gram]];
+        }
+    }else{
+        self.titleLabel.text = @"新增裝備";
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -37,10 +64,29 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)addbtn:(id)sender
+/*
+ Info - NSMutableDirectory
+ [Mode] key:"mode" - NSString ,value:{new, modifly}
+ [Model] key:"model" - EquipmentModel
+ */
+- (void)setInfo:(id)sender
 {
-    EquipmentModel *model = [[EquipmentModel alloc]init];
-    model.name = self.nameTextField.text;
+    NSMutableDictionary *info = (NSMutableDictionary*)sender;
+    
+    NSString *mode = [info objectForKey:@"mode"];
+    _mode = mode;
+    
+    if ([mode isEqualToString:@"modifly"]) {
+        _mode = mode;
+        model = (EquipmentModel*)[info objectForKey:@"model"];
+    }else{
+        model = [[EquipmentModel alloc]init];
+    }
+}
+
+-(IBAction)donebtn:(id)sender
+{
+    EquipmentViewController *equipmentview = [EquipmentViewController sharedInstance];
     
     int i = [segment selectedSegmentIndex];
     double g = [self.gramTextField.text doubleValue];
@@ -49,8 +95,13 @@
     }
     model.gram = g;
     
-    EquipmentViewController *equipmentview = [EquipmentViewController sharedInstance];
-    [equipmentview addItem:model];
+    if ([_mode isEqualToString:@"new"]) {
+        model.name = self.nameTextField.text;
+        [equipmentview addItem:model];
+    }else{
+        [equipmentview modiflyItem:model];
+    }
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

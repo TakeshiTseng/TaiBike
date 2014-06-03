@@ -8,6 +8,8 @@
 
 #import "EquipmentTableView.h"
 #import "EquipmentCell.h"
+#import "EquipmentViewController.h"
+#import "ModiflyEquipmentViewController.h"
 
 @implementation EquipmentTableView
 
@@ -49,6 +51,20 @@
     cell.model = self.data[indexPath.row];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSUInteger row = [indexPath row];
+    EquipmentModel *model = [self.data objectAtIndex:row];
+    
+    NSMutableDictionary *info = [[NSMutableDictionary alloc]init];
+    [info setObject:@"modifly" forKey:@"mode"];
+    [info setObject:model forKey:@"model"];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    ModiflyEquipmentViewController *vc;
+    vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModiflyEquipment"];
+    [vc setInfo:info];
+    [[EquipmentViewController sharedInstance].navigationController pushViewController:vc animated:YES];
 }
 
 -(void)addItem:(EquipmentModel *)model
