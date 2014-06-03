@@ -13,6 +13,15 @@
 @end
 
 @implementation ProfileViewController
+static NSString* sAuthKey;
+
++(NSString*)getAuthKey {
+    return sAuthKey;
+}
+
++(void)setAuthKey:(NSString*)authKey {
+    sAuthKey = authKey;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +35,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSString *loadRootPath = [NSSearchPathForDirectoriesInDomains
+                              (NSDocumentDirectory,NSUserDomainMask, YES)
+                              objectAtIndex:0];
+    NSString *loadPath = [loadRootPath stringByAppendingPathComponent:@"user.plist"];
+    
+    NSMutableDictionary* dict = [ [ NSMutableDictionary alloc ] initWithContentsOfFile:loadPath ];
+    
+    NSString* authKey = [ dict objectForKey:@"authKey" ];
+    sAuthKey = authKey;
+    NSLog(@"%@", authKey);
+    
+    userInfo = [ProfileViewController getUserProfileWithAuthKey:authKey];
+    
+    NSString* account = [userInfo objectForKey:@"account"];
+    NSString* name = [userInfo objectForKey:@"name"];
+    NSArray* ridePlans = [userInfo objectForKey:@"ridePlans"];
+
+    
+    [lbAccount setText:[NSString stringWithFormat:@"帳號：%@", account]];
+    [lbName setText:[NSString stringWithFormat:@"姓名：%@", name]];
+    [lbNumPlans setText:[NSString stringWithFormat:@"騎乘計畫數：%d", [ridePlans count]]];
+    
 }
 
 #pragma mark - SlideNavigationController Methods -
@@ -40,6 +71,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
++(NSDictionary*)getUserProfileWithAuthKey:(NSString*)authKey {
+        NSString* url = [NSString stringWithFormat:@"http://bike.takeshi.tw/api/user/info?authKey=%@", authKey];
+        NSError *error;
+        NSURLResponse *urlResponse = nil;
+        NSURLRequest* request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:url]];
+        NSData* requestData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+        
+        NSDictionary *res = [NSJSONSerialization JSONObjectWithData:requestData options:NSJSONReadingMutableLeaves error:&error];
+        return [res objectForKey:@"info"];
 }
 
 /*
