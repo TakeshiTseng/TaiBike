@@ -152,7 +152,7 @@ NSMutableArray *indexs;
     }
     
     if (sg.selectedIndex == 0) {
-        data = [data sortedArrayUsingSelector:@selector(compareID:)];
+        data = [data sortedArrayUsingSelector:@selector(compareSelect:)];
     } else if (sg.selectedIndex == 1) {
         data = [data sortedArrayUsingSelector:@selector(compareName:)];
     } else {
@@ -177,11 +177,16 @@ NSMutableArray *indexs;
         int ID = [key intValue];
         NSString *name = [item objectForKey:@"name"];
         int gram = [[item objectForKey:@"gram"]intValue];
+        BOOL isSelect = [(NSString*)[item objectForKey:@"select"] isEqualToString:@"YES"];
         
         EquipmentModel *model = [[EquipmentModel alloc]init];
         model.equipmentID=ID;
         model.name=name;
         model.gram=gram;
+        model.isSelsct=isSelect;
+        if(isSelect){
+            NSLog(@"%@ Y",model.name);
+        }
         
         [data addObject:model];
     }
@@ -271,6 +276,11 @@ NSMutableArray *indexs;
     NSMutableDictionary* data = [[NSMutableDictionary alloc]init];
     [data setObject:model.name forKey:@"name"];
     [data setObject:[NSString stringWithFormat:@"%i",model.gram] forKey:@"gram"];
+    if(model.isSelsct){
+        [data setObject:@"YES" forKey:@"select"];
+    }else{
+        [data setObject:@"NO" forKey:@"select"];
+    }
     
     NSString *length =[NSString stringWithFormat:@"%i",[indexs count]];
     [equipmentDictionary setObject:data forKey:indexString];
@@ -312,17 +322,21 @@ NSMutableArray *indexs;
 
 -(void)calculateWeight
 {
-    int total = 0;
+    float total = 0;
     for (EquipmentModel *modle in data) {
-        total+=modle.gram;
-    }
-    gramLabel.text = [NSString stringWithFormat:@"%i",total];
+        if(modle.isSelsct){
+            total+=modle.gram;
+        }
+    };
     
     if(total >=1000){
+        total=total/1000;
         unitLabel.text = @"公斤";
     }else{
         unitLabel.text = @"公克";
     }
+    
+    gramLabel.text = [NSString stringWithFormat:@"%.1f",total];
 }
 
 - (void)initBoundButton

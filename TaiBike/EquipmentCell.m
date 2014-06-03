@@ -7,6 +7,7 @@
 //
 
 #import "EquipmentCell.h"
+#import "EquipmentViewController.h"
 
 @implementation EquipmentCell
 {
@@ -61,14 +62,26 @@
     
     //1
     carrySwitch.frame = CGRectMake(10, 5, width-20, 30);
+    [carrySwitch setOn:_model.isSelsct];
+    [carrySwitch addTarget:self action:@selector(selectCarry) forControlEvents:UIControlEventTouchUpInside];
     
     //2
     nameLabel.frame = CGRectMake(width+10, 5, width-20, 30);
     nameLabel.text = [NSString stringWithFormat:@"%@", _model.name];
     
-    //3
     gramLabel.frame = CGRectMake(2*width+10, 5, width-20, 30);
-    gramLabel.text = [NSString stringWithFormat:@"%i", _model.gram];
+    if(_model.gram>=1000){
+        gramLabel.text = [NSString stringWithFormat:@"%i kg", _model.gram];
+    }else{
+        gramLabel.text = [NSString stringWithFormat:@"%i g", _model.gram];
+    }
+}
+
+- (void)selectCarry
+{
+    _model.isSelsct = !_model.isSelsct;
+    [[EquipmentViewController sharedInstance] modiflyItem:_model];
+    [carrySwitch setOn:_model.isSelsct];
 }
 
 @end
