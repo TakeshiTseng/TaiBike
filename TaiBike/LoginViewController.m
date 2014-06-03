@@ -41,6 +41,7 @@
         
         
         if([self checkAuthKey:authKey]) {
+            [ProfileViewController setAuthKey:authKey];
             [self performSegueWithIdentifier:@"Login" sender:self];
         }
     }

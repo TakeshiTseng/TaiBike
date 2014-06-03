@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "SlideNavigationController.h"
+#import "ProfileViewController.h"
+
 @interface LoginViewController : UIViewController <UITextFieldDelegate, SlideNavigationControllerDelegate>{
     IBOutlet UITextField* tfAccount;
     IBOutlet UITextField* tfPassword;

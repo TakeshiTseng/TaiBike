@@ -13,6 +13,15 @@
 @end
 
 @implementation ProfileViewController
+static NSString* sAuthKey;
+
++(NSString*)getAuthKey {
+    return sAuthKey;
+}
+
++(void)setAuthKey:(NSString*)authKey {
+    sAuthKey = authKey;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,9 +44,10 @@
     NSMutableDictionary* dict = [ [ NSMutableDictionary alloc ] initWithContentsOfFile:loadPath ];
     
     NSString* authKey = [ dict objectForKey:@"authKey" ];
+    sAuthKey = authKey;
     NSLog(@"%@", authKey);
     
-    userInfo = [self getUserProfileWithAuthKey:authKey];
+    userInfo = [ProfileViewController getUserProfileWithAuthKey:authKey];
     
     NSString* account = [userInfo objectForKey:@"account"];
     NSString* name = [userInfo objectForKey:@"name"];
@@ -64,7 +74,7 @@
 }
 
 
--(NSDictionary*)getUserProfileWithAuthKey:(NSString*)authKey {
++(NSDictionary*)getUserProfileWithAuthKey:(NSString*)authKey {
         NSString* url = [NSString stringWithFormat:@"http://bike.takeshi.tw/api/user/info?authKey=%@", authKey];
         NSError *error;
         NSURLResponse *urlResponse = nil;
