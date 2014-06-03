@@ -13,6 +13,9 @@
     IBOutlet UILabel* lbName;
     IBOutlet UILabel* lbAccount;
     IBOutlet UILabel* lbNumPlans;
+    NSDictionary* userInfo;
 }
+
+-(NSDictionary*)getUserProfileWithAuthKey:(NSString*)authKey;
 
 @end
