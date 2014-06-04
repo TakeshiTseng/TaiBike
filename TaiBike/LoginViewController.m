@@ -50,7 +50,7 @@
 }
 
 -(bool)checkAuthKey:(NSString *)authKey {
-    NSString* url = [NSString stringWithFormat:@"http://bike.takeshi.tw/api/user/info?authKey=%@", authKey];
+    NSString* url = [NSString stringWithFormat:@"https://taibike.tw/api/user/info?authKey=%@", authKey];
     NSError *error;
     NSURLResponse *urlResponse = nil;
     NSURLRequest* request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:url]];
@@ -92,7 +92,7 @@
     
     NSString* account = [tfAccount text];
     NSString* password = [tfPassword text];
-    NSString* url = [NSString stringWithFormat:@"http://bike.takeshi.tw/api/auth/login?account=%@&password=%@", account, password];
+    NSString* url = [NSString stringWithFormat:@"https://taibike.tw/api/auth/login?account=%@&password=%@", account, password];
     NSError *error;
     NSURLResponse *urlResponse = nil;
     NSURLRequest* request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:url]];

@@ -75,7 +75,7 @@ static NSString* sAuthKey;
 
 
 +(NSDictionary*)getUserProfileWithAuthKey:(NSString*)authKey {
-        NSString* url = [NSString stringWithFormat:@"http://bike.takeshi.tw/api/user/info?authKey=%@", authKey];
+        NSString* url = [NSString stringWithFormat:@"https://taibike.tw/api/user/info?authKey=%@", authKey];
         NSError *error;
         NSURLResponse *urlResponse = nil;
         NSURLRequest* request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:url]];
