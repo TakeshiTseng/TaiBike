@@ -19,6 +19,22 @@
     return self;
 }
 
+- (NSComparisonResult)compareSelect:(EquipmentModel *)model
+{
+    
+    if (self.isUp ? (self.isSelsct > model.isSelsct) : (self.isSelsct < model.isSelsct)) {
+        
+        return NSOrderedDescending; // 降序
+    } else if (self.isSelsct == model.isSelsct) {
+        
+        return NSOrderedSame; // 同序
+    }else {
+        
+        return NSOrderedAscending; // 升序
+    }
+}
+
+
 - (NSComparisonResult)compareID:(EquipmentModel *)model
 {
     

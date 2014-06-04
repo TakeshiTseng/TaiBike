@@ -11,9 +11,10 @@
 @interface ModiflyEquipmentViewController : UIViewController
 
 @property(strong, nonatomic) IBOutlet UITextField *nameTextField, *gramTextField;
-@property(strong, nonatomic) NSString *mode;
+@property(strong, nonatomic) IBOutlet UILabel *titleLabel;
 
--(IBAction)addbtn:(id)sender;
+-(IBAction)donebtn:(id)sender;
 -(IBAction)cancelbtn:(id)sender;
+-(IBAction)setInfo:(id)sender;
 
 @end

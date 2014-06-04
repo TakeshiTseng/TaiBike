@@ -24,6 +24,7 @@
 
 +(EquipmentViewController*)sharedInstance;
 -(void)addItem:(EquipmentModel*)model;
+-(void)modiflyItem:(EquipmentModel*)model;
 
 - (IBAction)menuButtonAction:(id)sender;
 
