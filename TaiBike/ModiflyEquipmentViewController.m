@@ -11,8 +11,13 @@
 #import "EquipmentModel.h"
 
 @implementation ModiflyEquipmentViewController{
-    int ID;
+    
+    IBOutlet UITextField *nameTextField, *gramTextField;
+    IBOutlet UILabel *titleLabel;
     IBOutlet UISegmentedControl *segment;
+    IBOutlet UIButton *deleteButton;
+    
+    int ID;
     NSString *_mode;
     EquipmentModel* model;
 }
@@ -43,18 +48,19 @@
     NSLog(@"Mode:%@",_mode);
     
     if ([_mode isEqualToString:@"modifly"]) {
-        [self.titleLabel setText:@"修改裝備"];
-        [self.nameTextField setText:model.name];
-        [self.nameTextField setEnabled:NO];
+        [titleLabel setText:@"修改裝備"];
+        [nameTextField setText:model.name];
+        [nameTextField setEnabled:NO];
         
         if(model.gram>=1000){
-            [self.gramTextField setText:[NSString stringWithFormat:@"%.1lf",model.gram/1000.0]];
+            [gramTextField setText:[NSString stringWithFormat:@"%.1lf",model.gram/1000.0]];
         }else{
             [segment setSelectedSegmentIndex:1];
-            [self.gramTextField setText:[NSString stringWithFormat:@"%i",model.gram]];
+            [gramTextField setText:[NSString stringWithFormat:@"%i",model.gram]];
         }
     }else{
-        self.titleLabel.text = @"新增裝備";
+        titleLabel.text = @"新增裝備";
+        [deleteButton setHidden:YES];
     }
 }
 
@@ -89,14 +95,14 @@
     EquipmentViewController *equipmentview = [EquipmentViewController sharedInstance];
     
     int i = [segment selectedSegmentIndex];
-    double g = [self.gramTextField.text doubleValue];
+    double g = [gramTextField.text doubleValue];
     if(i==0){
         g=g*1000;
     }
     model.gram = g;
     
     if ([_mode isEqualToString:@"new"]) {
-        model.name = self.nameTextField.text;
+        model.name = nameTextField.text;
         [equipmentview addItem:model];
     }else{
         [equipmentview modiflyItem:model];
@@ -107,7 +113,7 @@
 
 - (IBAction)segmentedValueChange:(id)sender {
     int i = [segment selectedSegmentIndex];
-    double g = [self.gramTextField.text doubleValue];
+    double g = [gramTextField.text doubleValue];
     double num;
     NSString *text;
     
@@ -123,12 +129,37 @@
             break;
     }
     text = [NSString stringWithFormat:@"%.2f",num];
-    self.gramTextField.text=text;
+    gramTextField.text=text;
 }
 
 -(IBAction)cancelbtn:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(IBAction)deletebtn:(id)sender
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"刪除" message:@"請問確定要刪除嗎？" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes",nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 1:
+            [self removeThisItem];
+            [self.navigationController popViewControllerAnimated:YES];
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)removeThisItem
+{
+    EquipmentViewController *equipmentview = [EquipmentViewController sharedInstance];
+    
+    [equipmentview removeItem:model];
 }
 
 @end

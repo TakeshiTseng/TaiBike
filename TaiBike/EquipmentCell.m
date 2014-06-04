@@ -71,7 +71,7 @@
     
     gramLabel.frame = CGRectMake(2*width+10, 5, width-20, 30);
     if(_model.gram>=1000){
-        float g = _model.gram/1000;
+        float g = _model.gram/1000.0;
         gramLabel.text = [NSString stringWithFormat:@"%.2f kg", g];
     }else{
         gramLabel.text = [NSString stringWithFormat:@"%i g", _model.gram];
