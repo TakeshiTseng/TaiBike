@@ -62,6 +62,8 @@
         titleLabel.text = @"新增裝備";
         [deleteButton setHidden:YES];
     }
+    [gramTextField setDelegate:self];
+    [gramTextField setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -160,6 +162,27 @@
     EquipmentViewController *equipmentview = [EquipmentViewController sharedInstance];
     
     [equipmentview removeItem:model];
+}
+
+#define NUMBERSPERIOD @"0123456789."
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSCharacterSet *cs = [[NSCharacterSet characterSetWithCharactersInString:NUMBERSPERIOD ] invertedSet];
+    NSString *filtered = [[string componentsSeparatedByCharactersInSet:cs] componentsJoinedByString:@""];
+    
+    BOOL basicTest = [string isEqualToString:filtered];
+    if(!basicTest){
+        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"請输入数字" delegate:nil  cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return NO;
+    }
+    return basicTest;
+}
+
+- (IBAction) backgroundTap:(id)sender
+{
+	[nameTextField resignFirstResponder];
+	[gramTextField resignFirstResponder];
 }
 
 @end

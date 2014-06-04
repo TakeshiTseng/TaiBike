@@ -80,4 +80,6 @@
  */
 - (void)removeCustomView:(UIView *)customView interval:(double)delayInSeconds;
 
+- (void)startAnimatingButton:(UIButton *)pressedButton;
+
 @end

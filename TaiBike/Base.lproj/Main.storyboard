@@ -328,6 +328,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5p-OO-7QC" customClass="UIControl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="backgroundTap:" destination="E86-Ad-TQK" eventType="touchDown" id="jdj-5X-W9p"/>
+                                </connections>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NB6-TC-flx">
                                 <rect key="frame" x="250" y="113" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -357,6 +364,7 @@
                             </button>
                         </subviews>
                         <connections>
+                            <outlet property="menuButton" destination="CTT-6x-NJq" id="i2f-Qd-9kE"/>
                             <outlet property="menuItem1" destination="NB6-TC-flx" id="Bsi-oz-K0v"/>
                             <outlet property="menuItem2" destination="9nL-N6-opm" id="5qR-PK-vSj"/>
                         </connections>
@@ -374,7 +382,7 @@
                         <viewControllerLayoutGuide type="top" id="LGW-aT-fpQ"/>
                         <viewControllerLayoutGuide type="bottom" id="EK5-6n-FrJ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rl6-wW-Dgx">
+                    <view key="view" contentMode="scaleToFill" id="rl6-wW-Dgx" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -383,12 +391,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="backgroundTap:" destination="Z2p-XC-rIn" eventType="touchDown" id="100-at-X7L"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iw3-Nz-hO0">
                                 <rect key="frame" x="66" y="236" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="backgroundTap:" destination="Z2p-XC-rIn" eventType="touchDown" id="NSx-TW-lOv"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名稱" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2H7-vg-AHU">
                                 <rect key="frame" x="143" y="115" width="34" height="21"/>
@@ -454,6 +468,9 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTap:" destination="Z2p-XC-rIn" eventType="touchDown" id="hhe-c3-Dfq"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="新增裝備" id="jRB-cB-xp5" customClass="新增裝備"/>
                     <connections>

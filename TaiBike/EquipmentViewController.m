@@ -103,7 +103,6 @@ NSMutableArray *indexs;
     [self.menuButton sendActionsForControlEvents:UIControlEventTouchUpInside];
     
     // Set your custom action for each selected 'menu item button' here
-    
     switch (index) {
         case 0://add
             [self addbtn:nil];
@@ -365,6 +364,11 @@ NSMutableArray *indexs;
     
     // Set as delegate of 'menu item view'
     [self.menuItemView setDelegate:self];
+}
+
+- (IBAction) backgroundTap:(id)sender
+{
+    NSLog(@"test");
 }
 
 /*
