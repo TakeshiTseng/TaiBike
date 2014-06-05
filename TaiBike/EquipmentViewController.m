@@ -103,7 +103,6 @@ NSMutableArray *indexs;
     [self.menuButton sendActionsForControlEvents:UIControlEventTouchUpInside];
     
     // Set your custom action for each selected 'menu item button' here
-    
     switch (index) {
         case 0://add
             [self addbtn:nil];
@@ -302,20 +301,26 @@ NSMutableArray *indexs;
     [self calculateWeight];
 }
 
--(void)modiflyItemToEquipmentPlist:(EquipmentModel*)model
+- (void)removeItem:(EquipmentModel*) model
+{
+    [indexs removeObject:[NSString stringWithFormat:@"%i",model.equipmentID]];
+    [self removeItemToEquipmentPlist:model];
+    
+    NSInteger row = [self.tableView.data indexOfObject:model];
+    [(NSMutableArray*)self.tableView.data removeObjectAtIndex:row];
+    data = (NSMutableArray*)self.tableView.data;
+    [self.tableView reloadData];
+    [self calculateWeight];
+}
+
+- (void)removeItemToEquipmentPlist:(EquipmentModel*) model
 {
     NSString *indexString =[NSString stringWithFormat:@"%i",model.equipmentID];
-    NSString *IDCountString =[NSString stringWithFormat:@"%i",IDCount];
-    NSMutableDictionary* data = [[NSMutableDictionary alloc]init];
-    [data setObject:model.name forKey:@"name"];
-    [data setObject:[NSString stringWithFormat:@"%i",model.gram] forKey:@"gram"];
+    [equipmentDictionary removeObjectForKey:indexString];
     
-    [indexs addObject:indexString];
     NSString *length =[NSString stringWithFormat:@"%i",[indexs count]];
-    [equipmentDictionary setObject:data forKey:indexString];
     [equipmentDictionary setObject:indexs forKey:@"indexs"];
     [equipmentDictionary setObject:length forKey:@"length"];
-    [equipmentDictionary setObject:IDCountString forKey:@"IDCount"];
     
     [self storeEquipmentPlist];
 }
@@ -359,6 +364,11 @@ NSMutableArray *indexs;
     
     // Set as delegate of 'menu item view'
     [self.menuItemView setDelegate:self];
+}
+
+- (IBAction) backgroundTap:(id)sender
+{
+    NSLog(@"test");
 }
 
 /*

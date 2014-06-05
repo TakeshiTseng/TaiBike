@@ -8,13 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModiflyEquipmentViewController : UIViewController
+@interface ModiflyEquipmentViewController : UIViewController<UIAlertViewDelegate,UITextFieldDelegate>
 
-@property(strong, nonatomic) IBOutlet UITextField *nameTextField, *gramTextField;
-@property(strong, nonatomic) IBOutlet UILabel *titleLabel;
-
--(IBAction)donebtn:(id)sender;
--(IBAction)cancelbtn:(id)sender;
--(IBAction)setInfo:(id)sender;
+-(void)setInfo:(id)sender;
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "EquipmentBoundButtonView.h"
+#import "EquipmentViewController.h"
 
-@implementation EquipmentBoundButtonView
+@implementation EquipmentBoundButtonView{
+    IBOutlet ASOTwoStateButton *menuButton; 
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -17,6 +20,13 @@
         // Initialization code
     }
     return self;
+}
+
+- (IBAction) backgroundTap:(id)sender
+{
+    EquipmentViewController *equipmentview = [EquipmentViewController sharedInstance];
+    [equipmentview menuButtonAction:equipmentview.menuButton];
+    [equipmentview.menuButton startAnimatingButton:equipmentview.menuButton];
 }
 
 @end
