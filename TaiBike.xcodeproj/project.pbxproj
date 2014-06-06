@@ -47,6 +47,8 @@
 		464BB324193CE0A7005FFEC0 /* post_type_bubble_link@2x.psd in Resources */ = {isa = PBXBuildFile; fileRef = 464BB31D193CE0A7005FFEC0 /* post_type_bubble_link@2x.psd */; };
 		464BB325193CE0A7005FFEC0 /* set_bubble_link@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464BB31E193CE0A7005FFEC0 /* set_bubble_link@2x.png */; };
 		46544FAA1940FEB900C5138D /* RecommendedEquipment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46544FA91940FEB900C5138D /* RecommendedEquipment.plist */; };
+		46544FAD19410AA000C5138D /* RecommendedEquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */; };
+		4657946019427C67003E3654 /* RecommendedEquipmentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */; };
 		467E2366193B2BD800CAE53C /* down_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2354193B2BD800CAE53C /* down_red@2x.png */; };
 		467E2367193B2BD800CAE53C /* down_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2355193B2BD800CAE53C /* down_white@2x.png */; };
 		467E2368193B2BD800CAE53C /* index@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2356193B2BD800CAE53C /* index@2x.png */; };
@@ -58,7 +60,7 @@
 		467E236F193B2BD800CAE53C /* EquipmentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E2361193B2BD800CAE53C /* EquipmentTableView.m */; };
 		467E2374193B4A8D00CAE53C /* EquipmentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E2373193B4A8D00CAE53C /* EquipmentModel.m */; };
 		467E2378193B5BAC00CAE53C /* EquipmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E2377193B5BAC00CAE53C /* EquipmentCell.m */; };
-		467E237B193B68A300CAE53C /* ModiflyEquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E237A193B68A300CAE53C /* ModiflyEquipmentViewController.m */; };
+		467E237B193B68A300CAE53C /* ModifyEquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 467E237A193B68A300CAE53C /* ModifyEquipmentViewController.m */; };
 		46A36E55193BB6FC004508A7 /* bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 46A36E53193BB6FC004508A7 /* bag.png */; };
 		46A36E56193BB6FC004508A7 /* bag.psd in Resources */ = {isa = PBXBuildFile; fileRef = 46A36E54193BB6FC004508A7 /* bag.psd */; };
 /* End PBXBuildFile section */
@@ -122,6 +124,7 @@
 		14377C37193486A10028A493 /* RecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		1457F6831934FC6A009A1259 /* PlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanViewController.h; sourceTree = "<group>"; };
 		1457F6841934FC6A009A1259 /* PlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanViewController.m; sourceTree = "<group>"; };
+		4606814819426DF0008EB1B2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		464BB30C193CCE22005FFEC0 /* ASOBounceButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASOBounceButtonView.h; sourceTree = "<group>"; };
 		464BB30D193CCE22005FFEC0 /* ASOBounceButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASOBounceButtonView.m; sourceTree = "<group>"; };
 		464BB30E193CCE22005FFEC0 /* ASOBounceButtonViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASOBounceButtonViewDelegate.h; sourceTree = "<group>"; };
@@ -137,6 +140,10 @@
 		464BB31D193CE0A7005FFEC0 /* post_type_bubble_link@2x.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "post_type_bubble_link@2x.psd"; sourceTree = "<group>"; };
 		464BB31E193CE0A7005FFEC0 /* set_bubble_link@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "set_bubble_link@2x.png"; sourceTree = "<group>"; };
 		46544FA91940FEB900C5138D /* RecommendedEquipment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RecommendedEquipment.plist; sourceTree = "<group>"; };
+		46544FAB19410AA000C5138D /* RecommendedEquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedEquipmentViewController.h; sourceTree = "<group>"; };
+		46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentViewController.m; sourceTree = "<group>"; };
+		4657945E19427C67003E3654 /* RecommendedEquipmentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedEquipmentTableView.h; sourceTree = "<group>"; };
+		4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentTableView.m; sourceTree = "<group>"; };
 		467E2354193B2BD800CAE53C /* down_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_red@2x.png"; sourceTree = "<group>"; };
 		467E2355193B2BD800CAE53C /* down_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_white@2x.png"; sourceTree = "<group>"; };
 		467E2356193B2BD800CAE53C /* index@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index@2x.png"; sourceTree = "<group>"; };
@@ -153,8 +160,8 @@
 		467E2373193B4A8D00CAE53C /* EquipmentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentModel.m; sourceTree = "<group>"; };
 		467E2376193B5BAC00CAE53C /* EquipmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentCell.h; sourceTree = "<group>"; };
 		467E2377193B5BAC00CAE53C /* EquipmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentCell.m; sourceTree = "<group>"; };
-		467E2379193B68A300CAE53C /* ModiflyEquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModiflyEquipmentViewController.h; sourceTree = "<group>"; };
-		467E237A193B68A300CAE53C /* ModiflyEquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModiflyEquipmentViewController.m; sourceTree = "<group>"; };
+		467E2379193B68A300CAE53C /* ModifyEquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyEquipmentViewController.h; sourceTree = "<group>"; };
+		467E237A193B68A300CAE53C /* ModifyEquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyEquipmentViewController.m; sourceTree = "<group>"; };
 		46A36E53193BB6FC004508A7 /* bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bag.png; sourceTree = "<group>"; };
 		46A36E54193BB6FC004508A7 /* bag.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = bag.psd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +212,7 @@
 		14377BD3193468BF0028A493 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4606814819426DF0008EB1B2 /* CoreData.framework */,
 				14377BD4193468BF0028A493 /* Foundation.framework */,
 				14377BD6193468BF0028A493 /* CoreGraphics.framework */,
 				14377BD8193468BF0028A493 /* UIKit.framework */,
@@ -373,10 +381,14 @@
 				467E2373193B4A8D00CAE53C /* EquipmentModel.m */,
 				467E2376193B5BAC00CAE53C /* EquipmentCell.h */,
 				467E2377193B5BAC00CAE53C /* EquipmentCell.m */,
-				467E2379193B68A300CAE53C /* ModiflyEquipmentViewController.h */,
-				467E237A193B68A300CAE53C /* ModiflyEquipmentViewController.m */,
+				467E2379193B68A300CAE53C /* ModifyEquipmentViewController.h */,
+				467E237A193B68A300CAE53C /* ModifyEquipmentViewController.m */,
 				464BB315193CD162005FFEC0 /* EquipmentBoundButtonView.h */,
 				464BB316193CD162005FFEC0 /* EquipmentBoundButtonView.m */,
+				46544FAB19410AA000C5138D /* RecommendedEquipmentViewController.h */,
+				46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */,
+				4657945E19427C67003E3654 /* RecommendedEquipmentTableView.h */,
+				4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */,
 				467E235A193B2BD800CAE53C /* ITTArrowView.h */,
 				467E235B193B2BD800CAE53C /* ITTArrowView.m */,
 				467E235E193B2BD800CAE53C /* ITTSegement.h */,
@@ -530,10 +542,11 @@
 				14377C2319346B0D0028A493 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				14377C2119346B0D0028A493 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				467E236F193B2BD800CAE53C /* EquipmentTableView.m in Sources */,
+				4657946019427C67003E3654 /* RecommendedEquipmentTableView.m in Sources */,
 				14377C0C193469360028A493 /* LeftNavViewController.m in Sources */,
 				467E236C193B2BD800CAE53C /* ITTArrowView.m in Sources */,
 				464BB317193CD162005FFEC0 /* EquipmentBoundButtonView.m in Sources */,
-				467E237B193B68A300CAE53C /* ModiflyEquipmentViewController.m in Sources */,
+				467E237B193B68A300CAE53C /* ModifyEquipmentViewController.m in Sources */,
 				14377C2219346B0D0028A493 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				14377C291934739F0028A493 /* HomeViewController.m in Sources */,
 				467E2374193B4A8D00CAE53C /* EquipmentModel.m in Sources */,
@@ -550,6 +563,7 @@
 				14377C1F19346B0D0028A493 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				14377C2C193474B60028A493 /* LoginViewController.m in Sources */,
 				14377C2619346B0D0028A493 /* SlideNavigationController.m in Sources */,
+				46544FAD19410AA000C5138D /* RecommendedEquipmentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

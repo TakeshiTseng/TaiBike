@@ -19,13 +19,9 @@ CLLocationManager* locationManager =nil;
 {
     // Override point for customization after application launch.
     
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-															 bundle: nil];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
 	LeftNavViewController* leftNav = (LeftNavViewController*)[mainStoryboard instantiateViewControllerWithIdentifier:@"LeftNav"];
-    
     [SlideNavigationController sharedInstance].leftMenu = leftNav;
-    
-    [self startStandardUpdates];
     
     return YES;
 }
@@ -40,6 +36,7 @@ CLLocationManager* locationManager =nil;
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self startStandardUpdates];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

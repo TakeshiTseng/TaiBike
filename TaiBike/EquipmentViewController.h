@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) IBOutlet ASOTwoStateButton *menuButton;
 @property (strong, nonatomic) EquipmentBoundButtonView *menuItemView;
+@property (strong, nonatomic) UIViewController *current;
 
 
 +(EquipmentViewController*)sharedInstance;
@@ -29,5 +30,6 @@
 -(void)removeItem:(EquipmentModel*)model;
 
 - (IBAction)menuButtonAction:(id)sender;
+- (IBAction)segmentedValueChange:(id)sender;
 
 @end

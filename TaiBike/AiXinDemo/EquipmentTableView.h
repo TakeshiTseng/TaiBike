@@ -13,6 +13,4 @@
 
 @property(nonatomic, retain)NSMutableArray *data;
 
--(void)addItem:(EquipmentModel*)model;
-
 @end

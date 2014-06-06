@@ -8,13 +8,15 @@
 
 #import "EquipmentViewController.h"
 #import "ITTSegement.h"
-#import "ModiflyEquipmentViewController.h"
+#import "ModifyEquipmentViewController.h"
+#import "RecommendedEquipmentViewController.h"
 
 @interface EquipmentViewController (){
     IBOutlet UILabel *gramLabel, *unitLabel;
+    IBOutlet UISegmentedControl *viewSegmentedControl;
 }
-@property (weak, nonatomic) IBOutlet UIView *innerView;
 
+@property (weak, nonatomic) IBOutlet UIView *innerView;
 
 @end
 
@@ -30,7 +32,9 @@ NSMutableArray *indexs;
 {
     @synchronized(self) {
         if ( g_instance == nil ) {
-            g_instance = [[self alloc] init];
+                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            g_instance = [mainStoryboard instantiateViewControllerWithIdentifier: @"Equpment"];
+            g_instance.current = g_instance;
         }
     }
     return g_instance;
@@ -48,7 +52,6 @@ NSMutableArray *indexs;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    g_instance =self;
     
     [self initBoundButton];
     
@@ -115,9 +118,7 @@ NSMutableArray *indexs;
     }
 }
 
-- (void)willAnimateRotationToInterfaceOrientation:
-(UIInterfaceOrientation)toInterfaceOrientation
-                                         duration:(NSTimeInterval)duration
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     // Update 'menu button' position to 'menu item view' everytime there is a change in device orientation
     [self.menuItemView setAnimationStartFromHere:self.menuButton.frame];
@@ -248,9 +249,9 @@ NSMutableArray *indexs;
 -(IBAction)addbtn:(id)sender
 {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    ModiflyEquipmentViewController *vc;
+    ModifyEquipmentViewController *vc;
     
-    vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModiflyEquipment"];
+    vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModifyEquipment"];
     NSMutableDictionary* info = [[NSMutableDictionary alloc] init];
     [info setObject:@"new" forKey:@"mode"];
     [vc setInfo:info];
@@ -366,20 +367,37 @@ NSMutableArray *indexs;
     [self.menuItemView setDelegate:self];
 }
 
-- (IBAction) backgroundTap:(id)sender
-{
-    NSLog(@"test");
+- (IBAction)segmentedValueChange:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl*)sender;
+    NSInteger i = [segmentedControl selectedSegmentIndex];
+    UIViewController *vc;
+    
+    switch (i) {
+        default:
+        case 0:
+            vc = [EquipmentViewController sharedInstance];
+            _current = vc;
+            break;
+        case 1:
+            vc = [RecommendedEquipmentViewController sharedInstance];
+            _current = vc;
+            break;
+    }
+    [self performSelectorOnMainThread:@selector(refreshSegmentedControl:) withObject:[[NSNumber alloc]initWithInt:i] waitUntilDone:YES];
+    
+//    [self setNeedsStatusBarAppearanceUpdate];
+//    [[RecommendedEquipmentViewController sharedInstance].view setNeedsDisplay];
+    
+    SlideNavigationController *navigationController = [SlideNavigationController sharedInstance];
+    [navigationController popToRootAndSwitchToViewController:vc withSlideOutAnimation:NO andCompletion:nil];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+-(void)refreshSegmentedControl:(id)index
+{
+    NSNumber *number = (NSNumber*)index;
+    int i = [number intValue];
+    [viewSegmentedControl setSelectedSegmentIndex:i];
+    [[RecommendedEquipmentViewController sharedInstance].viewSegmentedControl setSelectedSegmentIndex:i];
+}
 
 @end

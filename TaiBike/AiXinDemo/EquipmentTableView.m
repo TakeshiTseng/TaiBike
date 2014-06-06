@@ -9,9 +9,13 @@
 #import "EquipmentTableView.h"
 #import "EquipmentCell.h"
 #import "EquipmentViewController.h"
-#import "ModiflyEquipmentViewController.h"
+#import "ModifyEquipmentViewController.h"
 
-@implementation EquipmentTableView
+@implementation EquipmentTableView{
+    NSMutableArray* groupNames;
+}
+
+int mode =1;
 
 - (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
@@ -35,9 +39,10 @@
     self.delegate = self;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.data.count;
+        return self.data.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,17 +66,10 @@
     [info setObject:@"modifly" forKey:@"mode"];
     [info setObject:model forKey:@"model"];
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    ModiflyEquipmentViewController *vc;
-    vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModiflyEquipment"];
+    ModifyEquipmentViewController *vc;
+    vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModifyEquipment"];
     [vc setInfo:info];
     [[EquipmentViewController sharedInstance].navigationController pushViewController:vc animated:YES];
-}
-
--(void)addItem:(EquipmentModel *)model
-{
-    [self.data addObject:model];
-    [self reloadData];
-    [self updateConstraints];
 }
 
 @end

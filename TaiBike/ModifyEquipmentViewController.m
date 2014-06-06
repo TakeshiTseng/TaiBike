@@ -6,11 +6,11 @@
 //  Copyright (c) 2014年 Takeshi. All rights reserved.
 //
 
-#import "ModiflyEquipmentViewController.h"
+#import "ModifyEquipmentViewController.h"
 #import "EquipmentViewController.h"
 #import "EquipmentModel.h"
 
-@implementation ModiflyEquipmentViewController{
+@implementation ModifyEquipmentViewController{
     
     IBOutlet UITextField *nameTextField, *gramTextField;
     IBOutlet UILabel *titleLabel;

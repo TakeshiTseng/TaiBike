@@ -7,6 +7,7 @@
 //
 
 #import "LeftNavViewController.h"
+#import "EquipmentViewController.h"
 @implementation LeftNavViewController {
 
 }
@@ -38,7 +39,8 @@
 			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Profile"];
 			break;
 		case 3:
-			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Equpment"];
+//			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Equpment"];
+            vc = [[EquipmentViewController sharedInstance]current];
 			break;
         case 4:
 			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Record"];

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModiflyEquipmentViewController : UIViewController<UIAlertViewDelegate,UITextFieldDelegate>
+@interface ModifyEquipmentViewController : UIViewController<UIAlertViewDelegate,UITextFieldDelegate>
 
 -(void)setInfo:(id)sender;
 
