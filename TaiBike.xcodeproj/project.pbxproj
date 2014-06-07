@@ -49,6 +49,7 @@
 		46544FAA1940FEB900C5138D /* RecommendedEquipment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46544FA91940FEB900C5138D /* RecommendedEquipment.plist */; };
 		46544FAD19410AA000C5138D /* RecommendedEquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */; };
 		4657946019427C67003E3654 /* RecommendedEquipmentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */; };
+		4657946319433340003E3654 /* RecommendedEquipmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657946219433340003E3654 /* RecommendedEquipmentCell.m */; };
 		467E2366193B2BD800CAE53C /* down_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2354193B2BD800CAE53C /* down_red@2x.png */; };
 		467E2367193B2BD800CAE53C /* down_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2355193B2BD800CAE53C /* down_white@2x.png */; };
 		467E2368193B2BD800CAE53C /* index@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2356193B2BD800CAE53C /* index@2x.png */; };
@@ -144,6 +145,8 @@
 		46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentViewController.m; sourceTree = "<group>"; };
 		4657945E19427C67003E3654 /* RecommendedEquipmentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedEquipmentTableView.h; sourceTree = "<group>"; };
 		4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentTableView.m; sourceTree = "<group>"; };
+		4657946119433340003E3654 /* RecommendedEquipmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedEquipmentCell.h; sourceTree = "<group>"; };
+		4657946219433340003E3654 /* RecommendedEquipmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentCell.m; sourceTree = "<group>"; };
 		467E2354193B2BD800CAE53C /* down_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_red@2x.png"; sourceTree = "<group>"; };
 		467E2355193B2BD800CAE53C /* down_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_white@2x.png"; sourceTree = "<group>"; };
 		467E2356193B2BD800CAE53C /* index@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index@2x.png"; sourceTree = "<group>"; };
@@ -389,6 +392,8 @@
 				46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */,
 				4657945E19427C67003E3654 /* RecommendedEquipmentTableView.h */,
 				4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */,
+				4657946119433340003E3654 /* RecommendedEquipmentCell.h */,
+				4657946219433340003E3654 /* RecommendedEquipmentCell.m */,
 				467E235A193B2BD800CAE53C /* ITTArrowView.h */,
 				467E235B193B2BD800CAE53C /* ITTArrowView.m */,
 				467E235E193B2BD800CAE53C /* ITTSegement.h */,
@@ -537,6 +542,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4657946319433340003E3654 /* RecommendedEquipmentCell.m in Sources */,
 				464BB314193CCE22005FFEC0 /* ASOTwoStateButton.m in Sources */,
 				14377C2019346B0D0028A493 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				14377C2319346B0D0028A493 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,

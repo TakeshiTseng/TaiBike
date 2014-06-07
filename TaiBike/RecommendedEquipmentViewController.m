@@ -49,7 +49,7 @@ NSMutableArray *groupName=nil;
     // Do any additional setup after loading the view.
     [_viewSegmentedControl setSelectedSegmentIndex:1];
     
-    groupName = [[NSMutableArray alloc]init];
+    groupName = [[NSMutableArray alloc]initWithObjects:@"人身物品", @"配件物品", @"食物飲水", @"簡易工具", @"其他裝備", nil];
     [self loadRecommendedEquipmentPlist];
     recommendedata = [self loadDataFromRecommendedEquipmentPlist];
     
@@ -67,11 +67,11 @@ NSMutableArray *groupName=nil;
     self.modalPresentationCapturesStatusBarAppearance = NO;
     
     //    NSArray *items = @[@"ID", @"名稱", @"重量"];
-    NSArray *items = @[@"攜帶", @"名稱", @"重量"];
+    NSArray *items = @[@"名稱", @"重量"];
     ITTSegement *segment = [[ITTSegement alloc] initWithItems:items];
     segment.frame = CGRectMake(0, 0, 320, 40);
     segment.selectedIndex = 0;
-//    [segment addTarget:self action:@selector(sgAction:) forControlEvents:UIControlEventValueChanged];
+    [segment addTarget:self action:@selector(sgAction:) forControlEvents:UIControlEventValueChanged];
     
     [self.innerView addSubview:segment];
 }
@@ -126,7 +126,6 @@ NSMutableArray *groupName=nil;
                 break;
         }
         
-        [groupName addObject:key];
         NSMutableDictionary* group = (NSMutableDictionary*) [recommendedEquipmentDictionary objectForKey:key];
         int len = [(NSString*)[group objectForKey:@"default length"]intValue];
         NSMutableArray *groupData = [[NSMutableArray alloc]init];
@@ -148,6 +147,38 @@ NSMutableArray *groupName=nil;
     }
     NSLog(@"%i",[data count]);
     return data;
+}
+
+-(void)sgAction:(ITTSegement *)sg
+{
+    NSLog(@"%d %d", sg.selectedIndex, sg.currentState);
+    
+    NSMutableArray *data = self.tableView.data;
+    
+    
+    
+    for (int i=0;i<5;i++) {
+        NSArray *group = [data objectAtIndex:i];
+        
+        for (EquipmentModel *model in group) {
+            if (sg.currentState == UPStates) {
+                model.isUp = YES;
+            } else {
+                model.isUp = NO;
+            }
+        }
+        
+        if (sg.selectedIndex == 1) {
+            group = [group sortedArrayUsingSelector:@selector(compareName:)];
+        } else {
+            group = [group sortedArrayUsingSelector:@selector(comparegram:)];
+        }
+        [data removeObjectAtIndex:i];
+        [data insertObject:group atIndex:i];
+    }
+    
+    self.tableView.data = data;
+    [self.tableView reloadData];
 }
 
 

@@ -67,7 +67,7 @@ NSMutableArray *indexs;
     self.modalPresentationCapturesStatusBarAppearance = NO;
     
     //    NSArray *items = @[@"ID", @"名稱", @"重量"];
-    NSArray *items = @[@"攜帶", @"名稱", @"重量"];
+    NSArray *items = @[@"重量計算", @"名稱", @"重量"];
     ITTSegement *segment = [[ITTSegement alloc] initWithItems:items];
     segment.frame = CGRectMake(0, 0, 320, 40);
     segment.selectedIndex = 0;

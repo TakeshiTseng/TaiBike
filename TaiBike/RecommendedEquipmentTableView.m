@@ -7,7 +7,9 @@
 //
 
 #import "RecommendedEquipmentTableView.h"
-#import "EquipmentCell.h"
+#import "RecommendedEquipmentCell.h"
+#import "ModifyEquipmentViewController.h"
+#import "RecommendedEquipmentViewController.h"
 
 @implementation RecommendedEquipmentTableView
 
@@ -51,13 +53,38 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *identify = @"cellId";
-    EquipmentCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
+    RecommendedEquipmentCell *cell = [tableView dequeueReusableCellWithIdentifier:identify];
     if (cell == nil) {
-        cell = [[EquipmentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
+        cell = [[RecommendedEquipmentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identify];
     }
 
     cell.model = [self.data[indexPath.section] objectAtIndex:indexPath.row];
     return cell;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    EquipmentModel *model = [self.data[indexPath.section]objectAtIndex:indexPath.row];
+    NSMutableDictionary *info = [[NSMutableDictionary alloc]init];
+    [info setObject:@"Recommended" forKey:@"mode"];
+    [info setObject:model forKey:@"model"];
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    ModifyEquipmentViewController *vc;
+    vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModifyEquipment"];
+    [vc setInfo:info];
+    [[RecommendedEquipmentViewController sharedInstance].navigationController pushViewController:vc animated:YES];
 }
 
 @end

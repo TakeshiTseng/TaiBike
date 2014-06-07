@@ -23,10 +23,9 @@
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
-    self = [super initWithCoder:aDecoder];NSLog(@"init");
+    self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
-        NSLog(@"init");
     }
     return self;
 }
@@ -36,7 +35,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        NSLog(@"init");
     }
     return self;
 }
@@ -47,21 +45,25 @@
     // Do any additional setup after loading the view.
     NSLog(@"Mode:%@",_mode);
     
-    if ([_mode isEqualToString:@"modifly"]) {
-        [titleLabel setText:@"修改裝備"];
+    if ([_mode isEqualToString:@"new"]) {
+        titleLabel.text = @"新增裝備";
+        [deleteButton setHidden:YES];
+    } else {
         [nameTextField setText:model.name];
-        [nameTextField setEnabled:NO];
-        
+        if ([_mode isEqualToString:@"modifly"]) {
+            [titleLabel setText:@"修改裝備"];
+        }else if ([_mode isEqualToString:@"Recommended"]){
+            [titleLabel setText:@"推薦裝備新增"];
+            [deleteButton setHidden:YES];
+        }
         if(model.gram>=1000){
             [gramTextField setText:[NSString stringWithFormat:@"%.1lf",model.gram/1000.0]];
         }else{
             [segment setSelectedSegmentIndex:1];
             [gramTextField setText:[NSString stringWithFormat:@"%i",model.gram]];
         }
-    }else{
-        titleLabel.text = @"新增裝備";
-        [deleteButton setHidden:YES];
     }
+    
     [gramTextField setDelegate:self];
     [gramTextField setKeyboardType:UIKeyboardTypeNumbersAndPunctuation];
 }
@@ -74,7 +76,7 @@
 
 /*
  Info - NSMutableDirectory
- [Mode] key:"mode" - NSString ,value:{new, modifly}
+ [Mode] key:"mode" - NSString ,value:{new, modifly, recommended}
  [Model] key:"model" - EquipmentModel
  */
 - (void)setInfo:(id)sender
@@ -84,7 +86,7 @@
     NSString *mode = [info objectForKey:@"mode"];
     _mode = mode;
     
-    if ([mode isEqualToString:@"modifly"]) {
+    if ([mode isEqualToString:@"modifly"] || [mode isEqualToString:@"Recommended"]) {
         _mode = mode;
         model = (EquipmentModel*)[info objectForKey:@"model"];
     }else{
@@ -103,11 +105,15 @@
     }
     model.gram = g;
     
-    if ([_mode isEqualToString:@"new"]) {
+    if ([_mode isEqualToString:@"modify"]) {
+        [equipmentview modiflyItem:model];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"修改" message:@"裝備修改成功." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+    }else{
         model.name = nameTextField.text;
         [equipmentview addItem:model];
-    }else{
-        [equipmentview modiflyItem:model];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"新增" message:@"裝備新增成功." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
     }
     
     [self.navigationController popViewControllerAnimated:YES];
