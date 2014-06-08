@@ -13,7 +13,11 @@
 
 @end
 
-@implementation HomeViewController
+@implementation HomeViewController{
+    IBOutlet UILabel *messageLabel;
+    IBOutlet UIView *planView;
+    IBOutlet UITableView *planTableView;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +32,17 @@
 {
     [super viewDidLoad];
     
+    //水平線
+    UIView *horizontalLine = [[UIView alloc] initWithFrame:CGRectMake(20, planView.frame.origin.y-1, self.view.frame.size.width-40, 1.0)];
+    horizontalLine.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:horizontalLine];
     
+    UILabel * test = [[UILabel alloc]init];
+    [test setText:@"目前尚無任何計劃"];
+    test.frame = CGRectMake(10, 5, 300, 20);
+    test.font = [UIFont systemFontOfSize:15];
+    test.textAlignment = NSTextAlignmentCenter;
+    [planView addSubview:test];
     
 }
 

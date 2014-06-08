@@ -67,7 +67,6 @@ RecordViewController *instance = nil;
     return instance;
 }
 
-
 #pragma mark - Navigation
 
 -(void)startStandardUpdates
@@ -219,7 +218,7 @@ RecordViewController *instance = nil;
         [locationRecord setObject:index forKey:@"index"];
         [locationRecord setObject:[self getTimeNSString] forKey:@"stert_time"];
         
-        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateLoacationPlist:) userInfo:nil repeats:YES];
+        timer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(updateLoacationPlist:) userInfo:nil repeats:YES];
     }
 }
 

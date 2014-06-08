@@ -8,13 +8,15 @@
 
 #import "EquipmentViewController.h"
 #import "ITTSegement.h"
-#import "ModiflyEquipmentViewController.h"
+#import "ModifyEquipmentViewController.h"
+#import "RecommendedEquipmentViewController.h"
 
 @interface EquipmentViewController (){
     IBOutlet UILabel *gramLabel, *unitLabel;
+    IBOutlet UISegmentedControl *viewSegmentedControl;
 }
-@property (weak, nonatomic) IBOutlet UIView *innerView;
 
+@property (weak, nonatomic) IBOutlet UIView *innerView;
 
 @end
 
@@ -30,7 +32,9 @@ NSMutableArray *indexs;
 {
     @synchronized(self) {
         if ( g_instance == nil ) {
-            g_instance = [[self alloc] init];
+                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            g_instance = [mainStoryboard instantiateViewControllerWithIdentifier: @"Equpment"];
+            g_instance.current = g_instance;
         }
     }
     return g_instance;
@@ -48,7 +52,6 @@ NSMutableArray *indexs;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    g_instance =self;
     
     [self initBoundButton];
     
@@ -58,6 +61,7 @@ NSMutableArray *indexs;
     data = [self loadDataFromEquipmentPlist];
     
     self.tableView.data = data;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars = NO;
@@ -103,7 +107,6 @@ NSMutableArray *indexs;
     [self.menuButton sendActionsForControlEvents:UIControlEventTouchUpInside];
     
     // Set your custom action for each selected 'menu item button' here
-    
     switch (index) {
         case 0://add
             [self addbtn:nil];
@@ -116,9 +119,7 @@ NSMutableArray *indexs;
     }
 }
 
-- (void)willAnimateRotationToInterfaceOrientation:
-(UIInterfaceOrientation)toInterfaceOrientation
-                                         duration:(NSTimeInterval)duration
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
     // Update 'menu button' position to 'menu item view' everytime there is a change in device orientation
     [self.menuItemView setAnimationStartFromHere:self.menuButton.frame];
@@ -152,7 +153,7 @@ NSMutableArray *indexs;
     }
     
     if (sg.selectedIndex == 0) {
-        data = [data sortedArrayUsingSelector:@selector(compareID:)];
+        data = [data sortedArrayUsingSelector:@selector(compareSelect:)];
     } else if (sg.selectedIndex == 1) {
         data = [data sortedArrayUsingSelector:@selector(compareName:)];
     } else {
@@ -168,7 +169,7 @@ NSMutableArray *indexs;
     NSMutableArray *data = [NSMutableArray array];
     indexs =(NSMutableArray*)[equipmentDictionary objectForKey:@"indexs"];
     int length =[(NSString*) [equipmentDictionary objectForKey:@"length"]intValue];
-    
+    NSLog(@"%@",equipmentDictionary);
     
     for (int i = 0; i<length; i++) {
         NSString *key = [indexs objectAtIndex:i];
@@ -177,11 +178,16 @@ NSMutableArray *indexs;
         int ID = [key intValue];
         NSString *name = [item objectForKey:@"name"];
         int gram = [[item objectForKey:@"gram"]intValue];
+        BOOL isSelect = [(NSString*)[item objectForKey:@"select"] isEqualToString:@"YES"];
         
         EquipmentModel *model = [[EquipmentModel alloc]init];
         model.equipmentID=ID;
         model.name=name;
         model.gram=gram;
+        model.isSelsct=isSelect;
+        if(isSelect){
+            NSLog(@"%@ Y",model.name);
+        }
         
         [data addObject:model];
     }
@@ -244,15 +250,19 @@ NSMutableArray *indexs;
 -(IBAction)addbtn:(id)sender
 {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    ModiflyEquipmentViewController *vc;
-    vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModiflyEquipment"];
-    [vc setMode:@"new"];
+    ModifyEquipmentViewController *vc;
+    
+    vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ModifyEquipment"];
+    NSMutableDictionary* info = [[NSMutableDictionary alloc] init];
+    [info setObject:@"new" forKey:@"mode"];
+    [vc setInfo:info];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)addItem:(EquipmentModel*) model
 {
     model.equipmentID = ++IDCount;
+    [indexs addObject:[NSString stringWithFormat:@"%i",IDCount]];
     [self addItemToEquipmentPlist:model];
     [(NSMutableArray*)self.tableView.data addObject:model];
     data = (NSMutableArray*)self.tableView.data;
@@ -267,8 +277,12 @@ NSMutableArray *indexs;
     NSMutableDictionary* data = [[NSMutableDictionary alloc]init];
     [data setObject:model.name forKey:@"name"];
     [data setObject:[NSString stringWithFormat:@"%i",model.gram] forKey:@"gram"];
+    if(model.isSelsct){
+        [data setObject:@"YES" forKey:@"select"];
+    }else{
+        [data setObject:@"NO" forKey:@"select"];
+    }
     
-    [indexs addObject:indexString];
     NSString *length =[NSString stringWithFormat:@"%i",[indexs count]];
     [equipmentDictionary setObject:data forKey:indexString];
     [equipmentDictionary setObject:indexs forKey:@"indexs"];
@@ -278,19 +292,58 @@ NSMutableArray *indexs;
     [self storeEquipmentPlist];
 }
 
+-(void)modiflyItem:(EquipmentModel*) model
+{
+    [self addItemToEquipmentPlist:model];
+    NSInteger row = [self.tableView.data indexOfObject:model];
+    [(NSMutableArray*)self.tableView.data removeObjectAtIndex:row];
+    [(NSMutableArray*)self.tableView.data insertObject:model atIndex:row];
+    data = (NSMutableArray*)self.tableView.data;
+    [self.tableView reloadData];
+    [self calculateWeight];
+}
+
+- (void)removeItem:(EquipmentModel*) model
+{
+    [indexs removeObject:[NSString stringWithFormat:@"%i",model.equipmentID]];
+    [self removeItemToEquipmentPlist:model];
+    
+    NSInteger row = [self.tableView.data indexOfObject:model];
+    [(NSMutableArray*)self.tableView.data removeObjectAtIndex:row];
+    data = (NSMutableArray*)self.tableView.data;
+    [self.tableView reloadData];
+    [self calculateWeight];
+}
+
+- (void)removeItemToEquipmentPlist:(EquipmentModel*) model
+{
+    NSString *indexString =[NSString stringWithFormat:@"%i",model.equipmentID];
+    [equipmentDictionary removeObjectForKey:indexString];
+    
+    NSString *length =[NSString stringWithFormat:@"%i",[indexs count]];
+    [equipmentDictionary setObject:indexs forKey:@"indexs"];
+    [equipmentDictionary setObject:length forKey:@"length"];
+    
+    [self storeEquipmentPlist];
+}
+
 -(void)calculateWeight
 {
-    int total = 0;
+    float total = 0;
     for (EquipmentModel *modle in data) {
-        total+=modle.gram;
-    }
-    gramLabel.text = [NSString stringWithFormat:@"%i",total];
+        if(modle.isSelsct){
+            total+=modle.gram;
+        }
+    };
     
     if(total >=1000){
+        total=total/1000;
         unitLabel.text = @"公斤";
     }else{
         unitLabel.text = @"公克";
     }
+    
+    gramLabel.text = [NSString stringWithFormat:@"%.1f",total];
 }
 
 - (void)initBoundButton
@@ -315,15 +368,37 @@ NSMutableArray *indexs;
     [self.menuItemView setDelegate:self];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (IBAction)segmentedValueChange:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl*)sender;
+    NSInteger i = [segmentedControl selectedSegmentIndex];
+    UIViewController *vc;
+    
+    switch (i) {
+        default:
+        case 0:
+            vc = [EquipmentViewController sharedInstance];
+            _current = vc;
+            break;
+        case 1:
+            vc = [RecommendedEquipmentViewController sharedInstance];
+            _current = vc;
+            break;
+    }
+    [self performSelectorOnMainThread:@selector(refreshSegmentedControl:) withObject:[[NSNumber alloc]initWithInt:i] waitUntilDone:YES];
+    
+//    [self setNeedsStatusBarAppearanceUpdate];
+//    [[RecommendedEquipmentViewController sharedInstance].view setNeedsDisplay];
+    
+    SlideNavigationController *navigationController = [SlideNavigationController sharedInstance];
+    [navigationController popToRootAndSwitchToViewController:vc withSlideOutAnimation:NO andCompletion:nil];
+}
+
+-(void)refreshSegmentedControl:(id)index
+{
+    NSNumber *number = (NSNumber*)index;
+    int i = [number intValue];
+    [viewSegmentedControl setSelectedSegmentIndex:i];
+    [[RecommendedEquipmentViewController sharedInstance].viewSegmentedControl setSelectedSegmentIndex:i];
+}
 
 @end

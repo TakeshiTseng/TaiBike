@@ -6,13 +6,14 @@
 //  Copyright (c) 2014年 Takeshi. All rights reserved.
 //
 
-#import "EquipmentCell.h"
+#import "RecommendedEquipmentCell.h"
 #import "EquipmentViewController.h"
+#import "ModifyEquipmentViewController.h"
 
-@implementation EquipmentCell
+@implementation RecommendedEquipmentCell
 {
-    UILabel *idLabel, *nameLabel, *gramLabel;
-    UISwitch *carrySwitch;
+    UILabel *idLabel, *nameLabel, *gramLabel, *msgLabel;
+    UIButton *addbtn;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -31,13 +32,20 @@
     //    idLabel.textAlignment = NSTextAlignmentCenter;
     //    [self addSubview: idLabel];
     
-    carrySwitch = [[UISwitch alloc]init];
-    [self addSubview:carrySwitch];
+    addbtn = [[UIButton alloc]init];
+    [self addSubview:addbtn];
     
     nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    nameLabel.font = [UIFont systemFontOfSize:12];
-    nameLabel.textAlignment = NSTextAlignmentCenter;
+    nameLabel.font = [UIFont systemFontOfSize:18];
+    nameLabel.textAlignment = NSTextAlignmentLeft;
     [self addSubview:nameLabel];
+    
+    msgLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    msgLabel.font = [UIFont systemFontOfSize:14];
+    msgLabel.textAlignment = NSTextAlignmentLeft;
+    [self addSubview:msgLabel];
+    
+    
     
     gramLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     gramLabel.font = [UIFont systemFontOfSize:12];
@@ -61,28 +69,22 @@
     //    idLabel.text = [NSString stringWithFormat:@"%d", _model.equipmentID];
     
     //1
-    carrySwitch.frame = CGRectMake(10, 5, 40, 30);
-    [carrySwitch setOn:_model.isSelsct];
-    [carrySwitch addTarget:self action:@selector(selectCarry) forControlEvents:UIControlEventTouchUpInside];
+    nameLabel.frame = CGRectMake(10, 5, 250, 20);
+    nameLabel.text = [NSString stringWithFormat:@"%@", _model.name];
+    //msg
+    msgLabel.frame = CGRectMake(30, 25, 220, 30);
+    msgLabel.text = [NSString stringWithFormat:@"%@",_model.msg];
+    msgLabel.numberOfLines = 3;
+    
     
     //2
-    nameLabel.frame = CGRectMake(width-30, 5, width+70, 30);
-    nameLabel.text = [NSString stringWithFormat:@"%@", _model.name];
-    
-    gramLabel.frame = CGRectMake(2*width+50, 5, 50, 30);
+    gramLabel.frame = CGRectMake(2*width+50, 15, 50, 30);
     if(_model.gram>=1000){
         float g = _model.gram/1000.0;
         gramLabel.text = [NSString stringWithFormat:@"%.2f kg", g];
     }else{
         gramLabel.text = [NSString stringWithFormat:@"%i g", _model.gram];
     }
-}
-
-- (void)selectCarry
-{
-    _model.isSelsct = !_model.isSelsct;
-    [[EquipmentViewController sharedInstance] modiflyItem:_model];
-    [carrySwitch setOn:_model.isSelsct];
 }
 
 @end
