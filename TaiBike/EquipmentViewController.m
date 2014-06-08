@@ -61,6 +61,7 @@ NSMutableArray *indexs;
     data = [self loadDataFromEquipmentPlist];
     
     self.tableView.data = data;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars = NO;
