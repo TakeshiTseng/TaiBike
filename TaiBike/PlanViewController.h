@@ -10,12 +10,10 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "SlideNavigationController.h"
+#import "ProfileViewController.h"
 
-@interface PlanViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate, SlideNavigationControllerDelegate>{
-    IBOutlet UILabel* locationLabel;
-    IBOutlet UILabel* hightLabel;
-    IBOutlet UILabel* speedLabel;
-    IBOutlet UIButton *recordbutton;
+@interface PlanViewController : UIViewController<MKMapViewDelegate,CLLocationManagerDelegate,SlideNavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
+    NSArray* ridePlans;
 }
 
 @property(strong,nonatomic) NSString *lat,*longt;
@@ -25,9 +23,5 @@
 +(PlanViewController*)sharedInstance;
 -(void)startStandardUpdates;
 -(void)setLocationData:(CLLocation*) newLocation;
-
--(IBAction)recordbtn:(id)sender;
--(IBAction)printbtn:(id)sender;
--(IBAction)resetbtn:(id)sender;
 
 @end
