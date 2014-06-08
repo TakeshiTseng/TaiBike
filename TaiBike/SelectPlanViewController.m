@@ -50,6 +50,7 @@
     PlanViewController* planViewController = [PlanViewController sharedInstance];
     NSString *str = [NSString stringWithFormat:@"計劃：\"%@\" 執行中...",_model.name];
     [planViewController.planLabel setText:str];
+    [PlanViewController sharedInstance].currentPlan = _model;
     [[PlanViewController sharedInstance].navigationController popViewControllerAnimated:YES];
 }
 

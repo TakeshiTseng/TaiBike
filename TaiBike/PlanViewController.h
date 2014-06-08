@@ -17,7 +17,7 @@
     NSArray* ridePlans;
 }
 
-@property(strong, nonatomic)NSMutableDictionary *currentPlan;
+@property(strong, nonatomic) PlanModel *currentPlan;
 @property(strong, nonatomic) IBOutlet UILabel *planLabel;
 
 @property(strong,nonatomic) NSString *lat,*longt;

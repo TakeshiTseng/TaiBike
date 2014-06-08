@@ -39,9 +39,14 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+{NSLog(@"%i",indexPath.row);
     UITableViewCell *c = [[UITableViewCell alloc]init];
-    
+    if (indexPath.row%2 == 0) {
+        NSDictionary* point = _data[indexPath.row/2];
+        c.textLabel.text = [point objectForKey:@"name"];
+    }else{
+        c.textLabel.text=@"\t|";
+    }
     return c;
 }
 
@@ -56,12 +61,12 @@
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end
