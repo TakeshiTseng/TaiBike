@@ -8,8 +8,10 @@
 
 #import "LeftNavViewController.h"
 #import "EquipmentViewController.h"
-@implementation LeftNavViewController {
+#import "PlanViewController.h"
 
+@implementation LeftNavViewController {
+    
 }
 
 
@@ -17,7 +19,7 @@
 {
     self = [super init];
     if (self) {
-
+        
     }
     return self;
 }
@@ -33,13 +35,14 @@
 			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Home"];
             break;
         case 1:
-			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Plan"];
+			//vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Plan"];
+            vc = [PlanViewController sharedInstance];
 			break;
         case 2:
 			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Profile"];
 			break;
 		case 3:
-//			vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Equpment"];
+            //vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"Equpment"];
             vc = [[EquipmentViewController sharedInstance]current];
 			break;
         case 4:

@@ -7,6 +7,7 @@
 //
 
 #import "PlanViewController.h"
+#import "SelectPlanViewController.h"
 
 @interface PlanViewController ()
 
@@ -14,13 +15,16 @@
 
 @implementation PlanViewController
 
+
+
 PlanViewController *g_instance = nil;
 
 + (PlanViewController *)sharedInstance
 {
     @synchronized(self) {
         if ( g_instance == nil ) {
-            g_instance = [[self alloc] init];
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            g_instance = [mainStoryboard instantiateViewControllerWithIdentifier: @"Plan"];
         }
     }
     return g_instance;
@@ -31,7 +35,7 @@ PlanViewController *g_instance = nil;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -39,6 +43,8 @@ PlanViewController *g_instance = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    g_instance = self;
+    
     NSString* authKey = [ProfileViewController getAuthKey];
     NSLog(@"authKey : %@", authKey);
     
@@ -62,8 +68,8 @@ PlanViewController *g_instance = nil;
 }
 
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
 
     return [ridePlans count];
 }
@@ -78,13 +84,26 @@ PlanViewController *g_instance = nil;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cells"];
     }
     
-    
-    
     NSString* name = [plan objectForKey:@"name"];
     NSLog(@"%@", name);
     
     cell.textLabel.text = name;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSUInteger row = [indexPath row];
+    PlanModel *model = [[PlanModel alloc]init];
+    NSDictionary *plan = [ridePlans objectAtIndex:row];
+    
+    model.name = (NSString*)[plan objectForKey:@"name"];
+
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    SelectPlanViewController *vc;
+    vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"SelectPlan"];
+    [vc setModel:model];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

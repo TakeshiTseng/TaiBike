@@ -52,6 +52,8 @@
 		4657946319433340003E3654 /* RecommendedEquipmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657946219433340003E3654 /* RecommendedEquipmentCell.m */; };
 		465794671944B55D003E3654 /* HomePagePlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 465794661944B55D003E3654 /* HomePagePlanTableViewCell.m */; };
 		4657946A1944B594003E3654 /* HomePagePlanTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 465794691944B594003E3654 /* HomePagePlanTableView.m */; };
+		4657946E1944E23C003E3654 /* SelectPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657946D1944E23C003E3654 /* SelectPlanViewController.m */; };
+		465794711944E309003E3654 /* PlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 465794701944E309003E3654 /* PlanModel.m */; };
 		467E2366193B2BD800CAE53C /* down_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2354193B2BD800CAE53C /* down_red@2x.png */; };
 		467E2367193B2BD800CAE53C /* down_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2355193B2BD800CAE53C /* down_white@2x.png */; };
 		467E2368193B2BD800CAE53C /* index@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2356193B2BD800CAE53C /* index@2x.png */; };
@@ -153,6 +155,10 @@
 		465794661944B55D003E3654 /* HomePagePlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePagePlanTableViewCell.m; sourceTree = "<group>"; };
 		465794681944B594003E3654 /* HomePagePlanTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePagePlanTableView.h; sourceTree = "<group>"; };
 		465794691944B594003E3654 /* HomePagePlanTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePagePlanTableView.m; sourceTree = "<group>"; };
+		4657946C1944E23C003E3654 /* SelectPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPlanViewController.h; sourceTree = "<group>"; };
+		4657946D1944E23C003E3654 /* SelectPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPlanViewController.m; sourceTree = "<group>"; };
+		4657946F1944E309003E3654 /* PlanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanModel.h; sourceTree = "<group>"; };
+		465794701944E309003E3654 /* PlanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanModel.m; sourceTree = "<group>"; };
 		467E2354193B2BD800CAE53C /* down_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_red@2x.png"; sourceTree = "<group>"; };
 		467E2355193B2BD800CAE53C /* down_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_white@2x.png"; sourceTree = "<group>"; };
 		467E2356193B2BD800CAE53C /* index@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index@2x.png"; sourceTree = "<group>"; };
@@ -237,8 +243,7 @@
 				14377BE3193468BF0028A493 /* AppDelegate.h */,
 				14377BE4193468BF0028A493 /* AppDelegate.m */,
 				14377BE6193468BF0028A493 /* Main.storyboard */,
-				1457F6831934FC6A009A1259 /* PlanViewController.h */,
-				1457F6841934FC6A009A1259 /* PlanViewController.m */,
+				4657946B1944E211003E3654 /* Plan */,
 				465794641944B4B7003E3654 /* Home */,
 				14377C2A193474B60028A493 /* LoginViewController.h */,
 				14377C2B193474B60028A493 /* LoginViewController.m */,
@@ -374,6 +379,19 @@
 				465794661944B55D003E3654 /* HomePagePlanTableViewCell.m */,
 			);
 			name = Home;
+			sourceTree = "<group>";
+		};
+		4657946B1944E211003E3654 /* Plan */ = {
+			isa = PBXGroup;
+			children = (
+				1457F6831934FC6A009A1259 /* PlanViewController.h */,
+				1457F6841934FC6A009A1259 /* PlanViewController.m */,
+				4657946C1944E23C003E3654 /* SelectPlanViewController.h */,
+				4657946D1944E23C003E3654 /* SelectPlanViewController.m */,
+				4657946F1944E309003E3654 /* PlanModel.h */,
+				465794701944E309003E3654 /* PlanModel.m */,
+			);
+			name = Plan;
 			sourceTree = "<group>";
 		};
 		467E2353193B2BD800CAE53C /* icon */ = {
@@ -562,6 +580,7 @@
 			files = (
 				4657946319433340003E3654 /* RecommendedEquipmentCell.m in Sources */,
 				464BB314193CCE22005FFEC0 /* ASOTwoStateButton.m in Sources */,
+				465794711944E309003E3654 /* PlanModel.m in Sources */,
 				4657946A1944B594003E3654 /* HomePagePlanTableView.m in Sources */,
 				14377C2019346B0D0028A493 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				14377C2319346B0D0028A493 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
@@ -574,6 +593,7 @@
 				467E237B193B68A300CAE53C /* ModifyEquipmentViewController.m in Sources */,
 				14377C2219346B0D0028A493 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				14377C291934739F0028A493 /* HomeViewController.m in Sources */,
+				4657946E1944E23C003E3654 /* SelectPlanViewController.m in Sources */,
 				467E2374193B4A8D00CAE53C /* EquipmentModel.m in Sources */,
 				467E2378193B5BAC00CAE53C /* EquipmentCell.m in Sources */,
 				14377BE5193468BF0028A493 /* AppDelegate.m in Sources */,
