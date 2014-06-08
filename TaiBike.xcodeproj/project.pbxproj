@@ -50,6 +50,8 @@
 		46544FAD19410AA000C5138D /* RecommendedEquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */; };
 		4657946019427C67003E3654 /* RecommendedEquipmentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */; };
 		4657946319433340003E3654 /* RecommendedEquipmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657946219433340003E3654 /* RecommendedEquipmentCell.m */; };
+		465794671944B55D003E3654 /* HomePagePlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 465794661944B55D003E3654 /* HomePagePlanTableViewCell.m */; };
+		4657946A1944B594003E3654 /* HomePagePlanTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 465794691944B594003E3654 /* HomePagePlanTableView.m */; };
 		467E2366193B2BD800CAE53C /* down_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2354193B2BD800CAE53C /* down_red@2x.png */; };
 		467E2367193B2BD800CAE53C /* down_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2355193B2BD800CAE53C /* down_white@2x.png */; };
 		467E2368193B2BD800CAE53C /* index@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2356193B2BD800CAE53C /* index@2x.png */; };
@@ -147,6 +149,10 @@
 		4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentTableView.m; sourceTree = "<group>"; };
 		4657946119433340003E3654 /* RecommendedEquipmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedEquipmentCell.h; sourceTree = "<group>"; };
 		4657946219433340003E3654 /* RecommendedEquipmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentCell.m; sourceTree = "<group>"; };
+		465794651944B55D003E3654 /* HomePagePlanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePagePlanTableViewCell.h; sourceTree = "<group>"; };
+		465794661944B55D003E3654 /* HomePagePlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePagePlanTableViewCell.m; sourceTree = "<group>"; };
+		465794681944B594003E3654 /* HomePagePlanTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePagePlanTableView.h; sourceTree = "<group>"; };
+		465794691944B594003E3654 /* HomePagePlanTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePagePlanTableView.m; sourceTree = "<group>"; };
 		467E2354193B2BD800CAE53C /* down_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_red@2x.png"; sourceTree = "<group>"; };
 		467E2355193B2BD800CAE53C /* down_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down_white@2x.png"; sourceTree = "<group>"; };
 		467E2356193B2BD800CAE53C /* index@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "index@2x.png"; sourceTree = "<group>"; };
@@ -233,8 +239,7 @@
 				14377BE6193468BF0028A493 /* Main.storyboard */,
 				1457F6831934FC6A009A1259 /* PlanViewController.h */,
 				1457F6841934FC6A009A1259 /* PlanViewController.m */,
-				14377C271934739F0028A493 /* HomeViewController.h */,
-				14377C281934739F0028A493 /* HomeViewController.m */,
+				465794641944B4B7003E3654 /* Home */,
 				14377C2A193474B60028A493 /* LoginViewController.h */,
 				14377C2B193474B60028A493 /* LoginViewController.m */,
 				14377C2D19347A730028A493 /* RegisterViewController.h */,
@@ -356,6 +361,19 @@
 				464BB311193CCE22005FFEC0 /* ASOTwoStateButton.m */,
 			);
 			path = TwoStateButton;
+			sourceTree = "<group>";
+		};
+		465794641944B4B7003E3654 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				14377C271934739F0028A493 /* HomeViewController.h */,
+				14377C281934739F0028A493 /* HomeViewController.m */,
+				465794681944B594003E3654 /* HomePagePlanTableView.h */,
+				465794691944B594003E3654 /* HomePagePlanTableView.m */,
+				465794651944B55D003E3654 /* HomePagePlanTableViewCell.h */,
+				465794661944B55D003E3654 /* HomePagePlanTableViewCell.m */,
+			);
+			name = Home;
 			sourceTree = "<group>";
 		};
 		467E2353193B2BD800CAE53C /* icon */ = {
@@ -544,6 +562,7 @@
 			files = (
 				4657946319433340003E3654 /* RecommendedEquipmentCell.m in Sources */,
 				464BB314193CCE22005FFEC0 /* ASOTwoStateButton.m in Sources */,
+				4657946A1944B594003E3654 /* HomePagePlanTableView.m in Sources */,
 				14377C2019346B0D0028A493 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				14377C2319346B0D0028A493 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				14377C2119346B0D0028A493 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
@@ -560,6 +579,7 @@
 				14377BE5193468BF0028A493 /* AppDelegate.m in Sources */,
 				464BB313193CCE22005FFEC0 /* ASOBounceButtonView.m in Sources */,
 				467E236E193B2BD800CAE53C /* ITTSegement.m in Sources */,
+				465794671944B55D003E3654 /* HomePagePlanTableViewCell.m in Sources */,
 				14377C351934868F0028A493 /* EquipmentViewController.m in Sources */,
 				14377C2F19347A730028A493 /* RegisterViewController.m in Sources */,
 				1457F6851934FC6A009A1259 /* PlanViewController.m in Sources */,
