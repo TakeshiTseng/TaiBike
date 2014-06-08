@@ -47,7 +47,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gIa-KZ-rto" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-49" y="560"/>
+            <point key="canvasLocation" x="-36" y="-928"/>
         </scene>
         <!--Home View Controller - 首頁-->
         <scene sceneID="32S-W5-cg1">
@@ -62,7 +62,25 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECA-NG-eif">
-                                <rect key="frame" x="139" y="273" width="46" height="21"/>
+                                <rect key="frame" x="137" y="8" width="46" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GqB-9H-JbN">
+                                <rect key="frame" x="0.0" y="318" width="320" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nRv-zi-iOS" customClass="HomePagePlanTableView">
+                                        <rect key="frame" x="0.0" y="30" width="320" height="220"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.11337398629999999" green="0.99083551729999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6o-XF-tqA">
+                                <rect key="frame" x="20" y="71" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -70,14 +88,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KCV-qq-by3"/>
+                    <navigationItem key="navigationItem" title="即時訊息" id="KCV-qq-by3"/>
                     <connections>
+                        <outlet property="messageLabel" destination="L6o-XF-tqA" id="dQb-9D-d7B"/>
+                        <outlet property="planTableView" destination="nRv-zi-iOS" id="6vi-2A-pEA"/>
+                        <outlet property="planView" destination="GqB-9H-JbN" id="VJs-PR-BGq"/>
                         <segue destination="98Y-g9-WeC" kind="push" identifier="Logout" id="zlW-Oc-gt3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V14-d7-mua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="390"/>
+            <point key="canvasLocation" x="1706" y="-928"/>
         </scene>
         <!--Plan View Controller - 騎乘計畫-->
         <scene sceneID="9is-Cu-jok">
@@ -106,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcn-X5-iuC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1706" y="-260"/>
+            <point key="canvasLocation" x="1706" y="-256"/>
         </scene>
         <!--Profile View Controller - 我的資料-->
         <scene sceneID="fWS-sg-d9z">
@@ -230,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kxm-g0-ztx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="972" y="1155"/>
+            <point key="canvasLocation" x="985" y="-333"/>
         </scene>
         <!--Equipment View Controller - 我的裝備-->
         <scene sceneID="WLJ-vt-dbM">
@@ -638,7 +659,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hxu-86-jaW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="456" y="560"/>
+            <point key="canvasLocation" x="469" y="-928"/>
         </scene>
         <!--Record View Controller - 路線記錄-->
         <scene sceneID="KDW-vB-VHJ">
