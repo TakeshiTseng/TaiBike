@@ -14,6 +14,19 @@
 
 @implementation PlanViewController
 
+PlanViewController *g_instance = nil;
+
++ (PlanViewController *)sharedInstance
+{
+    @synchronized(self) {
+        if ( g_instance == nil ) {
+            g_instance = [[self alloc] init];
+        }
+    }
+    return g_instance;
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
