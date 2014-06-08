@@ -367,6 +367,13 @@
                                     <action selector="menuButtonAction:" destination="ZjT-N6-9QY" eventType="touchUpInside" id="dVM-s6-RlP"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gtt-m2-JID" customClass="UIControl">
+                                <rect key="frame" x="-6" y="0.0" width="326" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="backgroundTap:" destination="E86-Ad-TQK" eventType="touchDown" id="Lal-th-dMa"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <connections>
                             <outlet property="menuButton" destination="CTT-6x-NJq" id="i2f-Qd-9kE"/>
