@@ -41,6 +41,8 @@
     horizontalLine.backgroundColor = [UIColor blackColor];
     [self.view addSubview:horizontalLine];
     
+    planTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     UILabel * planName = [[UILabel alloc]init];
     [planName setText:@"目前尚無任何計劃執行中"];
     planName.frame = CGRectMake(10, 5, 300, 20);
