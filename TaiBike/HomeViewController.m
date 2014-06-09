@@ -89,16 +89,11 @@
     size = size<0?0:size;
     for(int i=0;i<size;i++){
         for (int ii=i+1; ii<size+1; ii++) {
-            NSLog(@"%i , %i",i,ii);
             	// Convert the RFC 3339 date time string to an NSDate.
             NSDate *a = [rfc3339DateFormatter dateFromString:[(NSDictionary*)[data objectAtIndex:i] objectForKey:@"time"]];
             NSDate *b = [rfc3339DateFormatter dateFromString:[(NSDictionary*)[data objectAtIndex:ii] objectForKey:@"time"]];
             
-            NSLog(@"%@",a);
-            NSLog(@"%@",b);
-            
             if ([a compare:b] == NSOrderedDescending) {
-                NSLog(@"Y");
                 NSObject *dataA = [data objectAtIndex:i];
                 NSObject *dataB = [data objectAtIndex:ii];
                 [data removeObjectAtIndex:i];
@@ -108,7 +103,6 @@
             }
         }
     }
-    
     return data;
 }
 
