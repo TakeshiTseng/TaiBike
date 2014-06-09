@@ -10,4 +10,6 @@
 
 @interface HomePagePlanTableViewCell : UITableViewCell
 
+- (void) setInfo:(id)info;
+
 @end
