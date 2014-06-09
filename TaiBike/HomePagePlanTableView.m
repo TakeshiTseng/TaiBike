@@ -7,6 +7,7 @@
 //
 
 #import "HomePagePlanTableView.h"
+#import "HomePagePlanTableViewCell.h"
 
 @implementation HomePagePlanTableView
 
@@ -39,14 +40,17 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{NSLog(@"%i",indexPath.row);
-    UITableViewCell *c = [[UITableViewCell alloc]init];
+{
+    HomePagePlanTableViewCell *c = [[HomePagePlanTableViewCell alloc]init];
+    NSMutableDictionary *info = [[NSMutableDictionary alloc]init];
     if (indexPath.row%2 == 0) {
         NSDictionary* point = _data[indexPath.row/2];
-        c.textLabel.text = [point objectForKey:@"name"];
+        [info setObject:@"point" forKey:@"mode"];
+        [info setObject:point forKey:@"model"];
     }else{
-        c.textLabel.text=@"\t|";
+        [info setObject:@"line" forKey:@"mode"];
     }
+    [c setInfo:info];
     return c;
 }
 
