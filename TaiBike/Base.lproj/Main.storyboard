@@ -464,36 +464,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NB6-TC-flx">
-                                <rect key="frame" x="250" y="113" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="add_bubble_link.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nL-N6-opm">
-                                <rect key="frame" x="244" y="179" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="clear_bubble_link.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTT-6x-NJq" customClass="ASOTwoStateButton">
-                                <rect key="frame" x="280" y="75" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="set_bubble_link.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="OffStateImageName" value="set_bubble_link.png"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="menuButtonAction:" destination="ZjT-N6-9QY" eventType="touchUpInside" id="dVM-s6-RlP"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gtt-m2-JID" customClass="UIControl">
-                                <rect key="frame" x="-6" y="0.0" width="326" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NB6-TC-flx">
+                                        <rect key="frame" x="233" y="108" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="add_bubble_link.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6o-Ns-1Vb">
+                                        <rect key="frame" x="214" y="159" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="button-synchronize.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nL-N6-opm">
+                                        <rect key="frame" x="208" y="217" width="45" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="clear_bubble_link.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTT-6x-NJq" customClass="ASOTwoStateButton">
+                                        <rect key="frame" x="280" y="75" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="set_bubble_link.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="OffStateImageName" value="set_bubble_link.png"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="menuButtonAction:" destination="ZjT-N6-9QY" eventType="touchUpInside" id="dVM-s6-RlP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <connections>
                                     <action selector="backgroundTap:" destination="E86-Ad-TQK" eventType="touchDown" id="Lal-th-dMa"/>
                                 </connections>
@@ -502,7 +511,8 @@
                         <connections>
                             <outlet property="menuButton" destination="CTT-6x-NJq" id="i2f-Qd-9kE"/>
                             <outlet property="menuItem1" destination="NB6-TC-flx" id="Bsi-oz-K0v"/>
-                            <outlet property="menuItem2" destination="9nL-N6-opm" id="5qR-PK-vSj"/>
+                            <outlet property="menuItem2" destination="q6o-Ns-1Vb" id="wLK-4c-8F6"/>
+                            <outlet property="menuItem3" destination="9nL-N6-opm" id="dgY-LE-Jdg"/>
                         </connections>
                     </view>
                 </viewController>
@@ -532,7 +542,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iw3-Nz-hO0">
-                                <rect key="frame" x="66" y="236" width="189" height="30"/>
+                                <rect key="frame" x="66" y="269" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -548,13 +558,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="重量" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieP-NA-1Ey">
-                                <rect key="frame" x="143" y="207" width="34" height="21"/>
+                                <rect key="frame" x="20" y="273" width="34" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tvu-0B-bQT">
+                                <rect key="frame" x="66" y="211" width="189" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="backgroundTap:" destination="Z2p-XC-rIn" eventType="touchDown" id="RzS-xe-uaf"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="說明" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eTs-LJ-H2Z">
+                                <rect key="frame" x="143" y="182" width="34" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ofj-uu-hUm">
-                                <rect key="frame" x="120" y="274" width="81" height="29"/>
+                                <rect key="frame" x="174" y="269" width="81" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="公斤"/>
@@ -565,7 +590,7 @@
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afy-es-zcq">
-                                <rect key="frame" x="66" y="314" width="30" height="30"/>
+                                <rect key="frame" x="199" y="319" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="確定">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -575,7 +600,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TlT-Vo-rmJ">
-                                <rect key="frame" x="225" y="314" width="30" height="30"/>
+                                <rect key="frame" x="106" y="319" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="取消">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -608,9 +633,10 @@
                             <action selector="backgroundTap:" destination="Z2p-XC-rIn" eventType="touchDown" id="hhe-c3-Dfq"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="新增裝備" id="jRB-cB-xp5" customClass="新增裝備"/>
+                    <navigationItem key="navigationItem" title="新增裝備" id="jRB-cB-xp5"/>
                     <connections>
                         <outlet property="deleteButton" destination="IiE-7w-VRt" id="aoa-yO-TUs"/>
+                        <outlet property="descriptionLabel" destination="Tvu-0B-bQT" id="9oA-ue-o4p"/>
                         <outlet property="gramTextField" destination="Iw3-Nz-hO0" id="GhD-5A-s3g"/>
                         <outlet property="nameTextField" destination="kt5-8j-tGm" id="dG0-Mg-mj9"/>
                         <outlet property="segment" destination="Ofj-uu-hUm" id="XXJ-Nz-5TQ"/>
@@ -863,6 +889,7 @@
     <resources>
         <image name="add_bubble_link.png" width="102" height="102"/>
         <image name="bag.png" width="282" height="317"/>
+        <image name="button-synchronize.png" width="64" height="64"/>
         <image name="clear_bubble_link.png" width="102" height="102"/>
         <image name="set_bubble_link.png" width="56" height="56"/>
     </resources>

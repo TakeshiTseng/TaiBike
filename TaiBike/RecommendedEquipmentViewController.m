@@ -131,15 +131,13 @@ NSMutableArray *groupName=nil;
         NSMutableArray *groupData = [[NSMutableArray alloc]init];
         for (int c=1; c<=len; c++) {
             NSMutableDictionary *item = (NSMutableDictionary*)[group objectForKey:[NSString stringWithFormat:@"%i",c]];
-            int ID = i;
             NSString *name = [item objectForKey:@"name"];
-            NSString *msg = [item objectForKey:@"msg"];
+            NSString *description = [item objectForKey:@"description"];
             int gram = [[item objectForKey:@"gram"]intValue];
             
             EquipmentModel *model = [[EquipmentModel alloc]init];
-            model.equipmentID=ID;
             model.name=name;
-            model.msg=msg;
+            model.description=description;
             model.gram=gram;
             [groupData addObject:model];
         }

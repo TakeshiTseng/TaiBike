@@ -12,7 +12,7 @@
 
 @implementation ModifyEquipmentViewController{
     
-    IBOutlet UITextField *nameTextField, *gramTextField;
+    IBOutlet UITextField *nameTextField, *gramTextField, *descriptionLabel;
     IBOutlet UILabel *titleLabel;
     IBOutlet UISegmentedControl *segment;
     IBOutlet UIButton *deleteButton;
@@ -52,10 +52,14 @@
         [nameTextField setText:model.name];
         if ([_mode isEqualToString:@"modifly"]) {
             [titleLabel setText:@"修改裝備"];
+            [nameTextField setEnabled:NO];
         }else if ([_mode isEqualToString:@"Recommended"]){
             [titleLabel setText:@"推薦裝備新增"];
             [deleteButton setHidden:YES];
         }
+        
+        descriptionLabel.text = model.description;
+        
         if(model.gram>=1000){
             [gramTextField setText:[NSString stringWithFormat:@"%.1lf",model.gram/1000.0]];
         }else{
@@ -97,6 +101,9 @@
 -(IBAction)donebtn:(id)sender
 {
     EquipmentViewController *equipmentview = [EquipmentViewController sharedInstance];
+    
+    model.description = descriptionLabel.text;
+    model.weather=[[NSMutableArray alloc]init];
     
     int i = [segment selectedSegmentIndex];
     double g = [gramTextField.text doubleValue];

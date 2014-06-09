@@ -35,7 +35,7 @@
     [self addSubview:carrySwitch];
     
     nameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    nameLabel.font = [UIFont systemFontOfSize:12];
+    nameLabel.font = [UIFont systemFontOfSize:15];
     nameLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:nameLabel];
     
