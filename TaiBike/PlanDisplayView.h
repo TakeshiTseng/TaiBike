@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomePagePlanTableView : UITableView<UITableViewDataSource,UITableViewDelegate>
+@interface PlanDisplayView : UITableView<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic, retain)NSMutableArray *data;
 

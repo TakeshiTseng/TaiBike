@@ -13,7 +13,7 @@
 #import "ProfileViewController.h"
 #import "PlanModel.h"
 
-@interface PlanViewController : UIViewController<MKMapViewDelegate,CLLocationManagerDelegate,SlideNavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate> {
+@interface PlanViewController : UIViewController<MKMapViewDelegate,CLLocationManagerDelegate,SlideNavigationControllerDelegate> {
     NSArray* ridePlans;
 }
 
@@ -24,6 +24,12 @@
 @property CLLocationDistance altitude;
 @property CLLocationSpeed speed;
 
+- (void)changeToPlanTableView;
+- (void)changeToPlanDisplayView;
+-(void)setLocationData:(CLLocation*) newLocation;
+-(void)recordbtn:(id)sender;
+
 +(PlanViewController*)sharedInstance;
++ (NSMutableArray*)getPointWithPlanModel:(PlanModel*)model;
 
 @end

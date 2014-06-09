@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 #import "SlideNavigationController.h"
 #import "PlanViewController.h"
-#import "HomePagePlanTableView.h"
+#import "PlanDisplayView.h"
 
 @interface HomeViewController ()
 
@@ -18,8 +18,8 @@
 @implementation HomeViewController{
     IBOutlet UILabel *messageLabel;
     IBOutlet UIView *planView;
-    IBOutlet HomePagePlanTableView *planTableView;
-    
+    IBOutlet PlanDisplayView *planTableView;
+    IBOutlet UIWebView *v;
     PlanModel *planModel;
 }
 
@@ -35,6 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1/weather.html"];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [v loadRequest:requestObj];
     
     //水平線
     UIView *horizontalLine = [[UIView alloc] initWithFrame:CGRectMake(20, planView.frame.origin.y-1, self.view.frame.size.width-40, 1.0)];
@@ -55,7 +58,7 @@
         [planName setText:str];
     }
     [planView addSubview:planName];
-    NSMutableArray* data = [self loadPoint];
+    NSMutableArray* data = [PlanViewController getPointWithPlanModel:planModel];
     planTableView.data = data;
 }
 
@@ -72,39 +75,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSMutableArray*)loadPoint
-{
-    NSMutableArray *data = [[NSMutableArray alloc]init];
-    NSMutableArray* points = planModel.points;
-    
-    for (NSMutableDictionary* point in points) {
-        [data addObject:point];
-    }
-    
-    NSDateFormatter *rfc3339DateFormatter = [[NSDateFormatter alloc] init];
-	[rfc3339DateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"];
-	[rfc3339DateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    
-    int size = data.count-1;
-    size = size<0?0:size;
-    for(int i=0;i<size;i++){
-        for (int ii=i+1; ii<size+1; ii++) {
-            	// Convert the RFC 3339 date time string to an NSDate.
-            NSDate *a = [rfc3339DateFormatter dateFromString:[(NSDictionary*)[data objectAtIndex:i] objectForKey:@"time"]];
-            NSDate *b = [rfc3339DateFormatter dateFromString:[(NSDictionary*)[data objectAtIndex:ii] objectForKey:@"time"]];
-            
-            if ([a compare:b] == NSOrderedDescending) {
-                NSObject *dataA = [data objectAtIndex:i];
-                NSObject *dataB = [data objectAtIndex:ii];
-                [data removeObjectAtIndex:i];
-                [data insertObject:dataB atIndex:i];
-                [data removeObjectAtIndex:ii];
-                [data insertObject:dataA atIndex:ii];
-            }
-        }
-    }
-    return data;
-}
+
 
 /*
  #pragma mark - Navigation

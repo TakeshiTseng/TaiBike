@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 Takeshi. All rights reserved.
 //
 
-#import "HomePagePlanTableViewCell.h"
+#import "PlanDisplayViewCell.h"
 
-@implementation HomePagePlanTableViewCell{
+@implementation PlanDisplayViewCell{
     NSString *_mode;
     NSDictionary *_info;
     UILabel *nameLabel, *timeLabel, *arrivalTimeLabel;
@@ -76,7 +76,6 @@
     
     nameLabel.frame = CGRectMake(50, 3, 110, 30);
     nameLabel.text = [point objectForKey:@"name"];
-    NSLog(@"%i",nameLabel.text.length);
     nameLabel.numberOfLines = 2;
     
     timeLabel.frame = CGRectMake(180, 3, 120, 30);

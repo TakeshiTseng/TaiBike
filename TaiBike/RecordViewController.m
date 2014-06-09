@@ -14,7 +14,7 @@
 
 @implementation RecordViewController
 
-@synthesize lat,longt,speed,altitude;
+@synthesize r_lat,r_longt,r_speed,r_altitude;
 
 // 建立一個CLLocationCoordinate2D
 CLLocationCoordinate2D mylocation,userLocation;
@@ -24,8 +24,8 @@ NSTimer* timer;
 //建立一個 Dictionary
 NSMutableDictionary *equpmentDictionary;
 NSMutableDictionary *locationRecord;
-bool recordflag = NO;
-int recordIndex=0,recordCount;
+bool r_recordflag = NO;
+int r_recordIndex=0,recordCount;
 
 RecordViewController *instance = nil;
 
@@ -34,15 +34,15 @@ RecordViewController *instance = nil;
 {
     [super viewDidLoad];
     
-    [self setLat:@"0"];
-    [self setLongt:@"0"];
+    [self setR_lat:@"0"];
+    [self setR_longt:@"0"];
     
     instance = self;
     
     [self loadLocationPlist];
     
     NSString *length = [equpmentDictionary valueForKey:@"length"];
-    recordIndex = [length intValue];
+    r_recordIndex = [length intValue];
     
     [self startStandardUpdates];
     //timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateLoacation:) userInfo:nil repeats:YES]; //持續更新資料庫中使用者位置
@@ -76,7 +76,7 @@ RecordViewController *instance = nil;
     }
     
     locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    locationManager.desiredAccuracy =  kCLLocationAccuracyBest;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     [locationManager startUpdatingLocation];
 }
@@ -94,12 +94,12 @@ RecordViewController *instance = nil;
     NSString *dateString = [self getTimeNSString];
     [data setObject:dateString forKey:@"time"];
     
-    [data setObject:lat forKey:@"latitude"];
-    [data setObject:longt forKey:@"longitude"];
+    [data setObject:r_lat forKey:@"latitude"];
+    [data setObject:r_longt forKey:@"longitude"];
     
-    NSString *altStr = [NSString stringWithFormat:@"%f",altitude];
+    NSString *altStr = [NSString stringWithFormat:@"%f",r_altitude];
     [data setObject:altStr forKey:@"altitude"];
-    NSString *speedStr = [NSString stringWithFormat:@"%f",speed];
+    NSString *speedStr = [NSString stringWithFormat:@"%f",r_speed];
     [data setObject:speedStr forKey:@"speed"];
     
     [locationRecord setObject:data forKey:number];
@@ -119,7 +119,7 @@ RecordViewController *instance = nil;
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    NSLog(@"locationManager running...");
+    NSLog(@"Record locationManager running...");
     [self setLocationData:newLocation];
 }
 
@@ -129,22 +129,22 @@ RecordViewController *instance = nil;
     double decimal = fabs(newLocation.coordinate.latitude - degrees);
     int minutes = decimal * 60;
     double seconds = decimal * 3600 - minutes * 60;
-    lat = [NSString stringWithFormat:@"%d° %d' %1.4f\"",
+    r_lat = [NSString stringWithFormat:@"%d° %d' %1.4f\"",
            degrees, minutes, seconds];
     
     degrees = newLocation.coordinate.longitude;
     decimal = fabs(newLocation.coordinate.longitude - degrees);
     minutes = decimal * 60;
     seconds = decimal * 3600 - minutes * 60;
-    longt = [NSString stringWithFormat:@"%d° %d' %1.4f\"",
+    r_longt = [NSString stringWithFormat:@"%d° %d' %1.4f\"",
              degrees, minutes, seconds];
     
-    altitude = newLocation.altitude;
-    speed = newLocation.speed;
+    r_altitude = newLocation.altitude;
+    r_speed = newLocation.speed;
     
-    [locationLabel setText:[NSString stringWithFormat:@"%@ , %@",lat,longt]];
-    [hightLabel setText:[NSString stringWithFormat:@"%f",altitude]];
-    [speedLabel setText:[NSString stringWithFormat:@"%f",speed]];
+    [locationLabel setText:[NSString stringWithFormat:@"%@ , %@",r_lat,r_longt]];
+    [hightLabel setText:[NSString stringWithFormat:@"%f",r_altitude]];
+    [speedLabel setText:[NSString stringWithFormat:@"%f",r_speed]];
 }
 
 -(void)loadLocationPlist
@@ -194,27 +194,27 @@ RecordViewController *instance = nil;
 
 -(IBAction)recordbtn:(id)sender
 {
-    if (recordflag) {
-        recordflag=NO;
+    if (r_recordflag) {
+        r_recordflag=NO;
         [timer invalidate];
         
         [recordbutton setTitle:@"開始記錄" forState:UIControlStateNormal];
         NSString *length = [NSString stringWithFormat:@"%i",recordCount-1];
         [locationRecord setObject:length forKey:@"length"];
         
-        NSString *index = [NSString stringWithFormat:@"%i",recordIndex];
+        NSString *index = [NSString stringWithFormat:@"%i",r_recordIndex];
         [equpmentDictionary setObject:locationRecord forKey:index];
         [equpmentDictionary setObject:index forKey:@"length"];
         locationRecord =nil;
         [self storeLoctionPlist];
     }else{
-        recordflag=YES;
+        r_recordflag=YES;
         
         [recordbutton setTitle:@"停止記錄" forState:UIControlStateNormal];
         recordCount=1;
         locationRecord = [[NSMutableDictionary alloc]init];
         
-        NSString *index = [NSString stringWithFormat:@"%i",++recordIndex];
+        NSString *index = [NSString stringWithFormat:@"%i",++r_recordIndex];
         [locationRecord setObject:index forKey:@"index"];
         [locationRecord setObject:[self getTimeNSString] forKey:@"stert_time"];
         

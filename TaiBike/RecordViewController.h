@@ -18,9 +18,9 @@
     IBOutlet UIButton *recordbutton;
 }
 
-@property(strong,nonatomic) NSString *lat,*longt;
-@property CLLocationDistance altitude;
-@property CLLocationSpeed speed;
+@property(strong,nonatomic) NSString *r_lat,*r_longt;
+@property CLLocationDistance r_altitude;
+@property CLLocationSpeed r_speed;
 
 +(RecordViewController*)getInstance;
 -(void)startStandardUpdates;

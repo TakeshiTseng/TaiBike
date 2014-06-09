@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomePagePlanTableViewCell : UITableViewCell
+@interface PlanDisplayViewCell : UITableViewCell
 
 - (void) setInfo:(id)info;
 

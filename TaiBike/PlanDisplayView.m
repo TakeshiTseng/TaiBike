@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 Takeshi. All rights reserved.
 //
 
-#import "HomePagePlanTableView.h"
-#import "HomePagePlanTableViewCell.h"
+#import "PlanDisplayView.h"
+#import "PlanDisplayViewCell.h"
 
-@implementation HomePagePlanTableView
+@implementation PlanDisplayView
 
 - (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
@@ -41,7 +41,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HomePagePlanTableViewCell *c = [[HomePagePlanTableViewCell alloc]init];
+    PlanDisplayViewCell *c = [[PlanDisplayViewCell alloc]init];
     NSMutableDictionary *info = [[NSMutableDictionary alloc]init];
     if (indexPath.row%2 == 0) {
         NSDictionary* point = _data[indexPath.row/2];

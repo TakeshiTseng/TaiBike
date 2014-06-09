@@ -50,6 +50,9 @@
 		4616DA781945A05900B73CE9 /* post_type_bubble_link@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616DA6A1945A05900B73CE9 /* post_type_bubble_link@2x.png */; };
 		4616DA791945A05900B73CE9 /* post_type_bubble_link@2x.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4616DA6B1945A05900B73CE9 /* post_type_bubble_link@2x.psd */; };
 		4616DA7A1945A05900B73CE9 /* set_bubble_link@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616DA6C1945A05900B73CE9 /* set_bubble_link@2x.png */; };
+		4616DA8319462C4000B73CE9 /* PlanTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4616DA8219462C4000B73CE9 /* PlanTableView.m */; };
+		4616DA861946428D00B73CE9 /* friendWalk.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4616DA841946428D00B73CE9 /* friendWalk.gpx */; };
+		4616DA871946428D00B73CE9 /* Taipei.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4616DA851946428D00B73CE9 /* Taipei.gpx */; };
 		464BB313193CCE22005FFEC0 /* ASOBounceButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB30D193CCE22005FFEC0 /* ASOBounceButtonView.m */; };
 		464BB314193CCE22005FFEC0 /* ASOTwoStateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB311193CCE22005FFEC0 /* ASOTwoStateButton.m */; };
 		464BB317193CD162005FFEC0 /* EquipmentBoundButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB316193CD162005FFEC0 /* EquipmentBoundButtonView.m */; };
@@ -57,8 +60,8 @@
 		46544FAD19410AA000C5138D /* RecommendedEquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */; };
 		4657946019427C67003E3654 /* RecommendedEquipmentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */; };
 		4657946319433340003E3654 /* RecommendedEquipmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657946219433340003E3654 /* RecommendedEquipmentCell.m */; };
-		465794671944B55D003E3654 /* HomePagePlanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 465794661944B55D003E3654 /* HomePagePlanTableViewCell.m */; };
-		4657946A1944B594003E3654 /* HomePagePlanTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 465794691944B594003E3654 /* HomePagePlanTableView.m */; };
+		465794671944B55D003E3654 /* PlanDisplayViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 465794661944B55D003E3654 /* PlanDisplayViewCell.m */; };
+		4657946A1944B594003E3654 /* PlanDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 465794691944B594003E3654 /* PlanDisplayView.m */; };
 		4657946E1944E23C003E3654 /* SelectPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657946D1944E23C003E3654 /* SelectPlanViewController.m */; };
 		465794711944E309003E3654 /* PlanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 465794701944E309003E3654 /* PlanModel.m */; };
 		467E2366193B2BD800CAE53C /* down_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 467E2354193B2BD800CAE53C /* down_red@2x.png */; };
@@ -149,6 +152,10 @@
 		4616DA6A1945A05900B73CE9 /* post_type_bubble_link@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "post_type_bubble_link@2x.png"; sourceTree = "<group>"; };
 		4616DA6B1945A05900B73CE9 /* post_type_bubble_link@2x.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "post_type_bubble_link@2x.psd"; sourceTree = "<group>"; };
 		4616DA6C1945A05900B73CE9 /* set_bubble_link@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "set_bubble_link@2x.png"; sourceTree = "<group>"; };
+		4616DA8119462C4000B73CE9 /* PlanTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanTableView.h; sourceTree = "<group>"; };
+		4616DA8219462C4000B73CE9 /* PlanTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanTableView.m; sourceTree = "<group>"; };
+		4616DA841946428D00B73CE9 /* friendWalk.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = friendWalk.gpx; sourceTree = "<group>"; };
+		4616DA851946428D00B73CE9 /* Taipei.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Taipei.gpx; sourceTree = "<group>"; };
 		464BB30C193CCE22005FFEC0 /* ASOBounceButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASOBounceButtonView.h; sourceTree = "<group>"; };
 		464BB30D193CCE22005FFEC0 /* ASOBounceButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASOBounceButtonView.m; sourceTree = "<group>"; };
 		464BB30E193CCE22005FFEC0 /* ASOBounceButtonViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASOBounceButtonViewDelegate.h; sourceTree = "<group>"; };
@@ -163,10 +170,10 @@
 		4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentTableView.m; sourceTree = "<group>"; };
 		4657946119433340003E3654 /* RecommendedEquipmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedEquipmentCell.h; sourceTree = "<group>"; };
 		4657946219433340003E3654 /* RecommendedEquipmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentCell.m; sourceTree = "<group>"; };
-		465794651944B55D003E3654 /* HomePagePlanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePagePlanTableViewCell.h; sourceTree = "<group>"; };
-		465794661944B55D003E3654 /* HomePagePlanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePagePlanTableViewCell.m; sourceTree = "<group>"; };
-		465794681944B594003E3654 /* HomePagePlanTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePagePlanTableView.h; sourceTree = "<group>"; };
-		465794691944B594003E3654 /* HomePagePlanTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePagePlanTableView.m; sourceTree = "<group>"; };
+		465794651944B55D003E3654 /* PlanDisplayViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDisplayViewCell.h; sourceTree = "<group>"; };
+		465794661944B55D003E3654 /* PlanDisplayViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDisplayViewCell.m; sourceTree = "<group>"; };
+		465794681944B594003E3654 /* PlanDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDisplayView.h; sourceTree = "<group>"; };
+		465794691944B594003E3654 /* PlanDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDisplayView.m; sourceTree = "<group>"; };
 		4657946C1944E23C003E3654 /* SelectPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPlanViewController.h; sourceTree = "<group>"; };
 		4657946D1944E23C003E3654 /* SelectPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPlanViewController.m; sourceTree = "<group>"; };
 		4657946F1944E309003E3654 /* PlanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanModel.h; sourceTree = "<group>"; };
@@ -249,6 +256,8 @@
 		14377BDA193468BF0028A493 /* TaiBike */ = {
 			isa = PBXGroup;
 			children = (
+				4616DA841946428D00B73CE9 /* friendWalk.gpx */,
+				4616DA851946428D00B73CE9 /* Taipei.gpx */,
 				14377C09193468DE0028A493 /* Nav */,
 				14377BE3193468BF0028A493 /* AppDelegate.h */,
 				14377BE4193468BF0028A493 /* AppDelegate.m */,
@@ -404,10 +413,6 @@
 			children = (
 				14377C271934739F0028A493 /* HomeViewController.h */,
 				14377C281934739F0028A493 /* HomeViewController.m */,
-				465794681944B594003E3654 /* HomePagePlanTableView.h */,
-				465794691944B594003E3654 /* HomePagePlanTableView.m */,
-				465794651944B55D003E3654 /* HomePagePlanTableViewCell.h */,
-				465794661944B55D003E3654 /* HomePagePlanTableViewCell.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -419,8 +424,14 @@
 				1457F6841934FC6A009A1259 /* PlanViewController.m */,
 				4657946C1944E23C003E3654 /* SelectPlanViewController.h */,
 				4657946D1944E23C003E3654 /* SelectPlanViewController.m */,
+				4616DA8119462C4000B73CE9 /* PlanTableView.h */,
+				4616DA8219462C4000B73CE9 /* PlanTableView.m */,
 				4657946F1944E309003E3654 /* PlanModel.h */,
 				465794701944E309003E3654 /* PlanModel.m */,
+				465794681944B594003E3654 /* PlanDisplayView.h */,
+				465794691944B594003E3654 /* PlanDisplayView.m */,
+				465794651944B55D003E3654 /* PlanDisplayViewCell.h */,
+				465794661944B55D003E3654 /* PlanDisplayViewCell.m */,
 			);
 			name = Plan;
 			sourceTree = "<group>";
@@ -554,7 +565,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4616DA781945A05900B73CE9 /* post_type_bubble_link@2x.png in Resources */,
+				4616DA861946428D00B73CE9 /* friendWalk.gpx in Resources */,
 				14377C2419346B0D0028A493 /* menu-button.png in Resources */,
+				4616DA871946428D00B73CE9 /* Taipei.gpx in Resources */,
 				14377BED193468BF0028A493 /* Images.xcassets in Resources */,
 				4616DA7A1945A05900B73CE9 /* set_bubble_link@2x.png in Resources */,
 				4616DA771945A05900B73CE9 /* clear_bubble_link@2x.psd in Resources */,
@@ -599,8 +612,9 @@
 			files = (
 				4657946319433340003E3654 /* RecommendedEquipmentCell.m in Sources */,
 				464BB314193CCE22005FFEC0 /* ASOTwoStateButton.m in Sources */,
+				4616DA8319462C4000B73CE9 /* PlanTableView.m in Sources */,
 				465794711944E309003E3654 /* PlanModel.m in Sources */,
-				4657946A1944B594003E3654 /* HomePagePlanTableView.m in Sources */,
+				4657946A1944B594003E3654 /* PlanDisplayView.m in Sources */,
 				14377C2019346B0D0028A493 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				14377C2319346B0D0028A493 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				14377C2119346B0D0028A493 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
@@ -618,7 +632,7 @@
 				14377BE5193468BF0028A493 /* AppDelegate.m in Sources */,
 				464BB313193CCE22005FFEC0 /* ASOBounceButtonView.m in Sources */,
 				467E236E193B2BD800CAE53C /* ITTSegement.m in Sources */,
-				465794671944B55D003E3654 /* HomePagePlanTableViewCell.m in Sources */,
+				465794671944B55D003E3654 /* PlanDisplayViewCell.m in Sources */,
 				14377C351934868F0028A493 /* EquipmentViewController.m in Sources */,
 				14377C2F19347A730028A493 /* RegisterViewController.m in Sources */,
 				1457F6851934FC6A009A1259 /* PlanViewController.m in Sources */,
