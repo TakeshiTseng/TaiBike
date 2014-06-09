@@ -25,6 +25,7 @@ PlanViewController *g_instance = nil;
         if ( g_instance == nil ) {
             UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
             g_instance = [mainStoryboard instantiateViewControllerWithIdentifier: @"Plan"];
+            g_instance.currentPlan = NULL;
         }
     }
     return g_instance;
@@ -43,7 +44,6 @@ PlanViewController *g_instance = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    g_instance = self;
     
     NSString* authKey = [ProfileViewController getAuthKey];
     NSLog(@"authKey : %@", authKey);
@@ -98,6 +98,7 @@ PlanViewController *g_instance = nil;
     NSDictionary *plan = [ridePlans objectAtIndex:row];
     
     model.name = (NSString*)[plan objectForKey:@"name"];
+    model.points = (NSMutableArray*)[plan objectForKey:@"points"];
 
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     SelectPlanViewController *vc;
