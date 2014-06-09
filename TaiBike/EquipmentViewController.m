@@ -248,6 +248,7 @@ NSMutableArray *indexs;
 -(IBAction)clearbtn:(id)sender
 {
     [self initEquiomentPlist];
+    indexs = [[NSMutableArray alloc]init];
     [_data removeAllObjects];
     self.tableView.data =_data;
     [self.tableView reloadData];
@@ -367,6 +368,11 @@ NSMutableArray *indexs;
     for (NSDictionary *data in equipments) {
         EquipmentModel *model = [[EquipmentModel alloc]init];
         model.equipmentID = [data objectForKey:@"_id"];
+        NSLog(@"%i",(int)[indexs indexOfObject:model.equipmentID]);
+        if ((int)[indexs indexOfObject:model.equipmentID]!=NSNotFound) {
+            continue;
+        }
+        
         model.name = [data objectForKey:@"name"];
         model.description = [data objectForKey:@"description"];
         model.gram = [(NSString*)[data objectForKey:@"weight"]intValue];
