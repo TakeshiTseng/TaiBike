@@ -72,4 +72,9 @@ int mode =1;
     [[EquipmentViewController sharedInstance].navigationController pushViewController:vc animated:YES];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40;
+}
+
 @end

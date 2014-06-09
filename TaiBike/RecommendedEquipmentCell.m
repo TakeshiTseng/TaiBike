@@ -73,7 +73,7 @@
     nameLabel.text = [NSString stringWithFormat:@"%@", _model.name];
     //msg
     msgLabel.frame = CGRectMake(30, 25, 220, 30);
-    msgLabel.text = [NSString stringWithFormat:@"%@",_model.msg];
+    msgLabel.text = [NSString stringWithFormat:@"%@",_model.description];
     msgLabel.numberOfLines = 3;
     
     

@@ -10,6 +10,7 @@
 #import "ITTSegement.h"
 #import "ModifyEquipmentViewController.h"
 #import "RecommendedEquipmentViewController.h"
+#import "ProfileViewController.h"
 
 @interface EquipmentViewController (){
     IBOutlet UILabel *gramLabel, *unitLabel;
@@ -25,14 +26,14 @@
 NSMutableDictionary *equipmentDictionary;
 int IDCount=0;
 static EquipmentViewController *g_instance = nil;
-NSMutableArray *data=nil;
+NSMutableArray *_data=nil;
 NSMutableArray *indexs;
 
 + (EquipmentViewController *)sharedInstance
 {
     @synchronized(self) {
         if ( g_instance == nil ) {
-                UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
             g_instance = [mainStoryboard instantiateViewControllerWithIdentifier: @"Equpment"];
             g_instance.current = g_instance;
         }
@@ -58,10 +59,9 @@ NSMutableArray *indexs;
     [self loadEquipmentPlist];
     [self loadParameterFromEquipmentPlist];
     
-    data = [self loadDataFromEquipmentPlist];
+    _data = [self loadDataFromEquipmentPlist];
     
-    self.tableView.data = data;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.data = _data;
     
     //    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.extendedLayoutIncludesOpaqueBars = NO;
@@ -111,8 +111,11 @@ NSMutableArray *indexs;
         case 0://add
             [self addbtn:nil];
             break;
-        case 1://clear
+        case 2://clear
             [self clearbtn:nil];
+            break;
+        case 1://sync
+            [self syncEquipment];
             break;
         default:
             break;
@@ -175,19 +178,21 @@ NSMutableArray *indexs;
         NSString *key = [indexs objectAtIndex:i];
         
         NSMutableDictionary *item = (NSMutableDictionary*)[equipmentDictionary objectForKey:key];
-        int ID = [key intValue];
         NSString *name = [item objectForKey:@"name"];
-        int gram = [[item objectForKey:@"gram"]intValue];
+        NSString *description = [item objectForKey:@"description"];
+        int gram = [[item objectForKey:@"weight"]intValue];
         BOOL isSelect = [(NSString*)[item objectForKey:@"select"] isEqualToString:@"YES"];
+        BOOL isSync = [(NSString*)[item objectForKey:@"sync"] isEqualToString:@"YES"];
+        NSMutableArray *weather = [item objectForKey:@"weather"];
         
         EquipmentModel *model = [[EquipmentModel alloc]init];
-        model.equipmentID=ID;
-        model.name=name;
-        model.gram=gram;
-        model.isSelsct=isSelect;
-        if(isSelect){
-            NSLog(@"%@ Y",model.name);
-        }
+        model.equipmentID = key;
+        model.name = name;
+        model.description = description;
+        model.gram = gram;
+        model.isSelsct = isSelect;
+        model.isSync = isSync;
+        model.weather = weather;
         
         [data addObject:model];
     }
@@ -231,7 +236,9 @@ NSMutableArray *indexs;
     equipmentDictionary = [[NSMutableDictionary alloc] init];
     
     NSMutableArray *indexs = [NSMutableArray array];
+    NSMutableArray *delIndexs = [NSMutableArray array];
     [equipmentDictionary setObject:indexs forKey:@"indexs"];
+    [equipmentDictionary setObject:delIndexs forKey:@"delIndexs"];
     [equipmentDictionary setObject:@"0" forKey:@"length"];
     [equipmentDictionary setObject:@"0" forKey:@"IDCount"];
     
@@ -241,8 +248,8 @@ NSMutableArray *indexs;
 -(IBAction)clearbtn:(id)sender
 {
     [self initEquiomentPlist];
-    [data removeAllObjects];
-    self.tableView.data =data;
+    [_data removeAllObjects];
+    self.tableView.data =_data;
     [self.tableView reloadData];
     [self calculateWeight];
 }
@@ -261,30 +268,37 @@ NSMutableArray *indexs;
 
 -(void)addItem:(EquipmentModel*) model
 {
-    model.equipmentID = ++IDCount;
+    model.equipmentID = [NSString stringWithFormat:@"%i",++IDCount];
+    model.isSync = NO;
     [indexs addObject:[NSString stringWithFormat:@"%i",IDCount]];
     [self addItemToEquipmentPlist:model];
     [(NSMutableArray*)self.tableView.data addObject:model];
-    data = (NSMutableArray*)self.tableView.data;
+    _data = (NSMutableArray*)self.tableView.data;
     [self.tableView reloadData];
-    [self calculateWeight];
 }
 
 -(void)addItemToEquipmentPlist:(EquipmentModel*)model
 {
-    NSString *indexString =[NSString stringWithFormat:@"%i",model.equipmentID];
     NSString *IDCountString =[NSString stringWithFormat:@"%i",IDCount];
     NSMutableDictionary* data = [[NSMutableDictionary alloc]init];
     [data setObject:model.name forKey:@"name"];
-    [data setObject:[NSString stringWithFormat:@"%i",model.gram] forKey:@"gram"];
+    [data setObject:model.description forKey:@"description"];
+    [data setObject:[NSString stringWithFormat:@"%i",model.gram] forKey:@"weight"];
+    [data setObject:model.weather forKey:@"weather"];
     if(model.isSelsct){
         [data setObject:@"YES" forKey:@"select"];
     }else{
         [data setObject:@"NO" forKey:@"select"];
     }
+
+    if (model.isSync) {
+        [data setObject:@"YES" forKey:@"sync"];
+    }else{
+        [data setObject:@"NO" forKey:@"sync"];
+    }
     
     NSString *length =[NSString stringWithFormat:@"%i",[indexs count]];
-    [equipmentDictionary setObject:data forKey:indexString];
+    [equipmentDictionary setObject:data forKey:model.equipmentID];
     [equipmentDictionary setObject:indexs forKey:@"indexs"];
     [equipmentDictionary setObject:length forKey:@"length"];
     [equipmentDictionary setObject:IDCountString forKey:@"IDCount"];
@@ -294,30 +308,36 @@ NSMutableArray *indexs;
 
 -(void)modiflyItem:(EquipmentModel*) model
 {
+    model.isSync = NO;
     [self addItemToEquipmentPlist:model];
     NSInteger row = [self.tableView.data indexOfObject:model];
     [(NSMutableArray*)self.tableView.data removeObjectAtIndex:row];
     [(NSMutableArray*)self.tableView.data insertObject:model atIndex:row];
-    data = (NSMutableArray*)self.tableView.data;
+    _data = (NSMutableArray*)self.tableView.data;
     [self.tableView reloadData];
-    [self calculateWeight];
 }
 
 - (void)removeItem:(EquipmentModel*) model
 {
-    [indexs removeObject:[NSString stringWithFormat:@"%i",model.equipmentID]];
+    if (model.isSync) {
+        NSMutableArray* del = [equipmentDictionary objectForKey:@"delIndexs"];
+        [del addObject:model.equipmentID];
+        [equipmentDictionary setObject:del forKey:@"delIndexs"];
+    }
+    
+    [indexs removeObject:model.equipmentID];
     [self removeItemToEquipmentPlist:model];
     
     NSInteger row = [self.tableView.data indexOfObject:model];
     [(NSMutableArray*)self.tableView.data removeObjectAtIndex:row];
-    data = (NSMutableArray*)self.tableView.data;
+    _data = (NSMutableArray*)self.tableView.data;
     [self.tableView reloadData];
     [self calculateWeight];
 }
 
 - (void)removeItemToEquipmentPlist:(EquipmentModel*) model
 {
-    NSString *indexString =[NSString stringWithFormat:@"%i",model.equipmentID];
+    NSString *indexString =model.equipmentID;
     [equipmentDictionary removeObjectForKey:indexString];
     
     NSString *length =[NSString stringWithFormat:@"%i",[indexs count]];
@@ -327,10 +347,45 @@ NSMutableArray *indexs;
     [self storeEquipmentPlist];
 }
 
+- (void)syncEquipment
+{
+    //upload
+    NSMutableArray *syncmodels = [[NSMutableArray alloc]init];
+    for (EquipmentModel *model in _data) {
+        if (!model.isSync) {
+            [syncmodels addObject:model];
+        }
+    }
+    
+    //download
+    NSString *loadRootPath = [NSSearchPathForDirectoriesInDomains (NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *loadPath = [loadRootPath stringByAppendingPathComponent:@"user.plist"];
+    NSMutableDictionary* dict = [ [ NSMutableDictionary alloc ] initWithContentsOfFile:loadPath ];
+    NSString* authKey = [ dict objectForKey:@"authKey" ];
+    
+    NSArray *equipments = [EquipmentViewController getUserEquipmentsWithAuthKey:authKey];
+    for (NSDictionary *data in equipments) {
+        EquipmentModel *model = [[EquipmentModel alloc]init];
+        model.equipmentID = [data objectForKey:@"_id"];
+        model.name = [data objectForKey:@"name"];
+        model.description = [data objectForKey:@"description"];
+        model.gram = [(NSString*)[data objectForKey:@"weight"]intValue];
+        model.weather =(NSMutableArray*)[data objectForKey:@"weather"];
+        model.isSync = YES;
+        model.isSelsct = NO;
+        
+        [indexs addObject:model.equipmentID];
+        [self addItemToEquipmentPlist:model];
+        [(NSMutableArray*)self.tableView.data addObject:model];
+    }
+    _data = (NSMutableArray*)self.tableView.data;
+    [self.tableView reloadData];
+}
+
 -(void)calculateWeight
 {
     float total = 0;
-    for (EquipmentModel *modle in data) {
+    for (EquipmentModel *modle in _data) {
         if(modle.isSelsct){
             total+=modle.gram;
         }
@@ -357,7 +412,7 @@ NSMutableArray *indexs;
     self.menuItemView = (EquipmentBoundButtonView *)menuItemsVC.view;
     
     NSArray *arrMenuItemButtons = [[NSArray alloc] initWithObjects:self.menuItemView.menuItem1,
-                                   self.menuItemView.menuItem2,
+                                   self.menuItemView.menuItem2,self.menuItemView.menuItem3,
                                    nil]; // Add all of the defined 'menu item button' to 'menu item view'
     [self.menuItemView addBounceButtons:arrMenuItemButtons];
     
@@ -366,6 +421,17 @@ NSMutableArray *indexs;
     
     // Set as delegate of 'menu item view'
     [self.menuItemView setDelegate:self];
+}
+
++ (NSArray*)getUserEquipmentsWithAuthKey:(NSString*)authKey {
+    NSString* url = [NSString stringWithFormat:@"https://taibike.tw/api/user/info?authKey=%@", authKey];
+    NSError *error;
+    NSURLResponse *urlResponse = nil;
+    NSURLRequest* request = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:url]];
+    NSData* requestData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    
+    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:requestData options:NSJSONReadingMutableLeaves error:&error];
+    return [[res objectForKey:@"info"]objectForKey:@"equipments"];
 }
 
 - (IBAction)segmentedValueChange:(id)sender {
@@ -386,8 +452,8 @@ NSMutableArray *indexs;
     }
     [self performSelectorOnMainThread:@selector(refreshSegmentedControl:) withObject:[[NSNumber alloc]initWithInt:i] waitUntilDone:YES];
     
-//    [self setNeedsStatusBarAppearanceUpdate];
-//    [[RecommendedEquipmentViewController sharedInstance].view setNeedsDisplay];
+    //    [self setNeedsStatusBarAppearanceUpdate];
+    //    [[RecommendedEquipmentViewController sharedInstance].view setNeedsDisplay];
     
     SlideNavigationController *navigationController = [SlideNavigationController sharedInstance];
     [navigationController popToRootAndSwitchToViewController:vc withSlideOutAnimation:NO andCompletion:nil];

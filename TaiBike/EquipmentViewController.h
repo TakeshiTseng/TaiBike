@@ -31,5 +31,5 @@
 
 - (IBAction)menuButtonAction:(id)sender;
 - (IBAction)segmentedValueChange:(id)sender;
-
++ (NSArray*)getUserEquipmentsWithAuthKey:(NSString*)authKey;
 @end

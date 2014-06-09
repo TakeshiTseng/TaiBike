@@ -36,6 +36,7 @@
 		14377C351934868F0028A493 /* EquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C341934868F0028A493 /* EquipmentViewController.m */; };
 		14377C38193486A10028A493 /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14377C37193486A10028A493 /* RecordViewController.m */; };
 		1457F6851934FC6A009A1259 /* PlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1457F6841934FC6A009A1259 /* PlanViewController.m */; };
+		4616DA7C1945ED0200B73CE9 /* button-synchronize.png in Resources */ = {isa = PBXBuildFile; fileRef = 4616DA7B1945ED0200B73CE9 /* button-synchronize.png */; };
 		464BB313193CCE22005FFEC0 /* ASOBounceButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB30D193CCE22005FFEC0 /* ASOBounceButtonView.m */; };
 		464BB314193CCE22005FFEC0 /* ASOTwoStateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB311193CCE22005FFEC0 /* ASOTwoStateButton.m */; };
 		464BB317193CD162005FFEC0 /* EquipmentBoundButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB316193CD162005FFEC0 /* EquipmentBoundButtonView.m */; };
@@ -130,6 +131,7 @@
 		1457F6831934FC6A009A1259 /* PlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanViewController.h; sourceTree = "<group>"; };
 		1457F6841934FC6A009A1259 /* PlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanViewController.m; sourceTree = "<group>"; };
 		4606814819426DF0008EB1B2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4616DA7B1945ED0200B73CE9 /* button-synchronize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-synchronize.png"; sourceTree = "<group>"; };
 		464BB30C193CCE22005FFEC0 /* ASOBounceButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASOBounceButtonView.h; sourceTree = "<group>"; };
 		464BB30D193CCE22005FFEC0 /* ASOBounceButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASOBounceButtonView.m; sourceTree = "<group>"; };
 		464BB30E193CCE22005FFEC0 /* ASOBounceButtonViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASOBounceButtonViewDelegate.h; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 		46A36E52193BB6FC004508A7 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				4616DA7B1945ED0200B73CE9 /* button-synchronize.png */,
 				464BB318193CE0A7005FFEC0 /* add_bubble_link@2x.png */,
 				464BB319193CE0A7005FFEC0 /* add_bubble_link@2x.psd */,
 				464BB31A193CE0A7005FFEC0 /* clear_bubble_link@2x.png */,
@@ -545,6 +548,7 @@
 				14377BED193468BF0028A493 /* Images.xcassets in Resources */,
 				467E2368193B2BD800CAE53C /* index@2x.png in Resources */,
 				464BB321193CE0A7005FFEC0 /* clear_bubble_link@2x.png in Resources */,
+				4616DA7C1945ED0200B73CE9 /* button-synchronize.png in Resources */,
 				14377BDF193468BF0028A493 /* InfoPlist.strings in Resources */,
 				464BB324193CE0A7005FFEC0 /* post_type_bubble_link@2x.psd in Resources */,
 				467E236B193B2BD800CAE53C /* up_white@2x.png in Resources */,
