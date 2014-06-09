@@ -30,6 +30,7 @@
 -(void)recordbtn:(id)sender;
 
 +(PlanViewController*)sharedInstance;
++ (NSDate *)dateForRFC3339DateTimeString:(NSString *)rfc3339DateTimeString;
 + (NSMutableArray*)getPointWithPlanModel:(PlanModel*)model;
 
 @end

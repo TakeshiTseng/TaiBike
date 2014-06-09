@@ -8,6 +8,7 @@
 
 #import "PlanDisplayView.h"
 #import "PlanDisplayViewCell.h"
+#import "PlanViewController.h"
 
 @implementation PlanDisplayView
 
@@ -51,8 +52,8 @@
         [info setObject:@"line" forKey:@"mode"];
         NSDictionary* pointA = _data[indexPath.row/2];
         NSDictionary* pointB = _data[indexPath.row/2+1];
-        NSDate *dateA = [self dateForRFC3339DateTimeString:(NSString*)[pointA objectForKey:@"time"]];
-        NSDate *dateB = [self dateForRFC3339DateTimeString:(NSString*)[pointB objectForKey:@"time"]];
+        NSDate *dateA = [PlanViewController dateForRFC3339DateTimeString:(NSString*)[pointA objectForKey:@"time"]];
+        NSDate *dateB = [PlanViewController dateForRFC3339DateTimeString:(NSString*)[pointB objectForKey:@"time"]];
         NSTimeInterval timeDifference = [dateB timeIntervalSinceDate:dateA];
         [info setObject:[NSString stringWithFormat:@"%.0f",timeDifference] forKey:@"Tdifference"];
     }
@@ -68,18 +69,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-}
-
-- (NSDate *)dateForRFC3339DateTimeString:(NSString *)rfc3339DateTimeString {
-    
-	NSDateFormatter *rfc3339DateFormatter = [[NSDateFormatter alloc] init];
-    
-	[rfc3339DateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"];
-	[rfc3339DateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
-    
-	// Convert the RFC 3339 date time string to an NSDate.
-	NSDate *result = [rfc3339DateFormatter dateFromString:rfc3339DateTimeString];
-	return result;
 }
 
 /*
