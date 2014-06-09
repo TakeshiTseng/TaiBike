@@ -14,7 +14,7 @@
 @end
 
 @implementation SelectPlanViewController{
-    IBOutlet UILabel *nameLabel;
+    IBOutlet UILabel *nameLabel, *startTime, *endTime;
     PlanModel *_model;
 }
 
@@ -31,7 +31,13 @@
 {
     [super viewDidLoad];
 
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"yyyy'/'M'/'d' 'H':'mm"];
+	[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    
     [nameLabel setText:_model.name];
+    [startTime setText:[dateFormatter stringFromDate:[PlanViewController dateForRFC3339DateTimeString:_model.timeStart]]];
+    [endTime setText:[dateFormatter stringFromDate:[PlanViewController dateForRFC3339DateTimeString:_model.timeEnd]]];
 }
 
 - (void)didReceiveMemoryWarning

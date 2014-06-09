@@ -153,10 +153,20 @@ PlanViewController *g_instance = nil;
     [self recordbtn:nil];
 }
 
-- (void)inieLocation
++ (NSDate *)dateForRFC3339DateTimeString:(NSString *)rfc3339DateTimeString
 {
-    [super viewDidLoad];
+	NSDateFormatter *rfc3339DateFormatter = [[NSDateFormatter alloc] init];
     
+	[rfc3339DateFormatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ss'.'SSS'Z'"];
+	[rfc3339DateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    
+	// Convert the RFC 3339 date time string to an NSDate.
+	NSDate *result = [rfc3339DateFormatter dateFromString:rfc3339DateTimeString];
+	return result;
+}
+
+- (void)initLocation
+{
     [self setLat:@"0"];
     [self setLongt:@"0"];
     
@@ -175,6 +185,7 @@ PlanViewController *g_instance = nil;
 {
     if (locationManager == nil){
         locationManager = [[CLLocationManager alloc] init];
+        [self initLocation];
     }
     
     locationManager.delegate = self;
@@ -202,6 +213,7 @@ PlanViewController *g_instance = nil;
     NSString *dateString = [self getTimeNSString];
     [data setObject:dateString forKey:@"time"];
     
+    if (_lat!=nil && _longt!=nil) {
     [data setObject:_lat forKey:@"latitude"];
     [data setObject:_longt forKey:@"longitude"];
     
@@ -211,7 +223,7 @@ PlanViewController *g_instance = nil;
     [data setObject:speedStr forKey:@"speed"];
     
     [locationRecord setObject:data forKey:number];
-    
+    }
 }
 
 -(NSString*)getTimeNSString

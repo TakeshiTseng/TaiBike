@@ -59,6 +59,8 @@
     
     model.name = (NSString*)[plan objectForKey:@"name"];
     model.points = (NSMutableArray*)[plan objectForKey:@"points"];
+    model.timeStart = (NSString*)[plan objectForKey:@"timeStart"];
+    model.timeEnd = (NSString*)[plan objectForKey:@"timeEnd"];
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     SelectPlanViewController *vc;
