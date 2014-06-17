@@ -10,13 +10,15 @@
 #import "SlideNavigationController.h"
 #import "PlanViewController.h"
 #import "PlanDisplayView.h"
+#import <Firebase/Firebase.h>
+#import "MarqueeLabel.h"
 
 @interface HomeViewController ()
 
 @end
 
 @implementation HomeViewController{
-    IBOutlet UILabel *messageLabel;
+    IBOutlet MarqueeLabel *messageLabel;
     IBOutlet UIView *planView;
     IBOutlet PlanDisplayView *planTableView;
     IBOutlet UIWebView *webView;
@@ -35,6 +37,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    Firebase *f = [[Firebase alloc]initWithUrl:@"https://taibike.firebaseio.com/broadcast"];
+    [f observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        NSMutableDictionary *s = snapshot.value;
+        
+        NSString *ststusstr = [s objectForKey:@"broadcast"];
+
+        if ([ststusstr isEqualToString:@"yes"]) {
+            [[f childByAppendingPath:@"broadcast"]setValue:@"no"];
+            [self getServerBroadcastMessage:nil];
+        }
+    }];
+    
+    
     NSURL *url = [NSURL URLWithString:@"https://taibike.tw/weather"];//地圖網址
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];//向網頁發request
     [webView loadRequest:requestObj];//將respond讀入頁面
@@ -60,6 +76,17 @@
     [planView addSubview:planName];
     NSMutableArray* data = [PlanViewController getPointWithPlanModel:planModel];
     planTableView.data = data;
+    
+    [messageLabel setRate:150];
+    [messageLabel setFadeLength:10.0f];
+    messageLabel.numberOfLines = 1;
+    messageLabel.shadowOffset = CGSizeMake(0.0, -1.0);
+    messageLabel.textAlignment = NSTextAlignmentLeft;
+    messageLabel.textColor = [UIColor colorWithRed:0.234 green:0.234 blue:0.234 alpha:1.000];
+    messageLabel.backgroundColor = [UIColor clearColor];
+    messageLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:20.000];
+    messageLabel.marqueeType = MLContinuous;
+    [self setMarguee:@"歡迎使用 TaiBike!"];
 }
 
 #pragma mark - SlideNavigationController Methods -
@@ -75,6 +102,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)getServerBroadcastMessage:(NSTimer*)timer
+{
+    Firebase *f = [[Firebase alloc]initWithUrl:@"https://taibike.firebaseio.com/broadcast/msg"];
+    [f observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        [self setMarguee:snapshot.value];
+    }];
+}
+
+-(void)setMarguee:(NSString*)msg
+{
+    [messageLabel setText:msg];
+}
 
 
 /*
