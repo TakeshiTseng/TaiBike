@@ -60,6 +60,8 @@
 		464BB623195060A1009BB687 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB622195060A1009BB687 /* libicucore.dylib */; };
 		464BB625195060AB009BB687 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB624195060AB009BB687 /* libc++.dylib */; };
 		464BB627195060D9009BB687 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB626195060D9009BB687 /* CFNetwork.framework */; };
+		464BB6291950699C009BB687 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB6281950699C009BB687 /* Security.framework */; };
+		464BB62B195069A7009BB687 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB62A195069A7009BB687 /* SystemConfiguration.framework */; };
 		46544FAA1940FEB900C5138D /* RecommendedEquipment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46544FA91940FEB900C5138D /* RecommendedEquipment.plist */; };
 		46544FAD19410AA000C5138D /* RecommendedEquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */; };
 		4657946019427C67003E3654 /* RecommendedEquipmentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */; };
@@ -171,6 +173,8 @@
 		464BB622195060A1009BB687 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		464BB624195060AB009BB687 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		464BB626195060D9009BB687 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		464BB6281950699C009BB687 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		464BB62A195069A7009BB687 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		46544FA91940FEB900C5138D /* RecommendedEquipment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RecommendedEquipment.plist; sourceTree = "<group>"; };
 		46544FAB19410AA000C5138D /* RecommendedEquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedEquipmentViewController.h; sourceTree = "<group>"; };
 		46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentViewController.m; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464BB62B195069A7009BB687 /* SystemConfiguration.framework in Frameworks */,
+				464BB6291950699C009BB687 /* Security.framework in Frameworks */,
 				464BB627195060D9009BB687 /* CFNetwork.framework in Frameworks */,
 				464BB625195060AB009BB687 /* libc++.dylib in Frameworks */,
 				464BB623195060A1009BB687 /* libicucore.dylib in Frameworks */,
@@ -256,6 +262,8 @@
 		14377BD3193468BF0028A493 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				464BB62A195069A7009BB687 /* SystemConfiguration.framework */,
+				464BB6281950699C009BB687 /* Security.framework */,
 				464BB626195060D9009BB687 /* CFNetwork.framework */,
 				464BB624195060AB009BB687 /* libc++.dylib */,
 				464BB622195060A1009BB687 /* libicucore.dylib */,
@@ -794,6 +802,7 @@
 				GCC_PREFIX_HEADER = "TaiBike/TaiBike-Prefix.pch";
 				INFOPLIST_FILE = "TaiBike/TaiBike-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -815,6 +824,7 @@
 				GCC_PREFIX_HEADER = "TaiBike/TaiBike-Prefix.pch";
 				INFOPLIST_FILE = "TaiBike/TaiBike-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
