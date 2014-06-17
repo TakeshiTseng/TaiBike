@@ -92,7 +92,7 @@
 			<key>description</key>
 			<string></string>
 			<key>gram</key>
-			<string>-1</string>
+			<string>500</string>
 			<key>class</key>
 			<array/>
 		</dict>
@@ -103,7 +103,7 @@
 			<key>description</key>
 			<string></string>
 			<key>gram</key>
-			<string>-1</string>
+			<string>100</string>
 			<key>class</key>
 			<array/>
 		</dict>
