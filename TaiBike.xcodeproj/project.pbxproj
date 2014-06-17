@@ -56,6 +56,10 @@
 		464BB313193CCE22005FFEC0 /* ASOBounceButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB30D193CCE22005FFEC0 /* ASOBounceButtonView.m */; };
 		464BB314193CCE22005FFEC0 /* ASOTwoStateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB311193CCE22005FFEC0 /* ASOTwoStateButton.m */; };
 		464BB317193CD162005FFEC0 /* EquipmentBoundButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB316193CD162005FFEC0 /* EquipmentBoundButtonView.m */; };
+		464BB62119506080009BB687 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB62019506080009BB687 /* Firebase.framework */; };
+		464BB623195060A1009BB687 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB622195060A1009BB687 /* libicucore.dylib */; };
+		464BB625195060AB009BB687 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB624195060AB009BB687 /* libc++.dylib */; };
+		464BB627195060D9009BB687 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB626195060D9009BB687 /* CFNetwork.framework */; };
 		46544FAA1940FEB900C5138D /* RecommendedEquipment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46544FA91940FEB900C5138D /* RecommendedEquipment.plist */; };
 		46544FAD19410AA000C5138D /* RecommendedEquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */; };
 		4657946019427C67003E3654 /* RecommendedEquipmentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */; };
@@ -163,6 +167,10 @@
 		464BB311193CCE22005FFEC0 /* ASOTwoStateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASOTwoStateButton.m; sourceTree = "<group>"; };
 		464BB315193CD162005FFEC0 /* EquipmentBoundButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentBoundButtonView.h; sourceTree = "<group>"; };
 		464BB316193CD162005FFEC0 /* EquipmentBoundButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentBoundButtonView.m; sourceTree = "<group>"; };
+		464BB62019506080009BB687 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		464BB622195060A1009BB687 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		464BB624195060AB009BB687 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		464BB626195060D9009BB687 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		46544FA91940FEB900C5138D /* RecommendedEquipment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RecommendedEquipment.plist; sourceTree = "<group>"; };
 		46544FAB19410AA000C5138D /* RecommendedEquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedEquipmentViewController.h; sourceTree = "<group>"; };
 		46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentViewController.m; sourceTree = "<group>"; };
@@ -203,9 +211,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464BB627195060D9009BB687 /* CFNetwork.framework in Frameworks */,
+				464BB625195060AB009BB687 /* libc++.dylib in Frameworks */,
+				464BB623195060A1009BB687 /* libicucore.dylib in Frameworks */,
 				14377BD7193468BF0028A493 /* CoreGraphics.framework in Frameworks */,
 				14377BD9193468BF0028A493 /* UIKit.framework in Frameworks */,
 				14377BD5193468BF0028A493 /* Foundation.framework in Frameworks */,
+				464BB62119506080009BB687 /* Firebase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +256,10 @@
 		14377BD3193468BF0028A493 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				464BB626195060D9009BB687 /* CFNetwork.framework */,
+				464BB624195060AB009BB687 /* libc++.dylib */,
+				464BB622195060A1009BB687 /* libicucore.dylib */,
+				464BB62019506080009BB687 /* Firebase.framework */,
 				4606814819426DF0008EB1B2 /* CoreData.framework */,
 				14377BD4193468BF0028A493 /* Foundation.framework */,
 				14377BD6193468BF0028A493 /* CoreGraphics.framework */,
@@ -362,7 +378,6 @@
 		4616DA5E1945A05900B73CE9 /* image */ = {
 			isa = PBXGroup;
 			children = (
-				4616DA7D1946000B00B73CE9 /* button-synchronize.png */,
 				4616DA5F1945A05900B73CE9 /* add_bubble_link@2x.png */,
 				4616DA601945A05900B73CE9 /* add_bubble_link@2x.psd */,
 				4616DA611945A05900B73CE9 /* arrow.png */,
@@ -582,7 +597,6 @@
 				4616DA761945A05900B73CE9 /* clear_bubble_link@2x.png in Resources */,
 				4616DA6D1945A05900B73CE9 /* add_bubble_link@2x.png in Resources */,
 				14377C2519346B0D0028A493 /* menu-button@2x.png in Resources */,
-				4616DA7E1946000B00B73CE9 /* button-synchronize.png in Resources */,
 				4616DA701945A05900B73CE9 /* arrow.psd in Resources */,
 				46544FAA1940FEB900C5138D /* RecommendedEquipment.plist in Resources */,
 				14377BE8193468BF0028A493 /* Main.storyboard in Resources */,
@@ -772,6 +786,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TaiBike/TaiBike-Prefix.pch";
 				INFOPLIST_FILE = "TaiBike/TaiBike-Info.plist";
@@ -789,6 +807,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TaiBike/TaiBike-Prefix.pch";
 				INFOPLIST_FILE = "TaiBike/TaiBike-Info.plist";
