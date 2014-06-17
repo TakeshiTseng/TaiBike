@@ -316,6 +316,7 @@ NSMutableArray *indexs;
     [(NSMutableArray*)self.tableView.data insertObject:model atIndex:row];
     _data = (NSMutableArray*)self.tableView.data;
     [self.tableView reloadData];
+    [self calculateWeight];
 }
 
 - (void)removeItem:(EquipmentModel*) model
