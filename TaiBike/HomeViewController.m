@@ -19,7 +19,7 @@
     IBOutlet UILabel *messageLabel;
     IBOutlet UIView *planView;
     IBOutlet PlanDisplayView *planTableView;
-    IBOutlet UIWebView *v;
+    IBOutlet UIWebView *webView;
     PlanModel *planModel;
 }
 
@@ -35,9 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1/weather.html"];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    [v loadRequest:requestObj];
+    NSURL *url = [NSURL URLWithString:@"https://taibike.tw/weather"];//地圖網址
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];//向網頁發request
+    [webView loadRequest:requestObj];//將respond讀入頁面
     
     //水平線
     UIView *horizontalLine = [[UIView alloc] initWithFrame:CGRectMake(20, planView.frame.origin.y-1, self.view.frame.size.width-40, 1.0)];

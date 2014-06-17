@@ -97,7 +97,7 @@
                         <outlet property="messageLabel" destination="L6o-XF-tqA" id="dQb-9D-d7B"/>
                         <outlet property="planTableView" destination="nRv-zi-iOS" id="hXg-Kz-gt2"/>
                         <outlet property="planView" destination="GqB-9H-JbN" id="VJs-PR-BGq"/>
-                        <outlet property="v" destination="VuV-Zd-azg" id="BYg-Hp-ZNI"/>
+                        <outlet property="webView" destination="VuV-Zd-azg" id="dq8-Iz-JH5"/>
                         <segue destination="98Y-g9-WeC" kind="push" identifier="Logout" id="zlW-Oc-gt3"/>
                     </connections>
                 </viewController>
