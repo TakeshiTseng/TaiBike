@@ -62,6 +62,7 @@
 		464BB627195060D9009BB687 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB626195060D9009BB687 /* CFNetwork.framework */; };
 		464BB6291950699C009BB687 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB6281950699C009BB687 /* Security.framework */; };
 		464BB62B195069A7009BB687 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BB62A195069A7009BB687 /* SystemConfiguration.framework */; };
+		464BB62E19508361009BB687 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BB62D19508361009BB687 /* MarqueeLabel.m */; };
 		46544FAA1940FEB900C5138D /* RecommendedEquipment.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46544FA91940FEB900C5138D /* RecommendedEquipment.plist */; };
 		46544FAD19410AA000C5138D /* RecommendedEquipmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */; };
 		4657946019427C67003E3654 /* RecommendedEquipmentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4657945F19427C67003E3654 /* RecommendedEquipmentTableView.m */; };
@@ -175,6 +176,8 @@
 		464BB626195060D9009BB687 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		464BB6281950699C009BB687 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		464BB62A195069A7009BB687 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		464BB62C19508361009BB687 /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarqueeLabel.h; sourceTree = "<group>"; };
+		464BB62D19508361009BB687 /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
 		46544FA91940FEB900C5138D /* RecommendedEquipment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RecommendedEquipment.plist; sourceTree = "<group>"; };
 		46544FAB19410AA000C5138D /* RecommendedEquipmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendedEquipmentViewController.h; sourceTree = "<group>"; };
 		46544FAC19410AA000C5138D /* RecommendedEquipmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendedEquipmentViewController.m; sourceTree = "<group>"; };
@@ -435,6 +438,8 @@
 		465794641944B4B7003E3654 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				464BB62C19508361009BB687 /* MarqueeLabel.h */,
+				464BB62D19508361009BB687 /* MarqueeLabel.m */,
 				14377C271934739F0028A493 /* HomeViewController.h */,
 				14377C281934739F0028A493 /* HomeViewController.m */,
 			);
@@ -642,6 +647,7 @@
 				4657946A1944B594003E3654 /* PlanDisplayView.m in Sources */,
 				14377C2019346B0D0028A493 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				14377C2319346B0D0028A493 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				464BB62E19508361009BB687 /* MarqueeLabel.m in Sources */,
 				14377C2119346B0D0028A493 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				467E236F193B2BD800CAE53C /* EquipmentTableView.m in Sources */,
 				4657946019427C67003E3654 /* RecommendedEquipmentTableView.m in Sources */,
